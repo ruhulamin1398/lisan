@@ -1,8 +1,8 @@
 import React from "react";
 import { RiHeart2Fill, RiFacebookFill, RiLinkedinFill } from "react-icons/ri";
-import { SiResearchgate,SiGooglescholar } from "react-icons/si";
-import { MdOutlineDeveloperBoard , MdAlternateEmail } from "react-icons/md";
-import { GiArchiveResearch, GiTeacher } from "react-icons/gi"; 
+import { SiResearchgate, SiGooglescholar } from "react-icons/si";
+import { MdOutlineDeveloperBoard, MdAlternateEmail } from "react-icons/md";
+import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
 
 
 
@@ -16,9 +16,9 @@ const HeroCard = ({ color, title, icon, subtitle, className }) => (
       {icon}
     </div>
     <div className="ml-5 flex flex-col flex-1">
-      <h3 className="mt-2 text-white text-lg">{title}</h3>
-      <p className="mt-1 text-white text-sm md:w-11/12" dangerouslySetInnerHTML={{ __html: subtitle }} />
-      
+      <h3 className="mt-1 text-white text-lg">{title}</h3>
+      <p className="my-1 text-white text-sm md:w-12/12" dangerouslySetInnerHTML={{ __html: subtitle }} />
+
     </div>
   </div>
 );
@@ -37,41 +37,42 @@ const Hero = () => (
 
             <div className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}>
 
-              {<RiLinkedinFill fontSize={21} className="text-[#2952E3]" />}
+              <a href="https://www.linkedin.com/in/theruhulamin/" target="_blank">{<RiLinkedinFill fontSize={21} className="text-[#2952E3]" />}</a>
 
             </div>
 
             <div className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}>
 
-              {<SiResearchgate fontSize={21} className="text-[#2952E3]" />}
+              <a href="https://www.researchgate.net/profile/Ruhul-Amin-95" target="_blank">{<SiResearchgate fontSize={21} className="text-[#2952E3]" />}
+              </a>
 
             </div>
 
             <div className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}>
 
-              {<SiGooglescholar fontSize={21} className="text-[#2952E3]" />}
-
+              <a href="https://scholar.google.com/citations?user=pW39RGYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">{<SiGooglescholar fontSize={21} className="text-[#2952E3]" />}
+              </a>
             </div>
 
             <div className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}>
 
-              {<RiFacebookFill fontSize={21} className="text-[#2952E3]" />}
+              <a href="https://www.facebook.com/ruhulamin1398" target="_blank" rel="noopener noreferrer">{<RiFacebookFill fontSize={21} className="text-[#2952E3]" />} </a>
 
             </div>
 
 
             <div className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}>
 
-              {<MdAlternateEmail fontSize={21} className="text-[#2952E3]" />}
+              <a href="mailto:ruhulamin010398@gmail.com">{<MdAlternateEmail fontSize={21} className="text-[#2952E3]" />} </a>
 
             </div>
 
 
 
-            
 
 
-            
+
+
 
           </div>
 
@@ -83,9 +84,9 @@ const Hero = () => (
           <h1 className="text-white text-3xl sm:text-5xl py-2 text-gradient ">
             RUHUL AMIN
           </h1>
-          <p className="text-left my-1 text-white font-light md:w-9/12 w-11/12 text-base">
+          <p className="text-left my-1 text-white font-light md:w-9/12 w-11/12 text-base mb-2">
 
-           Working as Blockchain Developer AAk Tele-Science Inc. <br/> Lecturer at Sylhet International University. <br/> and  Research Assistant at Shahjalal University of Science and Technology (SUST).
+            Working as Blockchain Developer AAk Tele-Science Inc. <br /> Lecturer at Sylhet International University. <br /> and  Research Assistant at Shahjalal University of Science and Technology (SUST).
 
 
 

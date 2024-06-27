@@ -7,9 +7,9 @@ const App = () => (
       <Hero />
     </div>
 
-    <Welcome />
-    <Services />
-    <Transactions />
+    {/* <Welcome /> */}
+    {/* <Services /> */}
+    {/* <Transactions /> */}
     <Footer />
   </div>
 );

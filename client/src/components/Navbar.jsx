@@ -22,7 +22,7 @@ const Navbar = () => {
     Experience: "#",
     blog: "#",
     Contract: "#services",
-    More: "",
+    More: "#",
   };
   const menuArray = Object.entries(menuItems);
 
