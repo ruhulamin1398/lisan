@@ -70,9 +70,9 @@ const Navbar = () => {
           </div>
         </a>
 
-        <div className="ml-3 text-white">
+        <div className="ml-3 text-white text-xs">
           Have any questions?  <br />
-          <span className="text-lg"> +880184 0000 408</span>
+          <span className="text-base"> +880184 0000 408</span>
         </div>
 
    </div>
