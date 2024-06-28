@@ -81,7 +81,7 @@ const Hero = () => (
         </div>
 
         <div className="flex-1 flex flex-col justify-start items-start">
-          <h1 className="text-white text-3xl sm:text-5xl py-2 text-gradient ">
+          <h1 className="text-white font-bold text-3xl sm:text-5xl py-2 text-gradient ">
             RUHUL AMIN
           </h1>
           <p className="text-left my-1 text-white font-light md:w-9/12 w-11/12 text-base mb-2">

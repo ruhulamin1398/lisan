@@ -1,7 +1,6 @@
 import React from "react";
-import { HiMenuAlt4 } from "react-icons/hi";
 import { AiOutlineClose, AiOutlineWhatsApp, AiOutlineComment } from "react-icons/ai";
-
+import { MdOutlineMenu } from "react-icons/md";
 
 import 'animate.css/animate.min.css'; // Import the animate.css library
 
@@ -31,77 +30,72 @@ const Navbar = () => {
   return (
 
     <>
-    {/* <div id="top-bar" className="py-2 px-5 bg-gray">  
+      {/* <div id="top-bar" className="py-2 px-5 bg-gray">  
       Lorem ipsum dolor sit amet.
     </div> */}
-    
 
-    <nav className="w-full flex md:justify-center justify-between items-center p-4  white-glassmorphism border-radius-none  " >
-      <div className="md:flex-[0.5] flex-initial justify-center items-center">
-        <a href="#"  >  
-          
-          <img src={logo} alt="logo" className=" cursor-pointer" width="250px" />
-          
+
+      <nav className="w-full flex md:justify-center justify-between items-center p-4  white-glassmorphism border-radius-none  " >
+        <div className="md:flex-[0.5] flex-initial justify-center items-center">
+          <a href="#"  >
+
+            <img src={logo} alt="logo" className=" cursor-pointer" width="250px" />
+
           </a>
-      </div>
-
-      <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {menuArray.map(([key, value], index) => (
-
-
-          <NavBarItem key={key + index} title={key} menuLink={value} />
-        ))}
-
-
-      </ul>
-
-
-      <li className="md:flex-[0.5] flex justify-center ">
-
-
-   <div className="flex">
-   <a className="position-relative animate__animated animate__tada animate__infinite flex">
-          <div  >
-            <AiOutlineWhatsApp className="text-white" size={32} />
-            <div className="position-absolute comment-icon">
-              <AiOutlineComment className="text-secondary" />
-            </div>
-
-          </div>
-        </a>
-
-        <div className="ml-3 text-white text-xs">
-          Have any questions?  <br />
-          <span className="text-base"> +880184 0000 408</span>
         </div>
 
-   </div>
+        <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
+          {menuArray.map(([key, value], index) => (
 
 
-      </li>
+            <NavBarItem key={key + index} title={key} menuLink={value} />
+          ))}
 
 
-      <div className="flex relative">
-        {!toggleMenu && (
-          <HiMenuAlt4 fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(true)} />
-        )}
-        {toggleMenu && (
-          <AiOutlineClose fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(false)} />
-        )}
-        {toggleMenu && (
-          <ul
-            className="z-10 fixed -top-0 -right-2 p-3 w-[70vw] h-screen shadow-2xl md:hidden list-none
+        </ul>
+
+
+        <li className="md:flex-[0.5] flex justify-center hidden md:flex ">
+          <div className="flex">
+            <a className="position-relative animate__animated animate__tada animate__infinite flex">
+              <div  >
+                <AiOutlineWhatsApp className="text-white" size={32} />
+                <div className="position-absolute comment-icon">
+                  <AiOutlineComment className="text-secondary" />
+                </div>
+
+              </div>
+            </a>
+
+            <div className="ml-3 text-white text-xs ">
+              Have any questions?  <br />
+              <span className="text-base"> +880184 0000 408</span>
+            </div>
+          </div>
+        </li>
+
+
+        <div className="flex relative">
+          {!toggleMenu && (
+            <MdOutlineMenu fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(true)} />
+          )}
+          {toggleMenu && (
+            <AiOutlineClose fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(false)} />
+          )}
+          {toggleMenu && (
+            <ul
+              className="z-10 fixed -top-0 -right-2 p-3 w-[70vw] h-screen shadow-2xl md:hidden list-none
             flex flex-col justify-start items-end rounded-md blue-glassmorphism text-white animate-slide-in"
-          >
-            <li className="text-xl w-full my-2"><AiOutlineClose onClick={() => setToggleMenu(false)} /></li>
-            {menuArray.map(([key, value], index) => (
-              <NavBarItem key={key + index} title={key} menuLink={value} />
-            ))}
-          </ul>
-        )}
-      </div>
-    </nav>
-    
+            >
+              <li className="text-xl w-full my-2"><AiOutlineClose onClick={() => setToggleMenu(false)} /></li>
+              {menuArray.map(([key, value], index) => (
+                <NavBarItem key={key + index} title={key} menuLink={value} />
+              ))}
+            </ul>
+          )}
+        </div>
+      </nav>
+
     </>
 
 
