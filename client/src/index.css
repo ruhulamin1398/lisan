@@ -1,4 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('./fonts/GlacialIndifference/GlacialIndifference-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('./fonts/GlacialIndifference/GlacialIndifference-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('./fonts/GlacialIndifference/GlacialIndifference-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
 
 * html {
   padding: 0;
@@ -8,7 +29,7 @@
 
 body {
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Glacial Indifference", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

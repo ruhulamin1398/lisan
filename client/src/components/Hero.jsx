@@ -16,7 +16,7 @@ const HeroCard = ({ color, title, icon, subtitle, className }) => (
       {icon}
     </div>
     <div className="ml-5 flex flex-col flex-1">
-      <h3 className="mt-1 text-white text-lg">{title}</h3>
+      <h3 className="mt-1 text-white text-lg font-bold">{title}</h3>
       <p className="my-1 text-white text-sm md:w-12/12" dangerouslySetInnerHTML={{ __html: subtitle }} />
 
     </div>

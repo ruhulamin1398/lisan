@@ -17,21 +17,21 @@ const Paper = ({ title, description, authors, link, isAward, color }) => (
             <BsShieldFillCheck fontSize={21} className="text-white" />
         </div>
         <div className="ml-5 flex flex-col flex-1">
-            <h3 className="mt-2 text-white text-lg font-bold  ">   {title} 
+            <h3 className="my-2 text-white text-xl    ">   {title} 
              
               </h3>
-              {isAward ? <p className=" italic text-right text-[#0a8000] text-base  font-bold "> [ ** Best Presentation Award  ** ] </p> : null}
+              {isAward ? <p className=" italic text-right text-[#0a8000] text-base  font-bold mt-0  md:mt-[-25px] " s> [ ** Best Presentation Award  ** ] </p> : null}
             <div className="text-gray-500 text-sm italic "  
             dangerouslySetInnerHTML={{ __html: authors }}
             />
-            <p className="mt-1 text-white text-sm md:w-11/12">
+            <p className="mt-1 text-white text-sm w-full md:w-11/12">
                 {description} 
             </p>
-            <div className="flex flex-auto flex-row-reverse gap-2">
-            <a href="" target="_blank"><FaResearchgate fontSize={21} className="text-white" /></a>
+            <div className="flex flex-auto flex-row-reverse gap-4">
+            <a href={link["IEEE"]} target="_blank"><FaResearchgate fontSize={21} className="text-white" /></a>
 
-            <a href={link["IEEE"]} target="_blank"><SiIeee fontSize={31} className="text-white" /></a> 
-            <a href="" target="_blank"><SiGooglescholar fontSize={21} className="text-white" /></a> 
+            <a href={link["IEEE"]} target="_blank"><SiIeee fontSize={41} className="text-white mt-[-10px]" /></a> 
+            <a href={link["IEEE"]} target="_blank"><SiGooglescholar fontSize={21} className="text-white" /></a> 
             </div>
             
         </div>
@@ -46,7 +46,7 @@ const Publications = () => (
 
 
 
-        <div id="Publications" className="flex w-full justify-center items-center gradient-bg-services  " >
+        <div id="Publications" className="flex w-full justify-center items-center gradient-bg-welcome " >
             <div className="flex  flex-col  items-center justify-between md:p-20 py-12 px-4">
 
                 <div className="flex flex-col justify-start items-center    py-12 w-3/4">

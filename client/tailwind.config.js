@@ -4,8 +4,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      display: ["Open Sans", "sans-serif"],
-      body: ["Open Sans", "sans-serif"],
+      display: ['Glacial Indifference', "sans-serif"],
+      body: ['Glacial Indifference', "sans-serif"], 
+      glacial: ['Glacial Indifference', 'sans-serif'],
+      default: ['Glacial Indifference', 'sans-serif'],
     },
     extend: {
       screens: {

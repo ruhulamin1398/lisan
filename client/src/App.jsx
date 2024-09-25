@@ -13,7 +13,7 @@ const App = () =>{
   return (
     <>
      
-    <div className="min-h-screen gradient-bg-welcome">
+    <div className="min-h-screen gradient-bg-welcome font-glacial">
       <div className="gradient-bg-welcome">
         <Navbar /> 
      

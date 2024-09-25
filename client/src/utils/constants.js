@@ -57,7 +57,7 @@ export const reviewing = [
   
 export const publicationList = [
     {
-      title: "Blockchain-based Integrated Application for Forged Elimination of Hiring System using Hyperledger Fabric 2.x",
+      title: "Blockchain-based Integrated Application for Forged Elimination of Hiring System using Hyperledger Fabric 2.x.",
       description: "2022 25th International Conference on Computer and Information Technology (ICCIT), Cox's Bazar, Bangladesh, 2022, pp. 1057-1062, doi:10.1109/ICCIT57492.2022.10055308.",
       authors: "<b>R. Amin</b>, M. S. Islam, R. I. Arif, A. Islam and M. M. Hossain",
       link: {
@@ -68,7 +68,7 @@ export const publicationList = [
       isAward: true,
     },
     {
-      title: "HIREX: A Heterogeneous Interoperable Blockchain Solution For Hiring System",
+      title: "HIREX: A Heterogeneous Interoperable Blockchain Solution For Hiring System.",
       description: "2023 3rd International Conference on Intelligent Communication and Computational Techniques (ICCT), Jaipur, India, 2023, pp. 1-7, doi:10.1109/ICCT56969.2023.10076241.",
       authors: "<b>R. Amin</b>, A. Islam, D. H. Tanvir and R. I. Arif",
       link: {
@@ -79,7 +79,7 @@ export const publicationList = [
       isAward: false,
     },
     {
-      title: "Blockchain Interoperability For A Reputation-Based Drug Supply Chain Management",
+      title: "Blockchain Interoperability For A Reputation-Based Drug Supply Chain Management.",
       description: "2023 6th International Conference on Information Systems and Computer Networks (ISCON) (pp. 1-6). IEEE , doi: 10.1109/ISCON57294.2023.10112196",
       authors: "H. Tanvir, <b>R. Amin</b>, A. Islam, M. S. Islam, M. M. Rashid",
       link: {
@@ -90,7 +90,7 @@ export const publicationList = [
       isAward: false,
     },
     {
-      title: "xCRM: Blockchain Interoperable Crime Report Management System By Utilizing Hyperledger Cacti & Private Data Collection (PDC)",
+      title: "xCRM: Blockchain Interoperable Crime Report Management System By Utilizing Hyperledger Cacti & Private Data Collection (PDC).",
       description: "2023 International Conference on Next-Generation Computing, IoT and Machine Learning (NCIM), Gazipur, Bangladesh, 2023, pp. 1-6, doi: 10.1109/NCIM59001.2023.10212677.",
       authors: "<b>R. Amin</b>, R. A. Chowdhury, S. M. Tanjim, A. Islam and M. S. Islam",
       link: {
@@ -101,7 +101,7 @@ export const publicationList = [
       isAward: false,
     },
     {
-      title: "Multi-Layer Open-Domain Bangla Conversational Chatbot with a Hybrid approach",
+      title: "Multi-Layer Open-Domain Bangla Conversational Chatbot with a Hybrid approach.",
       description: "2023 International Conference on Next-Generation Computing, IoT and Machine Learning (NCIM), Gazipur, Bangladesh, 2023, pp. 1-6, doi: 10.1109/NCIM59001.2023.10212816",
       authors: "P. H. Saurav, A. R. Limon, <b>R. Amin</b> and M. Rahman",
       link: {
@@ -112,7 +112,7 @@ export const publicationList = [
       isAward: false,
     },
     {
-      title: "B-Dropshipper: Revolutionizing Dropshipping with Federal Blockchain Solutions",
+      title: "B-Dropshipper: Revolutionizing Dropshipping with Federal Blockchain Solutions.",
       description: "2023 26th International Conference on Computer and Information Technology (ICCIT), Cox's Bazar, Bangladesh, 2023, pp. 1-6, doi: 10.1109/ICCIT60459.2023.10441335.",
       authors: "<b>R. Amin</b>, M.H. Shakil, O. Talukder, S.S. Ankhi, A. Islam and Rabbi, M. F",
       link: {
@@ -134,7 +134,7 @@ export const publicationList = [
       isAward: false,
     },
     {
-      title: "SafetyNet: A Decentralized Police Complaint Management System For Bangladesh Using Blockchain",
+      title: "SafetyNet: A Decentralized Police Complaint Management System For Bangladesh Using Blockchain.",
       description: "International Conference on Advances in Computing, Communication, Electrical and Smart Systems DOI:10.1109/CACCESS61735.2024.10499556",
       authors: "T. Ahmed, S. D. Chowdhury, <b>R. Amin</b>, R. A. Chowdhury, S. M. Tanjim, M. Lysuzzaman",
       link: {
@@ -145,7 +145,7 @@ export const publicationList = [
       isAward: true,
     },
     {
-      title: "B-ClassRoom: Blockchain-based distance learning with resource sharing using Hyperledger Fabric Private Data Collection (PDC)}",
+      title: "B-ClassRoom: Blockchain-based distance learning with resource sharing using Hyperledger Fabric Private Data Collection (PDC).",
       description: "World Congress on Smart Computing (WCSC2024)",
       authors: "<b>R. Amin</b>, T. Ahmed, S. Chowdhury, A. Islam and Rabbi, M. F.",
       link: {

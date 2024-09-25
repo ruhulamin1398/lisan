@@ -3,6 +3,7 @@ import { BsShieldFillCheck } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
 import { RiHeart2Fill } from "react-icons/ri";
 import Publications from "./Publications";
+import Reviewing from "./Reviewing";
 
 const ServiceCard = ({ color, title, icon, subtitle }) => (
   <div className="flex flex-row justify-start items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl">
@@ -21,7 +22,9 @@ const ServiceCard = ({ color, title, icon, subtitle }) => (
 const Research = () => (
 
   <>
+  
     <Publications />
+    <Reviewing/>
 
  
 
