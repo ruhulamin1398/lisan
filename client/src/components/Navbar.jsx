@@ -6,22 +6,33 @@ import 'animate.css/animate.min.css'; // Import the animate.css library
 
 import "./../style/Navbar.css"
 import logo from "../../images/logo.png";
+import { Link, NavLink } from "react-router-dom";
+
+ 
+
 
 const NavBarItem = ({ title, classprops, menuLink }) => (
-  <li className={`mx-4 cursor-pointer ${classprops}`}> <a href={menuLink}>  {title} </a></li>
+  <li   >  
+
+  <NavLink className={(e)=> {return e.isActive? "px-3 mx-1 cursor-pointer font-bold" :"px-3 mx-1 cursor-pointer"}} to={menuLink}>{title }</NavLink>
+  
+  
+  </li>
 );
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
 
+ 
+
 
   const menuItems = {
-    Home: "#",
-    Research: "#",
-    Experience: "#",
-    blog: "#",
-    Contract: "#services",
-    More: "#",
+    Home: "/",
+    Research: "/research",
+    Experience: "/notfound",
+    Blog: "/notfound",
+    Contract: "/notfound",
+    More: "/notfound",
   };
   const menuArray = Object.entries(menuItems);
 
@@ -30,27 +41,23 @@ const Navbar = () => {
   return (
 
     <>
-      {/* <div id="top-bar" className="py-2 px-5 bg-gray">  
-      Lorem ipsum dolor sit amet.
-    </div> */}
+    
 
 
       <nav className="w-full flex md:justify-center justify-between items-center p-4  white-glassmorphism border-radius-none  " >
         <div className="md:flex-[0.5] flex-initial justify-center items-center">
-          <a href="#"  >
+          <NavLink to="/" >
 
             <img src={logo} alt="logo" className=" cursor-pointer" width="250px" />
 
-          </a>
+          </NavLink>
         </div>
 
         <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-          {menuArray.map(([key, value], index) => (
-
-
-            <NavBarItem key={key + index} title={key} menuLink={value} />
-          ))}
-
+        
+        {menuArray.map(([key, value], index) => (
+                <NavBarItem key={key + index} title={key} menuLink={value} />
+              ))}
 
         </ul>
 

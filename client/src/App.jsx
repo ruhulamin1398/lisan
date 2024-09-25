@@ -1,17 +1,29 @@
+ 
+import { Outlet } from "react-router-dom";
 import { Navbar, Welcome, Footer, Services, Transactions, Hero } from "./components";
+import Research from "./components/Research";
 
-const App = () => (
-  <div className="min-h-screen">
-    <div className="gradient-bg-welcome">
-      <Navbar />
-      <Hero />
+const App = () =>{
+
+
+
+
+
+
+  return (
+    <>
+     
+    <div className="min-h-screen gradient-bg-welcome">
+      <div className="gradient-bg-welcome">
+        <Navbar /> 
+     
+    <Outlet/>
     </div>
-
-    {/* <Welcome /> */}
-    {/* <Services /> */}
-    {/* <Transactions /> */}
-    <Footer />
-  </div>
-);
+       
+      <Footer />
+    </div> 
+    </>
+  );
+} 
 
 export default App;
