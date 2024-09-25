@@ -12,7 +12,7 @@ import ruhulImg from "../../images/ruhul2.png";
 
 const HeroCard = ({ color, title, icon, subtitle, className }) => (
   <div className={`flex  justify-start items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl ${className}`}>
-    <div className={`w-10 h-10 rounded-full flex justify-center items-center ${color}`}>
+    <div className={`w-10 h-10 rounded-full flex justify-center items-center my-auto ${color}`}>
       {icon}
     </div>
     <div className="ml-5 flex flex-col flex-1">
@@ -27,7 +27,7 @@ const Hero = () => (
   <>
     <div id="hero" className="  w-full justify-center items-center ">
       <div className="flex mf:flex-row flex-col items-center justify-between md:p-5 md:px-20 py-2 px-4">
-        <div className="flex-1 flex flex-col justify-start items-start">
+        <div className="flex-1 flex flex-col justify-start items-center">
 
           <img src={ruhulImg} alt="logo" className=" cursor-pointer   w-100 " />
 
@@ -103,7 +103,7 @@ const Hero = () => (
               color="bg-[#2952E3]"
               title="Researcher"
               icon={<GiArchiveResearch fontSize={21} className="text-white" />}
-              subtitle="Published 10+ Research Paper. <br/> Supervised 20+ students."
+              subtitle="Published 10+ Research Paper. <br/> Supervised 20+ students. <br/> Reviewed 50+ Papers."
               className="hero-card hero-card-2"
             />
             <HeroCard
