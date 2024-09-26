@@ -29,10 +29,10 @@ const Navbar = () => {
   const menuItems = {
     Home: "/",
     Research: "/research",
-    Experience: "/notfound",
-    Blog: "/notfound",
-    Contract: "/notfound",
-    More: "/notfound",
+    Experience: "/experience",
+    Blog: "/blog",
+    Contract: "/contract",
+    More: "/more",
   };
   const menuArray = Object.entries(menuItems);
 
@@ -58,7 +58,14 @@ const Navbar = () => {
         {menuArray.map(([key, value], index) => (
                 <NavBarItem key={key + index} title={key} menuLink={value} />
               ))}
+<li>
+<button type="button" class="text-black hover:text-white w-full mt-2 border-[1px] p-2 px-4  hover:border-[#3d4f7c] border-white bg-white hover:bg-[#3d4f7c] rounded-xl cursor-pointer">
+        <Link to="/contact"     > 
+        Hire Me
+         </Link>
 
+</button>
+</li>
         </ul>
 
 
