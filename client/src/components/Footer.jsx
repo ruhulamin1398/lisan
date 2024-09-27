@@ -30,7 +30,7 @@ const Footer = () => (
     <div className="sm:w-[100%] w-full h-[0.25px] bg-gray-400 mt-5 " />
 
     <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
-      <p className="text-white text-left text-xs">@2023 www.ruhul.info</p>
+      <p className="text-white text-left text-xs">@2024 www.ruhul.info</p>
       <p className="text-white text-right text-xs">All rights reserved</p>
     </div>
   </div>

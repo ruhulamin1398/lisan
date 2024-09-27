@@ -16,7 +16,7 @@ const HeroCard = ({ color, title, icon, subtitle, className }) => (
       {icon}
     </div>
     <div className="ml-5 flex flex-col flex-1">
-      <h3 className="mt-1 text-white text-lg font-bold">{title}</h3>
+      <h3 className="mt-1 text-primary-color text-lg font-bold">{title}</h3>
       <p className="my-1 text-white text-sm md:w-12/12" dangerouslySetInnerHTML={{ __html: subtitle }} />
 
     </div>
@@ -25,7 +25,7 @@ const HeroCard = ({ color, title, icon, subtitle, className }) => (
 
 const Hero = () => (
   <>
-    <div id="hero" className="  w-full justify-center items-center ">
+    <div id="hero" className="  w-full justify-center items-center pb-[100px] ">
       <div className="flex mf:flex-row flex-col items-center justify-between md:p-5 md:px-20 py-2 px-4">
         <div className="flex-1 flex flex-col justify-start items-center">
 
@@ -81,12 +81,13 @@ const Hero = () => (
         </div>
 
         <div className="flex-1 flex flex-col justify-start items-start">
-          <h1 className="text-white font-bold text-3xl sm:text-5xl py-2 text-gradient  mt-10  ">
+          <h1 className=" font-bold text-3xl sm:text-5xl py-2 text-primary-color  mt-10  ">
             RUHUL AMIN
           </h1>
           <p className="text-left my-1 text-white font-light md:w-9/12 w-11/12 text-base mb-2">
 
-            Working as Blockchain Developer AAk Tele-Science Inc. <br /> Lecturer at Sylhet International University. <br /> and  Research Assistant at Shahjalal University of Science and Technology (SUST).
+            Working as Blockchain Developer AAk Tele-Science Inc. 
+            
 
 
 
@@ -103,7 +104,7 @@ const Hero = () => (
               color="bg-[#2952E3]"
               title="Researcher"
               icon={<GiArchiveResearch fontSize={21} className="text-white" />}
-              subtitle="Published 10+ Research Paper. <br/> Supervised 20+ students. <br/> Reviewed 50+ Papers."
+              subtitle="Published 10+ Research Papers. <br/> Supervised 20+ students. <br/> Reviewed 50+ Papers."
               className="hero-card hero-card-2"
             />
             <HeroCard

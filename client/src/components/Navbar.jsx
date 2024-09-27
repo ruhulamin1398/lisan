@@ -14,7 +14,7 @@ import { Link, NavLink } from "react-router-dom";
 const NavBarItem = ({ title, classprops, menuLink }) => (
   <li   >  
 
-  <NavLink className={(e)=> {return e.isActive? "px-3 mx-1 cursor-pointer font-bold" :"px-3 mx-1 cursor-pointer"}} to={menuLink}>{title }</NavLink>
+  <NavLink className= {(e)=> {return e.isActive? `px-3 mx-1 cursor-pointer font-bold text-[#00FF99] ` :`px-3 mx-1 cursor-pointer hover:text-[#00FF99]   `}} to={menuLink}>{title }</NavLink>
   
   
   </li>
@@ -28,11 +28,11 @@ const Navbar = () => {
 
   const menuItems = {
     Home: "/",
+    Services: "/services",
     Research: "/research",
     Experience: "/experience",
     Blog: "/blog",
-    Contract: "/contract",
-    More: "/more",
+    Contract: "/contract", 
   };
   const menuArray = Object.entries(menuItems);
 
@@ -59,7 +59,7 @@ const Navbar = () => {
                 <NavBarItem key={key + index} title={key} menuLink={value} />
               ))}
 <li>
-<button type="button" class="text-black hover:text-white w-full mt-2 border-[1px] p-2 px-4  hover:border-[#3d4f7c] border-white bg-white hover:bg-[#3d4f7c] rounded-xl cursor-pointer">
+<button type="button" class="text-black    w-full mt-2 border-[1px] p-2 px-4  hover:border-[#3d4f7c] border-white bg-[#00FF99]  hover:bg-white rounded-xl cursor-pointer">
         <Link to="/contact"     > 
         Hire Me
          </Link>

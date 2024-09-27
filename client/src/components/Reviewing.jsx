@@ -34,7 +34,7 @@ const Reviewing = () => (
             <div className="flex  flex-col  items-center justify-between md:p-20 py-12 px-4">
 
                 <div className="flex flex-col justify-start items-center    py-12 w-3/4">
-                    <h1 className=" uppercase font-bold text-white text-3xl sm:text-5xl py-2 text-gradient  ">
+                    <h1 className=" uppercase font-bold   text-3xl sm:text-5xl py-2  text-primary-color    ">
                         Research Paper Review
                         <br />
                         {/* continue to improve */}
