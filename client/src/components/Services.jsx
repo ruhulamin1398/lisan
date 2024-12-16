@@ -4,62 +4,160 @@ import { BiSearchAlt } from "react-icons/bi";
 import { RiHeart2Fill } from "react-icons/ri";
 
 const ServiceCard = ({ color, title, icon, subtitle }) => (
-  <div className="flex flex-row justify-start items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl">
-    <div className={`w-10 h-10 rounded-full flex justify-center items-center ${color}`}>
+
+  <div class="flex flex-row justify-start items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl">
+    <div class={`w-10 h-10 rounded-full flex justify-center items-center my-auto bg-[${color}]`}>
       {icon}
     </div>
-    <div className="ml-5 flex flex-col flex-1">
-      <h3 className="mt-2 text-white text-lg">{title}</h3>
-      <p className="mt-1 text-white text-sm md:w-9/12">
-        {subtitle}
-      </p>
+    <div class="ml-5 flex flex-col flex-1">
+      <h3 class="mt-2 text-primary-color text-lg ">{title}</h3>
+      <p class="mt-1 text-white text-sm md:w-full">{subtitle}</p>
     </div>
   </div>
 );
 
-const Services = () => (
-  <div  id="services"  className="flex w-full justify-center items-center gradient-bg-services">
-    <div className="flex mf:flex-row flex-col items-center justify-between md:p-20 py-12 px-4">
-      <div className="flex-1 flex flex-col justify-start items-start">
-        <h1 className=" uppercase font-bold text-3xl sm:text-5xl py-2 text-primary-color  mt-10  ">
-        Blockchain Services
-          <br />
-          {/* continue to improve */}
-        </h1>
-        <p className="text-left my-2 text-white font-light md:w-9/12 w-11/12 text-base">
-        If you could do one thing to make a real, lasting difference in the world, where would you start? We believe that the best way to make change is to start at the beginning: with childhood.
-        </p>
-      </div>
-
-      <div className="flex-1 flex flex-col justify-start items-start">
-
-      <ServiceCard
-          color="bg-[#8945F8]"
-          title="Give Monthly"
-          icon={<RiHeart2Fill fontSize={21} className="text-white" />}
-          subtitle="oin our community of monthly givers who make an impact for kids all over the globe.
-          "
-        />
 
 
-        
-        <ServiceCard
-          color="bg-[#2952E3]"
-          title="Sponsor a Child"
-          icon={<RiHeart2Fill fontSize={21} className="text-white" />}
-          subtitle="Support a special child whose life you'll help transform for good."
-        />
 
-        <ServiceCard
-          color="bg-[#F84550]"
-          title="Send Real Gifts"
-          icon={<RiHeart2Fill fontSize={21} className="text-white" />}
-          subtitle=" Donate a physical gift that will mean the world to a child.
-          "
-        />
+
+const Services = () => {
+  const servicesListBC = {
+    
+    title:"Blockchain Services",
+    des:" I offer a comprehensive range of blockchain solutions tailored to meet your business needs. From smart contract development and auditing on Ethereum or Binance Smart Chain, to private blockchain applications using Hyperledger and R3 Corda. I also specialize in DApp development, DeFi platforms, NFT marketplace creation, and blockchain consulting for enterprise-grade implementations.",
+   list: [
+    {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#8945F8"
+    },  {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#2952E3"
+    },  {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#F84550"
+    },  {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#8945F8"
+    },  {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#2952E3"
+    },  {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#F84550"
+    }, 
+  ],
+  };
+
+
+
+
+  const servicesListWeb = {
+    
+    title:"Web Development Services",
+    des:"I provide comprehensive web development services, including full-stack development with React and Node.js, custom WordPress sites, and scalable Shopify stores. Additionally, I offer API development and IT consulting to ensure seamless integration, performance optimization, and security across your digital infrastructure, helping you achieve your business goals efficiently.",
+   list: [
+    {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#8945F8"
+    },  {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#2952E3"
+    },  {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#F84550"
+    },  {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#8945F8"
+    },  {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#2952E3"
+    },  {
+      title: "Smart Contract Development",
+      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      color:"#F84550"
+    }, 
+  ],
+  };
+
+
+  return (
+    <>
+    
+    <div id="services" className="flex w-full justify-center items-center gradient-bg-services">
+      <div className="grid grid-cols-3 items-center justify-between md:p-20 py-12 px-4">
+        <div className="grid justify-start items-start">
+          <h1 className=" uppercase font-bold text-3xl sm:text-5xl py-2 text-primary-color  mt-10  ">
+            {servicesListBC.title}
+            <br />
+          </h1>
+          <p className="text-left my-2 text-white font-light md:w-9/12 w-11/12 text-base">
+           {servicesListBC.des}
+          </p>
+        </div>
+
+        <div className="   grid grid-cols-2 col-span-2 justify-start items-start">
+
+          {
+            servicesListBC.list.map((service, index) => (
+              <ServiceCard
+                key={index} // Adding the `key` prop
+                color={service.color}
+                title={service.title}
+                icon={<RiHeart2Fill fontSize={21} className="text-white" />}
+                subtitle={service.subtitle}
+              />
+            ))
+          }
+
+
+        </div>
       </div>
     </div>
-  </div>
-);
+
+
+    <div id="services" className="flex w-full justify-center items-center gradient-bg-services">
+      <div className="grid grid-cols-3 items-center justify-between md:p-20 py-12 px-4">
+        <div className="grid justify-start items-start">
+          <h1 className=" uppercase font-bold text-3xl sm:text-5xl py-2 text-primary-color  mt-10  ">
+            {servicesListWeb.title}
+            <br />
+          </h1>
+          <p className="text-left my-2 text-white font-light md:w-9/12 w-11/12 text-base">
+           {servicesListWeb.des}
+          </p>
+        </div>
+
+        <div className="   grid grid-cols-2 col-span-2 justify-start items-start">
+
+          {
+            servicesListWeb.list.map((service, index) => (
+              <ServiceCard
+                key={index} // Adding the `key` prop
+                color={service.color}
+                title={service.title}
+                icon={<RiHeart2Fill fontSize={21} className="text-white" />}
+                subtitle={service.subtitle}
+              />
+            ))
+          }
+
+
+        </div>
+      </div>
+    </div>
+    </>
+  );
+}
 
 export default Services;
