@@ -63,30 +63,26 @@ const Services = () => {
     des:"I provide comprehensive web development services, including full-stack development with React and Node.js, custom WordPress sites, and scalable Shopify stores. Additionally, I offer API development and IT consulting to ensure seamless integration, performance optimization, and security across your digital infrastructure, helping you achieve your business goals efficiently.",
    list: [
     {
-      title: "Smart Contract Development",
-      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      title: "IT Consulting",
+      subtitle: "Get expert guidance on IT infrastructure, security, and scalability tailored to enhance your business’s digital transformation.",
       color:"#8945F8"
     },  {
-      title: "Smart Contract Development",
-      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
-      color:"#2952E3"
-    },  {
-      title: "Smart Contract Development",
-      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
-      color:"#F84550"
-    },  {
-      title: "Smart Contract Development",
-      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      title: "Full Stack Development.",
+      subtitle: "Deliver end-to-end full-stack development services using modern technologies like React, Node.js, and MongoDB for powerful web applications..",
       color:"#8945F8"
     },  {
-      title: "Smart Contract Development",
-      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      title: "Web API",
+      subtitle: "Develop robust and scalable APIs for seamless integration, data management, and communication across your applications.",
       color:"#2952E3"
     },  {
-      title: "Smart Contract Development",
-      subtitle: "Smart contracts are self-executing contracts with the terms of the agreement written d  need for a third party.",
+      title: "WordPress Website",
+      subtitle: "Create custom WordPress websites tailored to your brand, with optimized performance, SEO, and a user-friendly interface.",
       color:"#F84550"
-    }, 
+    },  {
+      title: "Shopify Store",
+      subtitle: "Launch and scale your Shopify store with custom themes, integrations, and optimizations to enhance the customer shopping experience.",
+      color:"#2952E3"
+    }
   ],
   };
 
@@ -94,7 +90,7 @@ const Services = () => {
   return (
     <>
     
-    <div id="services" className="flex w-full justify-center items-center gradient-bg-services">
+    <div id="services" className="flex w-full justify-center items-center ">
       <div className="grid grid-cols-3 items-center justify-between md:p-20 py-12 px-4">
         <div className="grid justify-start items-start">
           <h1 className=" uppercase font-bold text-3xl sm:text-5xl py-2 text-primary-color  mt-10  ">
@@ -126,7 +122,7 @@ const Services = () => {
     </div>
 
 
-    <div id="services" className="flex w-full justify-center items-center gradient-bg-services">
+    <div id="services" className="flex w-full justify-center items-center  ">
       <div className="grid grid-cols-3 items-center justify-between md:p-20 py-12 px-4">
         <div className="grid justify-start items-start">
           <h1 className=" uppercase font-bold text-3xl sm:text-5xl py-2 text-primary-color  mt-10  ">
