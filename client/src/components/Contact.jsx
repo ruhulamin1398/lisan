@@ -1,0 +1,215 @@
+
+
+
+import React, { useContext } from "react";
+import { AiFillPlayCircle } from "react-icons/ai";
+import { SiEthereum } from "react-icons/si";
+import { BsInfoCircle } from "react-icons/bs";
+
+// import { shortenAddress } from "../utils/shortenAddress";
+import { Loader } from ".";
+import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
+import { MdEmail, MdOutlineDeveloperBoard } from "react-icons/md";
+import {   RiLinkedinFill, RiWhatsappFill } from "react-icons/ri";
+import { FaResearchgate } from "react-icons/fa6";
+
+const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
+
+const Input = ({ placeholder, name, type, value, handleChange, className }) => (
+    <input
+        placeholder={placeholder}
+        type={type}
+        step="0.0001"
+        value={value}
+        // onChange={(e) => handleChange(e, name)}
+        className={`my-2 w-full rounded-sm p-4 outline-none bg-transparent text-white border-none text-sm white-glassmorphism ${className}`}
+    />
+);
+
+// const Select = ({ options, name, value, handleChange, className }) => (
+//     <select
+//         value={value}
+//         onChange={(e) => handleChange(e, name)}
+//         className={`my-2 w-full rounded-sm p-4 outline-none bg-transparent text-white/60 border-none text-sm white-glassmorphism ${className}`}
+//     >
+//         {options.map((option, index) => (
+//             <option key={index} value={option.value} className="text-black">
+//                 {option.label}
+//             </option>
+//         ))}
+//     </select>
+// );
+const Select = ({ options, name, value, handleChange, className }) => (
+    <div className={`relative my-2 w-full`}>
+        <select
+            value={value}
+            // onChange={(e) => handleChange(e, name)}
+            className={`appearance-none my-2 w-full rounded-sm p-4 outline-none bg-transparent text-white/60 border-none text-sm white-glassmorphism ${className}`}
+        >
+            {options.map((option, index) => (
+                <option key={index} value={option.value} className="text-black">
+                    {option.label}
+                </option>
+            ))}
+        </select>
+        {/* Custom Arrow */}
+        <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+            <svg
+                className="w-4 h-4 text-white/60"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                />
+            </svg>
+        </div>
+    </div>
+);
+
+
+
+const ContactCard = ({ color, title, icon, subtitle, className, link }) => (
+    <a href={link} target="_blank" >
+
+     
+    <div className={`flex  justify-start items-start  p-3 m-2 cursor-pointer  ${className}`}>
+       
+       <div className=" hover:shadow-xl  white-glassmorphism p-4"> 
+        <div className={`w-10 h-10 rounded-full flex justify-center items-center my-auto    `}>
+            {icon}
+        </div>
+        </div>
+        <div className="ml-5 flex flex-col flex-1 my-auto">
+            <p className="  text-white text-base md:w-12/12" dangerouslySetInnerHTML={{ __html: title }} />
+            <h3 className="  text-primary-color text-lg font-bold"> {subtitle}</h3> 
+
+        </div>
+    </div>
+    </a>
+);
+
+
+
+const Contact = () => {
+    //   const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
+
+    const handleSubmit = (e) => {
+        // const {  amount, message } = formData;
+
+        // e.preventDefault();
+
+        // if ( !amount  || !message) return;
+
+        // sendTransaction();
+    };
+
+    const options = [
+        { value: '', label: 'Select service' },
+        { label: 'Blockchain Services', value: 'blockchain' },
+        { label: 'Web Development Services', value: 'web' }
+    ];
+
+
+    return (
+        <div className="flex w-full justify-center items-center  ">
+            <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 w-full  md:w-[80%]  ">
+
+
+                <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-0  pt-5 px-2 md:px-5 md:py-12 blue-glassmorphism">
+
+                    <h1 className="   font-bold text-3xl sm:text-3xl py-2 text-primary-color  mt-2  ">
+                        Let`s Work Together</h1>
+
+                    <p className="text-center mb-1 text-white font-light md:w-9/12 w-11/12 text-base ">
+                        Could you kindly fill out this form so that I may connect with you? </p>
+
+
+                    <div className="p-5 sm:w-full w-full flex flex-col justify-start items-center ">
+                        {/* <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} /> */}
+                        <Input placeholder="Enter your name" name="name" type="text" />
+                        <Input placeholder="Enter your email" name="email" type="email" />
+                        <Input placeholder="Enter your Phone" name="phone" type="text" />
+
+                        <Select
+                            options={options}
+                            name="dropdown"
+                        //   value={selectedValue}
+                        //   handleChange={(e, name) => console.log(name, e.target.value)}
+                        />
+
+                        <textarea class="flex min-h-[80px] w-full rounded-md border border-white/10  px-4 py-5   placeholder:text-white/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 h-[150px]  bg-transparent text-white border-none text-sm white-glassmorphism" placeholder="Type your message here" name="message"></textarea>
+
+
+
+
+                        <div className="h-[1px] w-full bg-gray-400 my-2" />
+
+                        {/* <Loader /> */}
+
+                        <button
+                            type="button"
+                            onClick={handleSubmit}
+                            className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                        >
+                            Send message
+                        </button>
+
+                    </div>
+                </div>
+
+
+                <div className="flex flex-1 justify-center items-center flex-col mf:mr-10 my-auto   ">
+
+                    <div  >
+                        <ContactCard
+                            color="bg-[#8945F8]"
+                            title="Email"
+                            icon={<MdEmail fontSize={30} className="text-[#00FF99]" />}
+                            subtitle="ruhulamin010398@gmail.com"
+                            className="  "
+                            link="mailto:ruhulamin010398@gmail.com"
+                        />
+                        <ContactCard
+                            color="bg-[#2952E3]"
+                            title="Linkedin"
+                            icon={<RiLinkedinFill fontSize={30} className="text-[#00FF99]" />}
+                            subtitle="linkedin.com/in/theruhulamin"
+                            className="  "
+                            link="https://www.linkedin.com/in/theruhulamin/"
+                        />
+                        <ContactCard
+                            color="bg-[#F84550]"
+                            title="Whatsapp"
+                            icon={<RiWhatsappFill fontSize={30} className="text-[#00FF99]" />}
+                            subtitle="+880184 0000 408"
+                            className="  "
+                            link="https://wa.me/8801840000408"
+                        />
+                        <ContactCard
+                            color="bg-[#F84550]"
+                            title="Research Gate"
+                            icon={<FaResearchgate fontSize={30} className="text-[#00FF99]" />}
+                            subtitle="Ruhul-Amin-95"
+                            className="  "
+                            link="https://www.researchgate.net/profile/Ruhul-Amin-95"
+                        />
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    );
+};
+
+export default Contact;

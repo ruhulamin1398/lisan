@@ -46,13 +46,8 @@ export const TransactionsProvider = ({ children }) => {
 
         console.log('completed transations')
         console.log(structuredTransactions);
-        const transactionCount = await transactionsContract.getTransactionCount();
-        // console.log(`Total Completd transaction ${transactionCount}   hahahah`)
+        const transactionCount = await transactionsContract.getTransactionCount(); 
         
-
-
-
-
 
         setTransactions(structuredTransactions);
       } else {

@@ -2,6 +2,7 @@ import React from "react";
 import { BsShieldFillCheck } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
 import { RiHeart2Fill } from "react-icons/ri";
+import Logos from "./Logos";
 
 const ServiceCard = ({ color, title, icon, subtitle }) => (
 
@@ -152,6 +153,9 @@ const Services = () => {
         </div>
       </div>
     </div>
+
+
+    <Logos />
     </>
   );
 }
