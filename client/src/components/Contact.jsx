@@ -1,50 +1,29 @@
-
-
-
-import React, { useContext } from "react";
-import { AiFillPlayCircle } from "react-icons/ai";
-import { SiEthereum } from "react-icons/si";
-import { BsInfoCircle } from "react-icons/bs";
-
-// import { shortenAddress } from "../utils/shortenAddress";
-import { Loader } from ".";
-import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
+import React, { useContext } from "react"; 
+import { Loader } from "."; 
 import { MdEmail, MdOutlineDeveloperBoard } from "react-icons/md";
 import {   RiLinkedinFill, RiWhatsappFill } from "react-icons/ri";
 import { FaResearchgate } from "react-icons/fa6";
-
-const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
-
+import { TransactionContext } from "../context/TransactionContext";
+ 
+ 
 const Input = ({ placeholder, name, type, value, handleChange, className }) => (
     <input
         placeholder={placeholder}
         type={type}
         step="0.0001"
         value={value}
-        // onChange={(e) => handleChange(e, name)}
-        className={`my-2 w-full rounded-sm p-4 outline-none bg-transparent text-white border-none text-sm white-glassmorphism ${className}`}
+        onChange={(e) => handleChange(e, name)}
+        className={`my-2 w-full rounded-sm p-4 outline-none bg-transparent text-white border-lg text-sm white-glassmorphism ${className}`}
     />
 );
 
-// const Select = ({ options, name, value, handleChange, className }) => (
-//     <select
-//         value={value}
-//         onChange={(e) => handleChange(e, name)}
-//         className={`my-2 w-full rounded-sm p-4 outline-none bg-transparent text-white/60 border-none text-sm white-glassmorphism ${className}`}
-//     >
-//         {options.map((option, index) => (
-//             <option key={index} value={option.value} className="text-black">
-//                 {option.label}
-//             </option>
-//         ))}
-//     </select>
-// );
+ 
 const Select = ({ options, name, value, handleChange, className }) => (
     <div className={`relative my-2 w-full`}>
         <select
             value={value}
             // onChange={(e) => handleChange(e, name)}
-            className={`appearance-none my-2 w-full rounded-sm p-4 outline-none bg-transparent text-white/60 border-none text-sm white-glassmorphism ${className}`}
+            className={`appearance-none my-2 w-full rounded-sm p-4 outline-none bg-transparent text-white/60 border-lg text-sm white-glassmorphism ${className}`}
         >
             {options.map((option, index) => (
                 <option key={index} value={option.value} className="text-black">
@@ -97,7 +76,8 @@ const ContactCard = ({ color, title, icon, subtitle, className, link }) => (
 
 
 const Contact = () => {
-    //   const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
+    
+  const {  formData ,handleChange } = useContext(TransactionContext);
 
     const handleSubmit = (e) => {
         // const {  amount, message } = formData;
@@ -130,20 +110,19 @@ const Contact = () => {
                         Could you kindly fill out this form so that I may connect with you? </p>
 
 
-                    <div className="p-5 sm:w-full w-full flex flex-col justify-start items-center ">
-                        {/* <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} /> */}
-                        <Input placeholder="Enter your name" name="name" type="text" />
-                        <Input placeholder="Enter your email" name="email" type="email" />
-                        <Input placeholder="Enter your Phone" name="phone" type="text" />
+                    <div className="p-5 sm:w-full w-full flex flex-col justify-start items-center "> 
+                        <Input placeholder="Enter your name" name="name" handleChange={handleChange} type="text" />
+                        <Input placeholder="Enter your email" name="email" handleChange={handleChange} type="email" />
+                        <Input placeholder="Enter your Phone" name="phone" handleChange={handleChange} type="text" />
 
                         <Select
                             options={options}
-                            name="dropdown"
-                        //   value={selectedValue}
-                        //   handleChange={(e, name) => console.log(name, e.target.value)}
+                            name="dropdown" 
+                        
+                          handleChange={(e) => handleChange(e, 'type')}
                         />
 
-                        <textarea class="flex min-h-[80px] w-full rounded-md border border-white/10  px-4 py-5   placeholder:text-white/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 h-[150px]  bg-transparent text-white border-none text-sm white-glassmorphism" placeholder="Type your message here" name="message"></textarea>
+                        <textarea className="flex min-h-[80px] w-full rounded-md border border-white/10  px-4 py-5   placeholder:text-white/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 h-[150px]  bg-transparent text-white border-lg text-sm white-glassmorphism" placeholder="Type your message here" name="message"></textarea>
 
 
 
@@ -164,7 +143,7 @@ const Contact = () => {
                 </div>
 
 
-                <div className="flex flex-1 justify-center items-center flex-col mf:mr-10 my-auto   ">
+                <div className="flex flex-1 justify-center items-center flex-col mf:mr-10 my-auto  my-24 ">
 
                     <div  >
                         <ContactCard

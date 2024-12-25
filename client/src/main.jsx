@@ -8,10 +8,11 @@ import { RouterProvider } from "react-router-dom";
 import router from "./router";
 
 ReactDOM.render(
+  <TransactionsProvider>
   <RouterProvider router={router}>
     
-  <TransactionsProvider/>
   
-  </RouterProvider>,
+  </RouterProvider>
+  </TransactionsProvider>,
   document.getElementById("root"),
 );

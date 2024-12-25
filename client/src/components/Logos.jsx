@@ -30,14 +30,7 @@ const Logo = ({ title, logo, customStyle }) => {
 
 
 const Logos = () => (
-    <>
-
-
-
-
-
-
-
+    <> 
         <div id="Logos" className="flex w-full justify-center items-center gradient-bg-services " >
             <div className="flex  flex-col  items-center justify-between md:p-20   px-4">
 
