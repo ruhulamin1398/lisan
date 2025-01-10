@@ -3,6 +3,7 @@ import App from "./App";
 import Research from "./components/Research"; 
 import NotFound from "./components/NotFound";
 import HomePage from "./components/page/HomePage";
+import Projects from "./components/Projects";
 import { Services ,Contact} from "./components";
 
 const router = createBrowserRouter([
@@ -17,6 +18,9 @@ const router = createBrowserRouter([
             {
                 path: "/research",
                 element: <Research />
+            },{
+                path: "/projects",
+                element: <Projects />
             },
             {
                 path: "/services",

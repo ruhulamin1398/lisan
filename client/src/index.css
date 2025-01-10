@@ -110,6 +110,65 @@ body {
   color: #00FF99;
 }
 
+
+/* delete start  */
+
+.perspective {
+  perspective: 1000px;
+  width: 100%;
+}
+
+.flip-card {
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+ /* end delete  */
+
+
+ /* delete slider */ 
+
+ .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.outlineText{-webkit-text-stroke: 1px #fff;}
+
+ /* end slider  */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

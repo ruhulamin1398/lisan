@@ -29,6 +29,7 @@ const Navbar = () => {
   const menuItems = {
     Home: "/",
     Services: "/services",
+    Projects: "/projects",
     Research: "/research",
     // Experience: "/experience",
     // Blog: "/blog",
