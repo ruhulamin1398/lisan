@@ -41,7 +41,7 @@ const projects = [
     description: 'Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.' ,
     image: Billy,
     link: 'https://www.bluewhalenft.com',
-    tools:"Polygon, Chainlink, Solidity, NextJs, Ethers, Wagmi, Infura, Foundry, MetaMask"
+    tools:"Blockchain, NFT, Solana, Next.js, Magic Eden, Smart Contract, Web3.js, MetaMask"
   },  {
     id: 3,
     title: 'SecureDoc: AI-Powered Blockchain-Based Certificate Authentication',

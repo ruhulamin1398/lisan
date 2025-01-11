@@ -5,6 +5,7 @@ import NotFound from "./components/NotFound";
 import HomePage from "./components/page/HomePage";
 import Projects from "./components/Projects";
 import { Services ,Contact} from "./components";
+import PostList from "./components/admin/PostList";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,9 @@ const router = createBrowserRouter([
             },{
                 path: "/contact",
                 element: <Contact />
+            },{
+                path: "/post",
+                element: <PostList />
             },
             {
                 path: "*",
