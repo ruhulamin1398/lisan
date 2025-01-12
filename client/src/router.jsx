@@ -6,6 +6,8 @@ import HomePage from "./components/page/HomePage";
 import Projects from "./components/Projects";
 import { Services ,Contact} from "./components";
 import PostList from "./components/admin/PostList";
+import Profile from "./components/Profile";
+import Login from "./components/Login";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +34,12 @@ const router = createBrowserRouter([
             },{
                 path: "/post",
                 element: <PostList />
+            },{
+                path: "/login",
+                element: <Login />
+            },{
+                path: "/profile",
+                element: <Profile />
             },
             {
                 path: "*",

@@ -2,40 +2,7 @@ import React from 'react';
 import ProjectSlider from './ProjectSlider';
 
 import demo from "../../images/demo.png";
-
-const projects = [
-    {
-        id: 1,
-        title: 'Blockchain Certification',
-        description: 'A secure certificate verification system using blockchain.',
-        image: demo,
-        link: 'https://github.com/yourgithub/blockchain-cert',
-        category: 'Blockchain',
-    },
-    {
-        id: 2,
-        title: 'Portfolio Website',
-        description: 'A personal portfolio showcasing my projects and skills.',
-        image: demo,
-        link: 'https://yourwebsite.com',
-        category: 'Web Development',
-    }, {
-        id: 2,
-        title: 'Portfolio Website',
-        description: 'A personal portfolio showcasing my projects and skills.',
-        image: demo,
-        link: 'https://yourwebsite.com',
-        category: 'Web Development',
-    }, {
-        id: 2,
-        title: 'Portfolio Website',
-        description: 'A personal portfolio showcasing my projects and skills.',
-        image: demo,
-        link: 'https://yourwebsite.com',
-        category: 'Web Development',
-    },
-    // Add more projects as needed
-];
+ 
 
 const ProjectModal = ({ project, closeModal }) => {
     return (

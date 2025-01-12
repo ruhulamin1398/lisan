@@ -47,7 +47,7 @@ const projects = [
     title: 'SecureDoc: AI-Powered Blockchain-Based Certificate Authentication',
     description: 'SecureDoc is a government-funded, AI-powered blockchain solution on Ethereum for secure academic certificate authentication. The platform includes an admin application to manage university subscriptions and tokens, supporting institutional control. Universities use a dedicated dApp to handle student data, including options to disqualify or reissue certificates, while students benefit from a privacy-focused dApp for secure, accessible document management. A verifier application provides an efficient, trustworthy way for authorized parties to validate and view certificates. Designed for scalability and privacy, SecureDoc ensures academic credentials are authentic and accessible while offering robust privacy and secure verification, revolutionizing document authentication standards.' ,
     image: SecureDoc,
-    link: 'https://secure-doc.ruhul.info/',
+    link: '',
     tools:"AI, Ethereum, Smart Contract, ReactJs, Ethers, HardHat, Alchemy MetaMssk"
   },  {
     id: 4,
