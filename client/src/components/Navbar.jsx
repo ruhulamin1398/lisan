@@ -94,7 +94,7 @@ const Navbar = () => {
         </li>
 
 
-        <div className="flex relative">
+        <div className="flex relative z-50">
           {!toggleMenu && (
             <MdOutlineMenu fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(true)} />
           )}
@@ -104,7 +104,7 @@ const Navbar = () => {
           {toggleMenu && (
             <ul
               className="z-10 fixed -top-0 -right-2 p-3 w-[70vw] h-screen shadow-2xl md:hidden list-none
-            flex flex-col justify-start items-end rounded-md blue-glassmorphism text-white animate-slide-in"
+            flex flex-col justify-start items-end rounded-md  gradient-bg-nav text-white animate-slide-in z-50"
             >
               <li className="text-xl w-full my-2"><AiOutlineClose onClick={() => setToggleMenu(false)} /></li>
               {menuArray.map(([key, value], index) => (

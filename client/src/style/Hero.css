@@ -4,6 +4,8 @@
     gap: 1rem;
   }
   
+
+  
   @keyframes initialAppearance {
     0% {
       opacity: 0;

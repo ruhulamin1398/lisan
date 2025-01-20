@@ -33,7 +33,7 @@ const Hero = () => (
 
 
 
-          <div className="white-glassmorphism w-full px-12 py-4 flex gap-6  justify-center items-center  ">
+          <div className="white-glassmorphism w-full px-12 py-4 flex gap-6  justify-center items-center  " >
 
             <div className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}>
 

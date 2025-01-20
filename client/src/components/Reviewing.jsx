@@ -48,7 +48,7 @@ const Reviewing = () => (
                 <div className=" flex flex-col justify-start items-start w-full ">
  
                     <div className="flex flex-row justify-start items-start white-glassmorphism p-3 m-2    hover:shadow-xl w-full">
-                        <div className="ml-5 flex flex-col flex-1 p-[50px]">
+                        <div className="ml-1 md:ml-5 flex flex-col flex-1 p-2 md:p-[50px]">
 
 
                             {reviewing.reverse().map((review, index) => (
