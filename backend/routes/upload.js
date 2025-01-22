@@ -17,7 +17,7 @@ router.post('/', upload.single('file'), (req, res) => {
   if (!req.file) {
     return res.status(400).send('No file uploaded.');
   }
-  res.json({ url: `http://localhost:5000/uploads/${req.file.filename}` });
+  res.json({ url: `http://localhost:5001/uploads/${req.file.filename}` });
 });
 
 module.exports = router;

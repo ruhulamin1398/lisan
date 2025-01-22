@@ -5,6 +5,8 @@ import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
 
 const RichTextEditor = ({ value, onChange }) => {
+
+  const API_URL = process.env.VITE_API_URL;
   const quillRef = useRef(null);
   const [editorHtml, setEditorHtml] = useState(value);
 
@@ -20,7 +22,7 @@ const RichTextEditor = ({ value, onChange }) => {
       formData.append('file', acceptedFiles[0]);
 
       // Replace with your image upload endpoint
-      axios.post('http://localhost:5000/api/upload', formData)
+      axios.post(`${API_URL}/upload`, formData)
         .then(response => {
           const range = quillRef.current.getEditor().getSelection();
           const link = response.data.url; // URL of the uploaded image
@@ -54,7 +56,7 @@ const RichTextEditor = ({ value, onChange }) => {
 RichTextEditor.modules = {
   toolbar: [
     [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
-    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
     [{ 'align': [] }],
     [{ 'color': [] }, { 'background': [] }],

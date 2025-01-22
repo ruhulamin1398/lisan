@@ -9,7 +9,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/profile', { withCredentials: true })
+    axios.get('http://localhost:5001/profile', { withCredentials: true })
       .then(response => {
         setUser(response.data.user);
       })
@@ -21,11 +21,11 @@ const Profile = () => {
   return (
     <div>
 
-        <Login/>
+      <Login />
       {user ? (
         <div>
           <h1>Welcome {user.displayName}</h1>
-          <a href="http://localhost:5000/logout">Logout</a>
+          <a href="http://localhost:5001/logout">Logout</a>
         </div>
       ) : (
         <p>Loading...</p>

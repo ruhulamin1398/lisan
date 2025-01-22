@@ -3,6 +3,7 @@ import axios from 'axios';
 import RichTextEditor from './RichTextEditor';
 
 const CreatePost = () => {
+  const API_URL = process.env.VITE_API_URL;
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [featureImage, setFeatureImage] = useState(null);
@@ -16,7 +17,7 @@ const CreatePost = () => {
     formData.append('featureImage', featureImage);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/posts', formData);
+      const response = await axios.post(`${API_URL}/posts`, formData);
       console.log('Post created:', response.data);
       setTitle('');
       setContent('');

@@ -1,13 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import Research from "./components/Research"; 
+import Research from "./components/Research";
 import NotFound from "./components/NotFound";
 import HomePage from "./components/page/HomePage";
 import Projects from "./components/Projects";
-import { Services ,Contact} from "./components";
+import { Services, Contact } from "./components";
 import PostList from "./components/admin/PostList";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
+import AdminLayout from "./components/admin/AdminLayout";
 
 const router = createBrowserRouter([
     {
@@ -15,30 +16,32 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                path: "/",
+                path: "",
                 element: <HomePage />
             },
             {
-                path: "/research",
+                path: "research",
                 element: <Research />
-            },{
-                path: "/projects",
+            },
+            {
+                path: "projects",
                 element: <Projects />
             },
             {
-                path: "/services",
+                path: "services",
                 element: <Services />
-            },{
-                path: "/contact",
+            },
+            {
+                path: "contact",
                 element: <Contact />
-            },{
-                path: "/post",
+            },
+            {
+                path: "post",
                 element: <PostList />
-            },{
-                path: "/login",
-                element: <Login />
-            },{
-                path: "/profile",
+            },
+
+            {
+                path: "profile",
                 element: <Profile />
             },
             {
@@ -47,6 +50,28 @@ const router = createBrowserRouter([
             },
         ]
     },
-
+    {
+        path: "/admin",
+        element: <AdminLayout />,
+        children: [
+            {
+                path: "",
+                element: <Profile />
+            },
+            {
+                path: "login",
+                element: <Login />
+            },
+            {
+                path: "profile",
+                element: <Profile />
+            },
+            {
+                path: "blogs/create",
+                element: <Profile />
+            }
+        ]
+    },
 ]);
+
 export default router;
