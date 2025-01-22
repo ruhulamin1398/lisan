@@ -1,0 +1,58 @@
+.hero-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+
+  
+  @keyframes initialAppearance {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes appearOneByOne {
+    0% {
+      opacity: 0;
+    }
+    33% {
+      opacity: 1;
+    }
+    66% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .hero-card {
+    animation: initialAppearance 3s ease-in-out forwards, appearOneByOne 10s ease-in-out infinite;
+    opacity: 0;
+  }
+  
+  .hero-card-1 {
+    animation-delay: 0s, 3s;
+  }
+  
+  .hero-card-2 {
+    animation-delay: 0s, 4s;
+  }
+  
+  .hero-card-3 {
+    animation-delay: 0s, 5s;
+  }
+  
