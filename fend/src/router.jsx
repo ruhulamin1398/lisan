@@ -7,8 +7,10 @@ import Projects from "./components/Projects";
 import { Services, Contact } from "./components";
 import PostList from "./components/admin/PostList";
 import Profile from "./components/Profile";
-import Login from "./components/Login";
+import Login from "./components/auth/Login";
 import AdminLayout from "./components/admin/AdminLayout";
+import CreatePost from "./components/admin/CreatePost";
+import PrivateRoute from "./components/auth/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -41,8 +43,8 @@ const router = createBrowserRouter([
             },
 
             {
-                path: "profile",
-                element: <Profile />
+                path: "login",
+                element: <Login />
             },
             {
                 path: "*",
@@ -52,24 +54,26 @@ const router = createBrowserRouter([
     },
     {
         path: "/admin",
-        element: <AdminLayout />,
+        element: < PrivateRoute> <AdminLayout /> </PrivateRoute>,
         children: [
             {
                 path: "",
                 element: <Profile />
             },
             {
-                path: "login",
-                element: <Login />
+                path: "blogs/create",
+                element: <CreatePost />
             },
+            {
+                path: "blogs",
+                element: <PostList />
+            },
+
             {
                 path: "profile",
                 element: <Profile />
-            },
-            {
-                path: "blogs/create",
-                element: <Profile />
             }
+
         ]
     },
 ]);

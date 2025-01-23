@@ -9,6 +9,7 @@ import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 
 import { DEEP_DARK_COLOR, LIGHT_DARK_COLOR } from '../../utils/constants';
 import { Link } from 'react-router';
+import { BsPostageFill, BsPostcard } from 'react-icons/bs';
 
 const AdminSidebar = () => {
   const [activeLink, setActiveLink] = useState({});
@@ -62,37 +63,28 @@ const AdminSidebar = () => {
         </MenuItem>
 
 
-        <MenuItem icon={<MdDashboard />} active={activeLink['/admin']} component={<Link href="/admin" />}>
+        <MenuItem icon={<MdDashboard />} active={activeLink['/admin']} component={<Link to="/admin" />}>
 
           Dashboard
         </MenuItem>
 
 
-        <SubMenu icon={<FaUsersCog />} label="Affiliate"   >
-          <MenuItem component={<Link href="/admin/affiliates" />} active={activeLink['/admin/affiliates']}>
+        <SubMenu icon={<BsPostageFill />} label="Post"   >
+          <MenuItem icont={<BsPostcard />} component={<Link to="/admin/blogs" />} active={activeLink['/admin/blogs']}>
 
-            Codes
+            All
           </MenuItem>
-          <MenuItem active={activeLink['/admin/create-affiliate']} component={<Link href="/admin/create-affiliate" />}   >
+          <MenuItem active={activeLink['/admin/blogs/create']} component={<Link to="/admin/blogs/create" />}   >
 
             Add New
 
           </MenuItem>
         </SubMenu>
 
-        <MenuItem icon={<RiNftFill />} component={<Link href="/admin/airdrop" />}>
-          Airdrop
-        </MenuItem>
 
 
 
-        <SubMenu icon={<GiSettingsKnobs />} label="Settings"   >
-          <MenuItem icon={<RiNftLine />} component={<Link href="/admin/settings/nft" />} active={activeLink["/admin/settings/nft"]}>
 
-            NFT
-          </MenuItem>
-
-        </SubMenu>
 
 
       </Menu>

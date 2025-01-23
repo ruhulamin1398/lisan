@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import RichTextEditor from './RichTextEditor';
+import { API_URL } from '../../utils/constants';
 
 const CreatePost = () => {
-  const API_URL = process.env.VITE_API_URL;
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [featureImage, setFeatureImage] = useState(null);

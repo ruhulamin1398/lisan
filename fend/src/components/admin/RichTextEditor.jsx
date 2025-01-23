@@ -3,10 +3,10 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import Quill styles
 import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
+import { API_URL } from '../../utils/constants';
 
 const RichTextEditor = ({ value, onChange }) => {
 
-  const API_URL = process.env.VITE_API_URL;
   const quillRef = useRef(null);
   const [editorHtml, setEditorHtml] = useState(value);
 

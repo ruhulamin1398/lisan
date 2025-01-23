@@ -2,19 +2,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Login from './Login';
+import Login from './auth/Login';
+import { API_URL } from '../utils/constants';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5001/profile', { withCredentials: true })
+    axios.get(`${API_URL}/profile`, { withCredentials: true })
       .then(response => {
         setUser(response.data.user);
       })
       .catch(() => {
-        navigate('/login');
+        navigate('/admin/login');
       });
   }, [navigate]);
 
@@ -24,8 +25,8 @@ const Profile = () => {
       <Login />
       {user ? (
         <div>
-          <h1>Welcome {user.displayName}</h1>
-          <a href="http://localhost:5001/logout">Logout</a>
+          <h1 className='text-black text-2xl' >Welcome {user.displayName}</h1>
+          <a className='text-black text-2xl' href={`${API_URL}/logout`}>Logout</a>
         </div>
       ) : (
         <p>Loading...</p>

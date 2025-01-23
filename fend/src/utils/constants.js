@@ -173,3 +173,4 @@ export const LIGHT_DARK_COLOR = "#323a49";
 
 
 export const API_URL = 'http://localhost:5001/api';
+export const APP_URL = 'http://localhost:5173';

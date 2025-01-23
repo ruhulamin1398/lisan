@@ -182,6 +182,19 @@ body {
   -webkit-text-stroke: 1px #fff;
 }
 
+
+
+
+.text-deep-dark {
+  color: #2a303d;
+}
+
+.bg-light-dark {
+  background-color: #323a49;
+}
+
+
+
 /* end slider  */
 
 @tailwind base;
