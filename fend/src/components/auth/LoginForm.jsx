@@ -57,6 +57,7 @@ const LoginForm = () => {
         }
 
         try {
+            console.log(" hello ", `${API_URL}/auth/login`)
             const response = await fetch(`${API_URL}/auth/login`, {
                 method: "POST",
                 headers: {

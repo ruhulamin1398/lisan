@@ -11,6 +11,7 @@ import Login from "./components/auth/Login";
 import AdminLayout from "./components/admin/AdminLayout";
 import CreatePost from "./components/admin/CreatePost";
 import PrivateRoute from "./components/auth/PrivateRoute";
+import CreateCategory from "./components/admin/CreateCategory";
 
 const router = createBrowserRouter([
     {
@@ -65,13 +66,13 @@ const router = createBrowserRouter([
                 element: <CreatePost />
             },
             {
-                path: "blogs",
+                path: "posts",
                 element: <PostList />
             },
 
             {
-                path: "profile",
-                element: <Profile />
+                path: "category/create",
+                element: <CreateCategory />
             }
 
         ]

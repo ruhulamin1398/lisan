@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { API_URL, BASE_API_URL } from '../../utils/constants';
 
 
 
@@ -24,7 +25,7 @@ const PostModal = ({ project, closeModal }) => {
 
 const PostList = () => {
 
-    const API_URL = process.env.VITE_API_URL;
+
     const [posts, setPosts] = useState([]);
     const [modalProject, setModalProject] = React.useState(null);
     const openModal = (project) => setModalProject(project);
@@ -65,7 +66,7 @@ const PostList = () => {
 
                                 <div className="flip-front absolute w-full h-full bg-white-glassmorphism   cursor-pointer hover:shadow-xl flex flex-col">
                                     <img
-                                        src={`${API_URL}/${post.featureImage}`}
+                                        src={`${BASE_API_URL}/${post.featureImage}`}
                                         alt={post.title}
                                         className="w-full h-full object-cover rounded-t-2xl"
                                     />

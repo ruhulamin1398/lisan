@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import RichTextEditor from './RichTextEditor';
 import { API_URL } from '../../utils/constants';
+import useUser from '../../hooks/useUser';
 
 const CreatePost = () => {
+
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [featureImage, setFeatureImage] = useState(null);
@@ -17,7 +19,18 @@ const CreatePost = () => {
     formData.append('featureImage', featureImage);
 
     try {
-      const response = await axios.post(`${API_URL}/posts`, formData);
+      let authToken = localStorage.getItem('token');
+      console.log(authToken);
+      const response = await axios.post(
+        `${API_URL}/posts`,
+        formData, // Pass formData as the body of the request
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`, // Add Authorization header here
+            "Content-Type": "multipart/form-data", // Ensure correct content type if using formData
+          },
+        }
+      );
       console.log('Post created:', response.data);
       setTitle('');
       setContent('');

@@ -27,17 +27,19 @@ app.use('/uploads', express.static('uploads'));
 
 // Routes
 const postRoutes = require('./routes/posts');
+const categoryRoutes = require('./routes/category.route');
 const uploadRoutes = require('./routes/upload');
+const UserRoutes = require('./routes/user.route');
 app.use('/api/auth', authRoutes);
 
 
 app.use('/api/posts', postRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/users', UserRoutes);
+app.use('/api/categories', categoryRoutes);
 
 
-app.get("/api/profile", (req, res) => {
-  res.send("Hello from the server!");
-});
+
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);

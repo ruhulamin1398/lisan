@@ -3,7 +3,11 @@ const multer = require('multer');
 const router = express.Router();
 const Post = require('../models/Post');
 
+const authMiddleware = require('../middleware/auth.middleware');
+
 // Set up multer for file storage
+
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/');
@@ -16,7 +20,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Create a new post with a feature image
-router.post('/', upload.single('featureImage'), async (req, res) => {
+router.post('/', authMiddleware, upload.single('featureImage'), async (req, res) => {
   const newPost = new Post({
     title: req.body.title,
     content: req.body.content,

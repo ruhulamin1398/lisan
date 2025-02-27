@@ -2,34 +2,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Login from './auth/Login';
-import { API_URL } from '../utils/constants';
+import useUser from '../hooks/useUser';
+import { PulseLoader } from 'react-spinners';
 
 const Profile = () => {
-  const [user, setUser] = useState(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    axios.get(`${API_URL}/profile`, { withCredentials: true })
-      .then(response => {
-        setUser(response.data.user);
-      })
-      .catch(() => {
-        navigate('/admin/login');
-      });
-  }, [navigate]);
+  const { user, isUserLoading } = useUser();
 
   return (
     <div>
-
-      <Login />
-      {user ? (
+      {!isUserLoading ? (
         <div>
-          <h1 className='text-black text-2xl' >Welcome {user.displayName}</h1>
-          <a className='text-black text-2xl' href={`${API_URL}/logout`}>Logout</a>
+          <h1 className="text-black text-2xl">Welcome {user.displayName}</h1>
+          <p>Email: {user.email}</p>
         </div>
       ) : (
-        <p>Loading...</p>
+        <div className="text-center">
+          <PulseLoader size={40} color="#3498db" />
+        </div>
       )}
     </div>
   );

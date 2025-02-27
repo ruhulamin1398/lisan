@@ -2,24 +2,16 @@
 import { useEffect, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link, Navigate, useNavigate } from 'react-router';
-import { API_URL } from '../../utils/constants';
-import axios from 'axios';
+import useUser from '../../hooks/useUser';
 
 const AdminTopNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+
+  const { user, isUserLoading } = useUser();
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    axios.get(`${API_URL}/profile`, { withCredentials: true })
-      .then(response => {
-        setUser(response.data.user);
-      })
-      .catch(() => {
-        navigate('/admin/login');
-      });
-  }, [navigate]);
+
 
   return (
     <nav className="bg-gray-800 text-white px-6 py-4 flex items-center justify-between">
