@@ -2,6 +2,8 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Navbar, Footer } from "./components";
 import { PulseLoader } from "react-spinners"; // Import the spinner component
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -40,6 +42,7 @@ const App = () => {
         )}
       </div>
       <Footer />
+      <ToastContainer />
     </div>
   );
 };
