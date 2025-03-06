@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen   font-glacial">
-      <div className=" ">
+      <div className=" pb-[100px]">
         <Navbar />
 
         {/* Show spinner while loading */}
