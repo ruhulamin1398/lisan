@@ -12,6 +12,7 @@ import AdminLayout from "./components/admin/AdminLayout";
 import CreatePost from "./components/admin/CreatePost";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import CreateCategory from "./components/admin/CreateCategory";
+import Experience from "./components/Experience";
 
 const router = createBrowserRouter([
     {
@@ -35,13 +36,17 @@ const router = createBrowserRouter([
                 element: <Services />
             },
             {
+                path: "experience",
+                element: <Experience />
+            },
+            {
                 path: "contact",
                 element: <Contact />
             },
-            {
-                path: "post",
-                element: <PostList />
-            },
+            // {
+            //     path: "post",
+            //     element: <PostList />
+            // },
 
             {
                 path: "login",

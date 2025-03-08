@@ -31,7 +31,7 @@ const Navbar = () => {
     Services: "/services",
     Projects: "/projects",
     Research: "/research",
-    // Experience: "/experience",
+    Experience: "/experience",
     // Blog: "/blog",
     Contact: "/contact",
   };

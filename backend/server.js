@@ -20,7 +20,7 @@ mongoose.connect(
 
 app.use(
   cors({
-    origin: process.env.APP_URL, // Replace with your React app's URL
+    origin: process.env.APP_URL, 
     credentials: true,
   })
 );
@@ -32,14 +32,14 @@ const postRoutes = require("./routes/posts");
 const categoryRoutes = require("./routes/category.route");
 const uploadRoutes = require("./routes/upload");
 const UserRoutes = require("./routes/user.route");
-const ContractRoutes = require("./routes/contract.route");
+const ContactRoutes = require("./routes/contact.route");
 app.use("/api/auth", authRoutes);
 
 app.use("/api/posts", postRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/users", UserRoutes);
 app.use("/api/categories", categoryRoutes);
-app.use("/api/contact", ContractRoutes);
+app.use("/api/contact", ContactRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
