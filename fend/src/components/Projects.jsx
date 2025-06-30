@@ -1,64 +1,70 @@
-import React from 'react';
-import ProjectSlider from './ProjectSlider';
+import React from "react";
+import ProjectSlider from "./ProjectSlider";
 
 import demo from "../../images/demo.png";
 
-
 const ProjectModal = ({ project, closeModal }) => {
-    return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center  ">
-            <div className="bg-white p-8 rounded-lg max-w-lg w-full">
-                <h2 className="text-2xl font-semibold">{project.title}</h2>
-                <p className="mt-2">{project.description}</p>
-                <a href={project.link} className="text-blue-500 mt-4 inline-block">View Project</a>
-                <button
-                    onClick={closeModal}
-                    className="mt-4 text-red-500 hover:text-red-700"
-                >
-                    Close
-                </button>
-            </div>
-        </div>
-    );
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center  ">
+      <div className="bg-white p-8 rounded-lg max-w-lg w-full">
+        <h2 className="text-2xl font-semibold">{project.title}</h2>
+        <p className="mt-2">{project.description}</p>
+        <a href={project.link} className="text-blue-500 mt-4 inline-block">
+          View Project
+        </a>
+        <button
+          onClick={closeModal}
+          className="mt-4 text-red-500 hover:text-red-700"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  );
 };
 
 const Projects = () => {
-    const [modalProject, setModalProject] = React.useState(null);
+  const [modalProject, setModalProject] = React.useState(null);
 
-    const openModal = (project) => setModalProject(project);
-    const closeModal = () => setModalProject(null);
+  const openModal = (project) => setModalProject(project);
+  const closeModal = () => setModalProject(null);
 
-    return (
-        <>
+  return (
+    <>
+      <div
+        id="Logos"
+        className="flex w-full justify-center items-center   mt-5"
+      >
+        <div className="flex  flex-col  items-center justify-between   px-4">
+          <div className="flex flex-col justify-start items-center    pt-2 pb-6 w-full">
+            <h1 className=" uppercase font-bold   text-3xl sm:text-5xl py-2  text-primary-color    ">
+              Feature Projects
+              <br />
+            </h1>
 
+            <p className="text-left my-2   text-white font-light md:w-9/12 w-11/12 text-base text-center text-justify md:text-center ">
+              Explore a selection of my standout projects as a Full Stack
+              Blockchain Developer and Researcher. With expertise in DApps,
+              DeFi, NFTs, and private blockchain solutions, I’ve built secure
+              systems, smart contracts, and full-stack applications using
+              technologies like Ethereum, Hyperledger Fabric, Node.js, and
+              Next.js. These projects reflect my commitment to creating
+              innovative, scalable solutions in blockchain and web development.
+              Dive in to discover how I leverage technology to address
+              real-world challenges.
+            </p>
+          </div>
 
-            <div id="Logos" className="flex w-full justify-center items-center   mt-5" >
-                <div className="flex  flex-col  items-center justify-between   px-4">
-                    <div className="flex flex-col justify-start items-center    pt-2 pb-6 w-full">
-                        <h1 className=" uppercase font-bold   text-3xl sm:text-5xl py-2  text-primary-color    ">
+          <div
+            className=" grid grid-cols-1  justify-start items-start gap-4 mb-[100px] w-full   "
+            style={{ zIndex: -1 }}
+          >
+            <ProjectSlider />
+          </div>
+        </div>
+      </div>
 
-                            Feature Projects
-                            <br />
-
-                        </h1>
-
-                        <p className="text-left my-2   text-white font-light md:w-9/12 w-11/12 text-base text-center text-justify md:text-center ">
-                            Explore a selection of my standout projects as a Full Stack Blockchain Developer and Researcher. With expertise in DApps, DeFi, NFTs, and private blockchain solutions, I’ve built secure systems, smart contracts, and full-stack applications using technologies like Ethereum, Hyperledger Fabric, Node.js, and Next.js. These projects reflect my commitment to creating innovative, scalable solutions in blockchain and web development. Dive in to discover how I leverage technology to address real-world challenges.
-                        </p>
-
-                    </div>
-
-                    <div className=" grid grid-cols-1  justify-start items-start gap-4 mb-[100px] w-full  ">
-
-
-
-                        <ProjectSlider />
-                    </div>
-
-                </div>
-            </div>
-
-            {/* <div id="Logos" className="flex w-full justify-center items-center gradient-bg-services " >
+      {/* <div id="Logos" className="flex w-full justify-center items-center gradient-bg-services " >
             <div className="flex  flex-col  items-center justify-between   px-4">
                 <div className="flex flex-col justify-start items-center    py-6 w-100">
                     <h1 className=" uppercase font-bold   text-3xl sm:text-5xl py-2  text-primary-color    ">
@@ -137,9 +143,8 @@ const Projects = () => {
                 {modalProject && <ProjectModal project={modalProject} closeModal={closeModal} />}
             </div>
         </div> */}
-
-        </>
-    );
+    </>
+  );
 };
 
 export default Projects;

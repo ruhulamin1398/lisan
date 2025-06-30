@@ -83,9 +83,46 @@ const Contact = () => {
   ];
 
   return (
-    <div className="flex w-full justify-center items-center  ">
-      <div className="flex  flex-col md:flex-row items-start justify-between md:p-20 w-full  md:w-[80%]  ">
-        <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-0  pt-5 px-2 md:px-5 md:py-12 blue-glassmorphism">
+    <div className="flex w-full justify-center items-center">
+      <div className="flex flex-col md:flex-row md:row-reverse items-start justify-between md:p-20 w-full md:w-[80%]">
+        <div className="flex flex-1 justify-center items-center flex-col mf:mr-10 my-auto my-24">
+          <div>
+            <ContactCard
+              color="bg-[#8945F8]"
+              title="Email"
+              icon={<MdEmail fontSize={30} className="text-[#00FF99]" />}
+              subtitle="ruhulamin010398@gmail.com"
+              className="  "
+              link="mailto:ruhulamin010398@gmail.com"
+            />
+            <ContactCard
+              color="bg-[#2952E3]"
+              title="Linkedin"
+              icon={<RiLinkedinFill fontSize={30} className="text-[#00FF99]" />}
+              subtitle="linkedin.com/in/theruhulamin"
+              className="  "
+              link="https://www.linkedin.com/in/theruhulamin/"
+            />
+            <ContactCard
+              color="bg-[#F84550]"
+              title="Whatsapp"
+              icon={<RiWhatsappFill fontSize={30} className="text-[#00FF99]" />}
+              subtitle="+880184 0000 408"
+              className="  "
+              link="https://wa.me/8801840000408"
+            />
+            <ContactCard
+              color="bg-[#F84550]"
+              title="Research Gate"
+              icon={<FaResearchgate fontSize={30} className="text-[#00FF99]" />}
+              subtitle="Ruhul-Amin-95"
+              className="  "
+              link="https://www.researchgate.net/profile/Ruhul-Amin-95"
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-0 pt-5 px-2 md:px-5 md:py-12 blue-glassmorphism">
           <h1 className="   font-bold text-3xl sm:text-3xl py-2 text-primary-color  mt-2  ">
             Let`s Work Together
           </h1>
@@ -125,8 +162,8 @@ const Contact = () => {
               className="flex min-h-[80px] w-full rounded-md border border-white/10 px-4 py-5 placeholder:text-white/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 h-[150px] bg-transparent text-white border-lg text-sm white-glassmorphism"
               placeholder="Type your message here"
               name="message"
-              value={formData.message} // Ensure controlled component
-              onChange={(e) => handleChange(e, "message")} // Handle change
+              value={formData.message}
+              onChange={(e) => handleChange(e, "message")}
             ></textarea>
 
             <div className="h-[1px] w-full bg-gray-400 my-2" />
@@ -141,43 +178,6 @@ const Contact = () => {
                 Send message
               </button>
             )}
-          </div>
-        </div>
-
-        <div className="flex flex-1 justify-center items-center flex-col mf:mr-10 my-auto  my-24 ">
-          <div>
-            <ContactCard
-              color="bg-[#8945F8]"
-              title="Email"
-              icon={<MdEmail fontSize={30} className="text-[#00FF99]" />}
-              subtitle="ruhulamin010398@gmail.com"
-              className="  "
-              link="mailto:ruhulamin010398@gmail.com"
-            />
-            <ContactCard
-              color="bg-[#2952E3]"
-              title="Linkedin"
-              icon={<RiLinkedinFill fontSize={30} className="text-[#00FF99]" />}
-              subtitle="linkedin.com/in/theruhulamin"
-              className="  "
-              link="https://www.linkedin.com/in/theruhulamin/"
-            />
-            <ContactCard
-              color="bg-[#F84550]"
-              title="Whatsapp"
-              icon={<RiWhatsappFill fontSize={30} className="text-[#00FF99]" />}
-              subtitle="+880184 0000 408"
-              className="  "
-              link="https://wa.me/8801840000408"
-            />
-            <ContactCard
-              color="bg-[#F84550]"
-              title="Research Gate"
-              icon={<FaResearchgate fontSize={30} className="text-[#00FF99]" />}
-              subtitle="Ruhul-Amin-95"
-              className="  "
-              link="https://www.researchgate.net/profile/Ruhul-Amin-95"
-            />
           </div>
         </div>
       </div>
