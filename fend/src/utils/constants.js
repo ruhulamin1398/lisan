@@ -1,14 +1,8 @@
- 
-import abi from "./Transactions.json"; 
+import abi from "./Transactions.json";
 
 export const donationAddress = "0x7f1fe31a172969286b69cca0553dc26097B91fc9";
 export const contractAddress = "0x94Bf81513dB5A7458CB853cc54866eDa0619218B";
 export const contractABI = abi.abi;
-
-
-
-
- 
 
 export const reviewing = [
   {
@@ -70,6 +64,11 @@ export const reviewing = [
     year: "2023",
   },
 ];
+
+export const socialLinks = {
+  linkedin: "https://www.linkedin.com/in/theruhulamin/",
+};
+export const heroContent = {};
 
 export const publicationList = [
   {
@@ -195,13 +194,6 @@ export const publicationList = [
     isAward: false,
   },
 ];
-
-export const NFT_MINT_METHODS = {
-  MINT_BY_WALLET: "MintByWallet",
-  MINT_BY_CARD: "MintByCard",
-  MINT_BY_BLUE_WHALE: "MintByBlueWhale",
-  MINT_BY_KIDCOIN: "MintByKidcoin",
-};
 
 export const DEEP_DARK_COLOR = "#2a303d";
 export const LIGHT_DARK_COLOR = "#323a49";

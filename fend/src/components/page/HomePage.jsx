@@ -1,18 +1,13 @@
-import React from "react";
-import Hero from "../Hero"; 
-import Publications from "../Publications";
+import Hero from "../Hero";
 import Logos from "../Logos";
 
-
-
 const HomePage = () => (
-    <>
-        <Hero />
-        <Logos />
+  <>
+    <Hero />
+    <Logos />
 
-        <div className="mb-[50px]"></div>
-
-    </>
+    <div className="mb-[50px]"></div>
+  </>
 );
 
 export default HomePage;

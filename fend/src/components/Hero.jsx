@@ -7,6 +7,7 @@ import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
 import "../style/Hero.css"; // Import your custom CSS file
 
 import ruhulImg from "../../images/ruhul2.png";
+import { socialLinks } from "../utils/constants";
 
 const HeroCard = ({ color, title, icon, subtitle, className }) => (
   <div
@@ -38,10 +39,7 @@ const Hero = () => (
             <div
               className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}
             >
-              <a
-                href="https://www.linkedin.com/in/theruhulamin/"
-                target="_blank"
-              >
+              <a href={socialLinks.linkedin} target="_blank">
                 {<RiLinkedinFill fontSize={21} className="text-[#2952E3]" />}
               </a>
             </div>
