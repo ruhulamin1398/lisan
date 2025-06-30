@@ -1,3 +1,10 @@
+import {
+  RiFacebookFill,
+  RiGithubFill,
+  RiLinkedinFill,
+  RiMailFill,
+  RiTwitterXFill,
+} from "react-icons/ri";
 import abi from "./Transactions.json";
 
 export const donationAddress = "0x7f1fe31a172969286b69cca0553dc26097B91fc9";
@@ -64,10 +71,39 @@ export const reviewing = [
     year: "2023",
   },
 ];
-
 export const socialLinks = {
-  linkedin: "https://www.linkedin.com/in/theruhulamin/",
+  linkedin: {
+    link: "https://www.linkedin.com/in/theruhulamin/",
+    title: "LinkedIn",
+    Icon: RiLinkedinFill,
+    color: "#2952E3",
+  },
+  github: {
+    link: "https://github.com/ruhulamin99",
+    title: "GitHub",
+    Icon: RiGithubFill,
+    color: "#222",
+  },
+  facebook: {
+    link: "https://facebook.com/ruhulamin.official",
+    title: "Facebook",
+    Icon: RiFacebookFill,
+    color: "#1877F3",
+  },
+  twitter: {
+    link: "https://twitter.com/ruhulamin99",
+    title: "Twitter",
+    Icon: RiTwitterXFill,
+    color: "#2952E3",
+  },
+  email: {
+    link: "mailto:ruhulamin.cse@gmail.com",
+    title: "Email",
+    Icon: RiMailFill,
+    color: "#EA4335",
+  },
 };
+
 export const heroContent = {};
 
 export const publicationList = [

@@ -1,7 +1,5 @@
-import React from "react";
-import { RiHeart2Fill, RiFacebookFill, RiLinkedinFill } from "react-icons/ri";
-import { SiResearchgate, SiGooglescholar } from "react-icons/si";
-import { MdOutlineDeveloperBoard, MdAlternateEmail } from "react-icons/md";
+import { createElement } from "react";
+import { MdOutlineDeveloperBoard } from "react-icons/md";
 import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
 
 import "../style/Hero.css"; // Import your custom CSS file
@@ -36,56 +34,23 @@ const Hero = () => (
           <img src={ruhulImg} alt="logo" className=" cursor-pointer   w-100 " />
 
           <div className="white-glassmorphism w-full px-12 py-4 flex gap-6  justify-center items-center  ">
-            <div
-              className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}
-            >
-              <a href={socialLinks.linkedin} target="_blank">
-                {<RiLinkedinFill fontSize={21} className="text-[#2952E3]" />}
-              </a>
-            </div>
-
-            <div
-              className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}
-            >
-              <a
-                href="https://www.researchgate.net/profile/Ruhul-Amin-95"
-                target="_blank"
-              >
-                {<SiResearchgate fontSize={21} className="text-[#2952E3]" />}
-              </a>
-            </div>
-
-            <div
-              className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}
-            >
-              <a
-                href="https://scholar.google.com/citations?user=pW39RGYAAAAJ&hl=en"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {<SiGooglescholar fontSize={21} className="text-[#2952E3]" />}
-              </a>
-            </div>
-
-            <div
-              className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}
-            >
-              <a
-                href="https://www.facebook.com/ruhulamin1398"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {<RiFacebookFill fontSize={21} className="text-[#2952E3]" />}{" "}
-              </a>
-            </div>
-
-            <div
-              className={`w-10 h-10 rounded-full flex justify-center items-center  bg-white  `}
-            >
-              <a href="mailto:ruhulamin010398@gmail.com">
-                {<MdAlternateEmail fontSize={21} className="text-[#2952E3]" />}{" "}
-              </a>
-            </div>
+            {Object.values(socialLinks).map((social, idx) => {
+              const Icon = social.Icon;
+              return (
+                <div
+                  key={idx}
+                  className="w-10 h-10 rounded-full flex justify-center items-center bg-white"
+                >
+                  <a
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon fontSize={21} className="" color={social.color} />
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </div>
 
