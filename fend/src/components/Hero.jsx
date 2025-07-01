@@ -5,7 +5,7 @@ import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
 import "../style/Hero.css"; // Import your custom CSS file
 
 import ruhulImg from "../../images/ruhul2.png";
-import { socialLinks } from "../utils/constants";
+import { heroContent, socialLinks } from "../utils/constants";
 
 const HeroCard = ({ color, title, icon, subtitle, className }) => (
   <div
@@ -56,35 +56,24 @@ const Hero = () => (
 
         <div className="flex-1 flex flex-col justify-start items-start">
           <h1 className=" font-bold text-3xl sm:text-5xl py-2 text-primary-color  mt-10  ">
-            RUHUL AMIN
+            {heroContent.name}
           </h1>
           <p className="text-left my-1 text-white font-light md:w-9/12 w-11/12 text-base mb-2">
-            Working as Blockchain Developer AAk Tele-Science Inc.
+            {heroContent.tagLine}
           </p>
           <div className="hero-cards-container">
-            <HeroCard
-              color="bg-[#8945F8]"
-              title="Developer"
-              icon={
-                <MdOutlineDeveloperBoard fontSize={21} className="text-white" />
-              }
-              subtitle="5+ years Experience in Web Development. <br/> 2+ year experience in Full-stack Blockchain development."
-              className="hero-card hero-card-1  "
-            />
-            <HeroCard
-              color="bg-[#2952E3]"
-              title="Researcher"
-              icon={<GiArchiveResearch fontSize={21} className="text-white" />}
-              subtitle="Published 10+ Research Papers. <br/> Supervised 20+ students. <br/> Reviewed 50+ Papers."
-              className="hero-card hero-card-2"
-            />
-            <HeroCard
-              color="bg-[#F84550]"
-              title="Teacher"
-              icon={<GiTeacher fontSize={21} className="text-white" />}
-              subtitle="1+ year Experience in University teaching."
-              className="hero-card hero-card-3"
-            />
+            {heroContent.overViewList.map((item, idx) => {
+              return (
+                <HeroCard
+                  key={idx}
+                  color={item.color}
+                  title={item.title}
+                  icon={item.icon}
+                  subtitle={item.description}
+                  className={`hero-card hero-card-${idx + 1}`}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

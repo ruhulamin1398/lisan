@@ -2,6 +2,7 @@ import React from "react";
 import ProjectSlider from "./ProjectSlider";
 
 import demo from "../../images/demo.png";
+import { projectPage } from "../utils/constants";
 
 const ProjectModal = ({ project, closeModal }) => {
   return (
@@ -24,41 +25,25 @@ const ProjectModal = ({ project, closeModal }) => {
 };
 
 const Projects = () => {
-  const [modalProject, setModalProject] = React.useState(null);
-
-  const openModal = (project) => setModalProject(project);
-  const closeModal = () => setModalProject(null);
-
   return (
     <>
       <div
-        id="Logos"
+        id="FeatureProject"
         className="flex w-full justify-center items-center   mt-5"
       >
         <div className="flex  flex-col  items-center justify-between   px-4">
           <div className="flex flex-col justify-start items-center    pt-2 pb-6 w-full">
             <h1 className=" uppercase font-bold   text-3xl sm:text-5xl py-2  text-primary-color    ">
-              Feature Projects
+              {projectPage.title}
               <br />
             </h1>
 
             <p className="text-left my-2   text-white font-light md:w-9/12 w-11/12 text-base text-center text-justify md:text-center ">
-              Explore a selection of my standout projects as a Full Stack
-              Blockchain Developer and Researcher. With expertise in DApps,
-              DeFi, NFTs, and private blockchain solutions, I’ve built secure
-              systems, smart contracts, and full-stack applications using
-              technologies like Ethereum, Hyperledger Fabric, Node.js, and
-              Next.js. These projects reflect my commitment to creating
-              innovative, scalable solutions in blockchain and web development.
-              Dive in to discover how I leverage technology to address
-              real-world challenges.
+              {projectPage.description}
             </p>
           </div>
 
-          <div
-            className=" grid grid-cols-1  justify-start items-start gap-4 mb-[100px] w-full   "
-            style={{ zIndex: -1 }}
-          >
+          <div className=" grid grid-cols-1  justify-start items-start gap-4 mb-[100px] w-full   ">
             <ProjectSlider />
           </div>
         </div>
