@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { Loader } from ".";
 import { MdEmail, MdOutlineDeveloperBoard } from "react-icons/md";
 import { RiLinkedinFill, RiWhatsappFill } from "react-icons/ri";
-import { FaResearchgate } from "react-icons/fa6";
+import { FaGoogleScholar, FaResearchgate } from "react-icons/fa6";
 import { TransactionContext } from "../context/TransactionContext";
+import { researchLinks, socialLinks } from "../utils/constants";
 
 const Input = ({ placeholder, name, type, value, handleChange, className }) => (
   <input
@@ -91,34 +92,50 @@ const Contact = () => {
               color="bg-[#8945F8]"
               title="Email"
               icon={<MdEmail fontSize={30} className="text-[#00FF99]" />}
-              subtitle="ruhulamin010398@gmail.com"
+              subtitle={socialLinks.email.text}
               className="  "
-              link="mailto:ruhulamin010398@gmail.com"
+              link={socialLinks.email.link}
             />
             <ContactCard
               color="bg-[#2952E3]"
               title="Linkedin"
               icon={<RiLinkedinFill fontSize={30} className="text-[#00FF99]" />}
-              subtitle="linkedin.com/in/theruhulamin"
+              subtitle={socialLinks.linkedin.text}
               className="  "
-              link="https://www.linkedin.com/in/theruhulamin/"
+              link={socialLinks.linkedin.link}
             />
             <ContactCard
               color="bg-[#F84550]"
               title="Whatsapp"
               icon={<RiWhatsappFill fontSize={30} className="text-[#00FF99]" />}
-              subtitle="+880184 0000 408"
+              subtitle={socialLinks.whatsapp.text}
               className="  "
-              link="https://wa.me/8801840000408"
+              link={socialLinks.whatsapp.link}
             />
-            <ContactCard
-              color="bg-[#F84550]"
-              title="Research Gate"
-              icon={<FaResearchgate fontSize={30} className="text-[#00FF99]" />}
-              subtitle="Ruhul-Amin-95"
-              className="  "
-              link="https://www.researchgate.net/profile/Ruhul-Amin-95"
-            />
+            {researchLinks.googleScholar && (
+              <ContactCard
+                color="bg-[#F84550]"
+                title={researchLinks.googleScholar.title}
+                icon={
+                  <FaGoogleScholar fontSize={30} className="text-[#00FF99]" />
+                }
+                subtitle={researchLinks.googleScholar.text}
+                className="  "
+                link={researchLinks.googleScholar.link}
+              />
+            )}{" "}
+            {researchLinks.researchGate && (
+              <ContactCard
+                color="bg-[#F84550]"
+                title={researchLinks.researchGate.title}
+                icon={
+                  <FaResearchgate fontSize={30} className="text-[#00FF99]" />
+                }
+                subtitle={researchLinks.researchGate.text}
+                className="  "
+                link={researchLinks.researchGate.link}
+              />
+            )}
           </div>
         </div>
 

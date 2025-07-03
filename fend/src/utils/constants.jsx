@@ -4,6 +4,7 @@ import {
   RiLinkedinFill,
   RiMailFill,
   RiTwitterXFill,
+  RiWhatsappFill,
 } from "react-icons/ri";
 
 import { BsShieldFillCheck } from "react-icons/bs";
@@ -16,6 +17,10 @@ import SecureDoc from "../../images/project/securedoc.png";
 import Billy from "../../images/project/billy.png";
 import Drive from "../../images/project/drive.png";
 
+import abasasImg from "../../images/abasas.png";
+import aakImg from "../../images/aak.png";
+import bcImg from "../../images/bc.png";
+
 import abi from "./Transactions.json";
 import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
 import { MdOutlineDeveloperBoard } from "react-icons/md";
@@ -26,6 +31,8 @@ import {
   FaPhp,
   FaDocker,
   FaAws,
+  FaResearchgate,
+  FaGoogleScholar,
 } from "react-icons/fa6";
 import { TbCurrencySolana } from "react-icons/tb";
 import { SiSolidity, SiTailwindcss, SiMysql, SiMongodb } from "react-icons/si";
@@ -105,6 +112,7 @@ export const socialLinks = {
     title: "LinkedIn",
     Icon: RiLinkedinFill,
     color: "#2952E3",
+    text: "linkedin.com/in/theruhulamin",
   },
   github: {
     link: "https://github.com/ruhulamin99",
@@ -125,9 +133,33 @@ export const socialLinks = {
     color: "#2952E3",
   },
   email: {
-    link: "mailto:ruhulamin.cse@gmail.com",
+    link: "mailto:ruhulamin010398@gmail.com",
     title: "Email",
+    text: "ruhulamin010398@gmail.com",
     Icon: RiMailFill,
+    color: "#EA4335",
+  },
+  whatsapp: {
+    link: "https://wa.me/8801840000408",
+    title: "Whatsapp",
+    text: "+880184 0000 408",
+    Icon: RiWhatsappFill,
+    color: "#25D366",
+  },
+};
+export const researchLinks = {
+  googleScholar: {
+    link: "https://scholar.google.com/citations?user=pW39RGYAAAAJ&hl",
+    title: "Google Scholar",
+    text: "RuhulAmin",
+    Icon: FaGoogleScholar,
+    color: "#EA4335",
+  },
+  researchGate: {
+    link: "https://www.researchgate.net/profile/Ruhul-Amin-95",
+    title: "ResearchGate",
+    text: "Ruhul-Amin-95",
+    Icon: FaResearchgate,
     color: "#EA4335",
   },
 };
@@ -567,6 +599,80 @@ export const projectPage = {
       link: "http://blockchain-drive.ruhul.info/",
       tools:
         "Ethereum, Smart Contract, ReactJs, Ethers, Tailwind CSS, MetaMask",
+    },
+  ],
+};
+
+export const jobPage = {
+  title: "Development Experience",
+  description: `I’m a Full Stack Blockchain Developer and Researcher with 5+ years
+            of experience in web development and 2+ years of experience in
+            blockchain development. I have developed blockchain projects, smart
+            contract libraries, and published over 10 research papers on various
+            blockchain topics. My expertise includes writing smart contracts for
+            public blockchains like Ethereum and private blockchains like
+            Hyperledger Fabric, as well as developing full stack blockchain
+            applications using Node.js and React.js.  <br />
+            <br />
+            - Smart Contract Development – Secure & gas-optimized Solidity
+            contracts
+            <br />
+            - DApp Development – Seamless Web3 integration with Ethers.js &
+            Hardhat
+            <br />
+            - DeFi & NFTs – Yield farming, staking, tokenomics, and NFT
+            platforms
+            <br />- Security & Auditing – Writing robust, bug-free contracts
+            with best practices`,
+
+  jobList: [
+    {
+      title: "Jan 2024 - Current",
+      cardTitle: "Freelance Blockchain Developer",
+      url: "http://www.history.com",
+      cardDetailedText: [
+        "Focus on developing secure, gas-efficient Solidity smart contracts, integrating DApps seamlessly with Ethers.js and Hardhat, and building DeFi and NFT platforms, including yield farming and staking. I also ensure contract security through thorough auditing and adherence to best practices.",
+        "Skills : DeFi, DApp, Smart Contract, Smart Contract Security, Token, Nft, ChainLink, Express.js, Next.js, Foundry",
+      ],
+
+      media: {
+        type: "IMAGE",
+        source: {
+          url: bcImg,
+        },
+      },
+    },
+    {
+      title: "Oct 2023 - Dec 2023",
+      cardTitle: "Blockchain Developer",
+      cardSubtitle: "AAK TELE-SCIENCE, INC",
+      url: "http://www.history.com",
+      cardDetailedText: [
+        "Specialize in Smart Contract Development, creating secure and gas-efficient Solidity contracts, and DApp Development, ensuring seamless Web3 integration using Ethers.js and Hardhat for optimal performance and functionality.",
+        "Skills : DApp, Ethereum, Blockchain, Smart Contract, ERC Tokens, Node.js, React.js, TypeScript, Ether.js, Foundry",
+      ],
+      media: {
+        type: "IMAGE",
+        source: {
+          url: aakImg,
+        },
+      },
+    },
+    {
+      title: "NOV 2017 - DEC 2022",
+      cardTitle: "Software Engineer",
+      cardSubtitle: "ABASAS TECHNOLOGIES INC.",
+      url: "#",
+      cardDetailedText: [
+        "Designed and developed REST APIs using Laravel and Express, managed deployments with Docker and AWS, and created specifications for web applications. I also developed front-end features using HTML, CSS, Sass, EJS, and React, while mentoring intern engineers.",
+        "Skills : Leadership, Technical Documentation, Devops, Project Management, PHP, Express, React, Docker, AWS, HTML, CSS, Sass, EJS, Laravel, Foundry",
+      ],
+      media: {
+        type: "IMAGE",
+        source: {
+          url: abasasImg,
+        },
+      },
     },
   ],
 };
