@@ -5,7 +5,7 @@ import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
 import "../style/Hero.css"; // Import your custom CSS file
 
 import ruhulImg from "../../images/ruhul2.png";
-import { heroContent, socialLinks } from "../utils/constants";
+import { config, heroContent } from "../utils/constants";
 
 const HeroCard = ({ color, title, icon, subtitle, className }) => (
   <div
@@ -34,7 +34,7 @@ const Hero = () => (
           <img src={ruhulImg} alt="logo" className=" cursor-pointer   w-100 " />
 
           <div className="white-glassmorphism w-full px-12 py-4 flex gap-6  justify-center items-center  ">
-            {Object.values(socialLinks).map((social, idx) => {
+            {Object.values(config.socialLinks).map((social, idx) => {
               const Icon = social.Icon;
               return (
                 <div

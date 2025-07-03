@@ -8,7 +8,7 @@ import { SiIeee } from "react-icons/si";
 import { FaResearchgate } from "react-icons/fa";
 import { SiGooglescholar } from "react-icons/si";
 
-import { publicationList } from "../utils/constants";
+import { config } from "../utils/constants";
 
 const Paper = ({ title, description, authors, link, isAward, color }) => (
   <div className="flex flex-row justify-start items-start white-glassmorphism p-3 m-2  hover:shadow-xl w-full">
@@ -24,10 +24,7 @@ const Paper = ({ title, description, authors, link, isAward, color }) => (
         </a>
       </h3>
       {isAward ? (
-        <p
-          className=" italic text-right text-[#0a8000] text-base  font-bold mt-0  md:mt-[-25px] "
-          s
-        >
+        <p className=" italic text-right text-[#0a8000] text-base  font-bold mt-0  md:mt-[-25px] ">
           {" "}
           [ ** Best Presentation Award ** ]{" "}
         </p>
@@ -75,7 +72,7 @@ const Publications = () => (
         </div>
 
         <div className=" flex flex-col justify-start items-start w-full">
-          {publicationList.map((publication, index) => (
+          {config.publicationList.map((publication, index) => (
             <Paper
               key={index} // Ensure each element has a unique key
               color="bg-[#8945F8]"

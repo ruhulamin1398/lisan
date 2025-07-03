@@ -4,7 +4,7 @@ import { MdEmail, MdOutlineDeveloperBoard } from "react-icons/md";
 import { RiLinkedinFill, RiWhatsappFill } from "react-icons/ri";
 import { FaGoogleScholar, FaResearchgate } from "react-icons/fa6";
 import { TransactionContext } from "../context/TransactionContext";
-import { researchLinks, socialLinks } from "../utils/constants";
+import { config, researchLinks } from "../utils/constants";
 
 const Input = ({ placeholder, name, type, value, handleChange, className }) => (
   <input
@@ -92,25 +92,25 @@ const Contact = () => {
               color="bg-[#8945F8]"
               title="Email"
               icon={<MdEmail fontSize={30} className="text-[#00FF99]" />}
-              subtitle={socialLinks.email.text}
+              subtitle={config.socialLinks.email.text}
               className="  "
-              link={socialLinks.email.link}
+              link={config.socialLinks.email.link}
             />
             <ContactCard
               color="bg-[#2952E3]"
               title="Linkedin"
               icon={<RiLinkedinFill fontSize={30} className="text-[#00FF99]" />}
-              subtitle={socialLinks.linkedin.text}
+              subtitle={config.socialLinks.linkedin.text}
               className="  "
-              link={socialLinks.linkedin.link}
+              link={config.socialLinks.linkedin.link}
             />
             <ContactCard
               color="bg-[#F84550]"
               title="Whatsapp"
               icon={<RiWhatsappFill fontSize={30} className="text-[#00FF99]" />}
-              subtitle={socialLinks.whatsapp.text}
+              subtitle={config.socialLinks.whatsapp.text}
               className="  "
-              link={socialLinks.whatsapp.link}
+              link={config.socialLinks.whatsapp.link}
             />
             {researchLinks.googleScholar && (
               <ContactCard
