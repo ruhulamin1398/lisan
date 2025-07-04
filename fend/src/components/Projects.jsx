@@ -2,7 +2,7 @@ import React from "react";
 import ProjectSlider from "./ProjectSlider";
 
 import demo from "../../images/demo.png";
-import { projectPage } from "../utils/constants";
+import { config } from "../utils/constants";
 
 const ProjectModal = ({ project, closeModal }) => {
   return (
@@ -34,12 +34,12 @@ const Projects = () => {
         <div className="flex  flex-col  items-center justify-between   px-4">
           <div className="flex flex-col justify-start items-center    pt-2 pb-6 w-full">
             <h1 className=" uppercase font-bold   text-3xl sm:text-5xl py-2  text-primary-color    ">
-              {projectPage.title}
+              {config.projectPage.title}
               <br />
             </h1>
 
             <p className="text-left my-2   text-white font-light md:w-9/12 w-11/12 text-base text-center text-justify md:text-center ">
-              {projectPage.description}
+              {config.projectPage.description}
             </p>
           </div>
 

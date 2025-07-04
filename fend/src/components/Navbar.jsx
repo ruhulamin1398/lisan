@@ -12,6 +12,7 @@ import "animate.css/animate.min.css"; // Import the animate.css library
 import "./../style/Navbar.css";
 import logo from "../../images/logo.png";
 import { Link, NavLink } from "react-router-dom";
+import { config } from "../utils/constants";
 
 const NavBarItem = ({ title, classprops, menuLink }) => (
   <li>
@@ -79,7 +80,7 @@ const Navbar = () => {
             <a
               className="position-relative animate__animated animate__tada animate__infinite flex"
               target="_blank"
-              href="https://wa.me/8801840000408"
+              href={config.socialLinks.whatsapp.link}
             >
               <div>
                 <AiOutlineWhatsApp className="text-white" size={32} />
@@ -88,10 +89,12 @@ const Navbar = () => {
                 </div>
               </div>
             </a>
-            <a href="https://wa.me/8801840000408" target="_blank">
+            <a href={config.socialLinks.whatsapp.link} target="_blank">
               <div className="ml-3 text-white text-xs ">
                 Have any questions? <br />
-                <span className="text-base"> +880184 0000 408</span>
+                <span className="text-base">
+                  {config.socialLinks.whatsapp.text}
+                </span>
               </div>
             </a>
           </div>

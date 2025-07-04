@@ -4,7 +4,7 @@ import { MdEmail, MdOutlineDeveloperBoard } from "react-icons/md";
 import { RiLinkedinFill, RiWhatsappFill } from "react-icons/ri";
 import { FaGoogleScholar, FaResearchgate } from "react-icons/fa6";
 import { TransactionContext } from "../context/TransactionContext";
-import { config, researchLinks } from "../utils/constants";
+import { config } from "../utils/constants";
 
 const Input = ({ placeholder, name, type, value, handleChange, className }) => (
   <input
@@ -112,28 +112,28 @@ const Contact = () => {
               className="  "
               link={config.socialLinks.whatsapp.link}
             />
-            {researchLinks.googleScholar && (
+            {config.researchLinks.googleScholar && (
               <ContactCard
                 color="bg-[#F84550]"
-                title={researchLinks.googleScholar.title}
+                title={config.researchLinks.googleScholar.title}
                 icon={
                   <FaGoogleScholar fontSize={30} className="text-[#00FF99]" />
                 }
-                subtitle={researchLinks.googleScholar.text}
+                subtitle={config.researchLinks.googleScholar.text}
                 className="  "
-                link={researchLinks.googleScholar.link}
+                link={config.researchLinks.googleScholar.link}
               />
             )}{" "}
-            {researchLinks.researchGate && (
+            {config.researchLinks.researchGate && (
               <ContactCard
                 color="bg-[#F84550]"
-                title={researchLinks.researchGate.title}
+                title={config.researchLinks.researchGate.title}
                 icon={
                   <FaResearchgate fontSize={30} className="text-[#00FF99]" />
                 }
-                subtitle={researchLinks.researchGate.text}
+                subtitle={config.researchLinks.researchGate.text}
                 className="  "
-                link={researchLinks.researchGate.link}
+                link={config.researchLinks.researchGate.link}
               />
             )}
           </div>
@@ -190,7 +190,7 @@ const Contact = () => {
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#00ff99] hover:text-black rounded-full cursor-pointer"
               >
                 Send message
               </button>

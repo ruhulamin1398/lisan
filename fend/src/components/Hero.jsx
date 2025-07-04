@@ -5,7 +5,7 @@ import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
 import "../style/Hero.css"; // Import your custom CSS file
 
 import ruhulImg from "../../images/ruhul2.png";
-import { config, heroContent } from "../utils/constants";
+import { config } from "../utils/constants";
 
 const HeroCard = ({ color, title, icon, subtitle, className }) => (
   <div
@@ -56,13 +56,13 @@ const Hero = () => (
 
         <div className="flex-1 flex flex-col justify-start items-start">
           <h1 className=" font-bold text-3xl sm:text-5xl py-2 text-primary-color  mt-10  ">
-            {heroContent.name}
+            {config.heroContent.name}
           </h1>
           <p className="text-left my-1 text-white font-light md:w-9/12 w-11/12 text-base mb-2">
-            {heroContent.tagLine}
+            {config.heroContent.tagLine}
           </p>
           <div className="hero-cards-container">
-            {heroContent.overViewList.map((item, idx) => {
+            {config.heroContent.overViewList.map((item, idx) => {
               return (
                 <HeroCard
                   key={idx}

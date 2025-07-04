@@ -24,9 +24,8 @@ const Paper = ({ title, description, authors, link, isAward, color }) => (
         </a>
       </h3>
       {isAward ? (
-        <p className=" italic text-right text-[#0a8000] text-base  font-bold mt-0  md:mt-[-25px] ">
-          {" "}
-          [ ** Best Presentation Award ** ]{" "}
+        <p className=" italic  text-right text-primary-color text-base  font-bold mt-0  md:mt-[-25px] ">
+          [ Best Presentation Award ]
         </p>
       ) : null}
       <div
@@ -42,7 +41,7 @@ const Paper = ({ title, description, authors, link, isAward, color }) => (
         <a href={link["IEEE"]} target="_blank">
           <SiIeee fontSize={41} className="text-white mt-[-10px]" />
         </a>
-        <a href={link["IEEE"]} target="_blank">
+        <a href={config.researchLinks.googleScholar.link} target="_blank">
           <SiGooglescholar fontSize={21} className="text-white" />
         </a>
       </div>

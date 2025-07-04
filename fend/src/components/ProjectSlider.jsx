@@ -24,7 +24,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
 import { Pagination } from "swiper/modules";
-import { projectPage } from "../utils/constants";
+import { config } from "../utils/constants";
 
 // Import Swiper styles
 
@@ -41,7 +41,7 @@ const ProjectSlider = () => {
         onSwiper={(swiper) => console.log(swiper)}
         className="mySwiper"
       >
-        {projectPage.projects.map((project) => (
+        {config.projectPage.projects.map((project) => (
           <SwiperSlide key={project.id}>
             <div
               id="services"

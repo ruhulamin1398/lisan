@@ -21,7 +21,7 @@ import { SiIpfs } from "react-icons/si";
 import { GiMongolia } from "react-icons/gi";
 import fabricLogo from "../../images/hlf2.png";
 import metamaskLogo from "../../images/metamask.png";
-import { logos } from "../utils/constants";
+import { config } from "../utils/constants";
 
 const Logo = ({ title, logo, customStyle }) => {
   return (
@@ -47,7 +47,7 @@ const Logos = () => (
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8  gap-2 p-3 m-2 mx-2 w-full">
-          {logos.map((logo, index) => (
+          {config.logos.map((logo, index) => (
             <Logo
               key={index}
               customStyle={logo.customStyle}
