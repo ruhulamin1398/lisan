@@ -43,6 +43,15 @@ import fabricLogo from "../../images/hlf2.png";
 import metamaskLogo from "../../images/metamask.png";
 
 export const configRuhulDev = {
+  settings: {
+    logos: false,
+    Services: false,
+    projects: true,
+    research: true,
+    reviewing: true,
+    experience: true,
+    researchArea: true,
+  },
   reviewing: [
     {
       title:

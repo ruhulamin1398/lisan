@@ -34,7 +34,7 @@ const Navbar = () => {
 
   const menuItems = {
     Home: "/",
-    Services: "/services",
+    ...(config.settings.Services && { Services: "/services" }),
     Projects: "/projects",
     Research: "/research",
     Experience: "/experience",

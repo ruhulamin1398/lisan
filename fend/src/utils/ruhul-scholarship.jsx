@@ -43,6 +43,15 @@ import fabricLogo from "../../images/hlf2.png";
 import metamaskLogo from "../../images/metamask.png";
 
 export const configRuhulScholarship = {
+  settings: {
+    logos: false,
+    Services: false,
+    projects: true,
+    research: true,
+    reviewing: true,
+    experience: true,
+    researchArea: true,
+  },
   reviewing: [
     {
       title:
@@ -242,24 +251,38 @@ export const configRuhulScholarship = {
       Icon: RiGithubFill,
       color: "#222",
     },
-    facebook: {
-      link: "https://facebook.com/ruhulamin.official",
-      title: "Facebook",
-      Icon: RiFacebookFill,
+    googleScholar: {
+      link: "https://scholar.google.com/citations?user=pW39RGYAAAAJ&hl",
+      title: "Google Scholar",
+      text: "RuhulAmin",
+      Icon: FaGoogleScholar,
       color: "#1877F3",
     },
-    twitter: {
-      link: "https://twitter.com/ruhulamin99",
-      title: "Twitter",
-      Icon: RiTwitterXFill,
-      color: "#2952E3",
+    researchGate: {
+      link: "https://www.researchgate.net/profile/Ruhul-Amin-95",
+      title: "ResearchGate",
+      text: "Ruhul-Amin-95",
+      Icon: FaResearchgate,
+      color: "#EA4335",
     },
+    // facebook: {
+    //   link: "https://facebook.com/ruhulamin.official",
+    //   title: "Facebook",
+    //   Icon: RiFacebookFill,
+    //   color: "#1877F3",
+    // },
+    // twitter: {
+    //   link: "https://twitter.com/ruhulamin99",
+    //   title: "Twitter",
+    //   Icon: RiTwitterXFill,
+    //   color: "#2952E3",
+    // },
     email: {
       link: "mailto:ruhulamin010398@gmail.com",
       title: "Email",
       text: "ruhulamin010398@gmail.com",
       Icon: RiMailFill,
-      color: "#EA4335",
+      color: "#2952E3",
     },
     whatsapp: {
       link: "https://wa.me/8801840000408",
@@ -287,27 +310,29 @@ export const configRuhulScholarship = {
   },
   heroContent: {
     name: "RUHUL AMIN",
-    tagLine: "Working as Blockchain Developer AAk Tele-Science Inc.",
+    tagLine:
+      "Working as Research Assistant at Shahjalal University of Science and Technology.",
     overViewList: [
       {
-        title: "Blockchain Developer",
+        title: "Teacher",
+        description: "2+ year Experience in University teaching.",
+        icon: <GiTeacher fontSize={21} className="text-white" />,
+        color: "bg-[#F84550]",
+      },
+
+      {
+        title: "Research Interest",
         description:
-          "5+ years Experience in Web Development. <br/> 2+ year experience in Full-stack Blockchain development",
+          "Blockchain Technology <br/>  AI, IoT, Network Security.  ",
         icon: <MdOutlineDeveloperBoard fontSize={21} className="text-white" />,
         color: "bg-[#8945F8]",
       },
       {
-        title: "Researcher",
+        title: "Publications",
         description:
           "Published 10+ Research Papers. <br/> Supervised 20+ students. <br/> Reviewed 50+ Papers.",
         icon: <GiArchiveResearch fontSize={21} className="text-white" />,
         color: "bg-[#2952E3]",
-      },
-      {
-        title: "Teacher",
-        description: "1+ year Experience in University teaching.",
-        icon: <GiTeacher fontSize={21} className="text-white" />,
-        color: "bg-[#F84550]",
       },
     ],
   },
@@ -604,7 +629,7 @@ export const configRuhulScholarship = {
     ],
   },
   jobPage: {
-    title: "Development Experience",
+    title: "Development in Academia",
     description: `I’m a Full Stack Blockchain Developer and Researcher with 5+ years
             of experience in web development and 2+ years of experience in
             blockchain development. I have developed blockchain projects, smart
@@ -628,51 +653,84 @@ export const configRuhulScholarship = {
     jobList: [
       {
         title: "Jan 2024 - Current",
-        cardTitle: "Freelance Blockchain Developer",
-        // url: "http://www.history.com",
+        cardTitle: "Lecturer",
+        cardSubtitle: "Sylhet International University",
+        url: "https://www.siu.edu.bd/",
         cardDetailedText: [
           "Focus on developing secure, gas-efficient Solidity smart contracts, integrating DApps seamlessly with Ethers.js and Hardhat, and building DeFi and NFT platforms, including yield farming and staking. I also ensure contract security through thorough auditing and adherence to best practices.",
           "Skills : DeFi, DApp, Smart Contract, Smart Contract Security, Token, Nft, ChainLink, Express.js, Next.js, Foundry",
         ],
 
-        media: {
-          type: "IMAGE",
-          source: {
-            url: bcImg,
-          },
-        },
+        // media: {
+        //   type: "IMAGE",
+        //   source: {
+        //     url: bcImg,
+        //   },
+        // },
       },
       {
         title: "Oct 2023 - Dec 2023",
-        cardTitle: "Blockchain Developer",
-        cardSubtitle: "AAK TELE-SCIENCE, INC",
+        cardTitle: "Research Assistant",
+        cardSubtitle: "Shahjalal University of Science & Technology",
         url: "https://aakscience.com/",
         cardDetailedText: [
           "Specialize in Smart Contract Development, creating secure and gas-efficient Solidity contracts, and DApp Development, ensuring seamless Web3 integration using Ethers.js and Hardhat for optimal performance and functionality.",
           "Skills : DApp, Ethereum, Blockchain, Smart Contract, ERC Tokens, Node.js, React.js, TypeScript, Ether.js, Foundry",
         ],
-        media: {
-          type: "IMAGE",
-          source: {
-            url: aakImg,
-          },
-        },
+        // media: {
+        //   type: "IMAGE",
+        //   source: {
+        //     url: aakImg,
+        //   },
+        // },
       },
       {
         title: "NOV 2017 - DEC 2022",
-        cardTitle: "Software Engineer",
-        cardSubtitle: "ABASAS TECHNOLOGIES INC.",
+        cardTitle: "Adjunct Faculty",
+        cardSubtitle: "Habiganj Agricultural University",
         url: "#",
         cardDetailedText: [
           "Designed and developed REST APIs using Laravel and Express, managed deployments with Docker and AWS, and created specifications for web applications. I also developed front-end features using HTML, CSS, Sass, EJS, and React, while mentoring intern engineers.",
           "Skills : Leadership, Technical Documentation, Devops, Project Management, PHP, Express, React, Docker, AWS, HTML, CSS, Sass, EJS, Laravel, Foundry",
         ],
-        media: {
-          type: "IMAGE",
-          source: {
-            url: abasasImg,
-          },
-        },
+        // media: {
+        //   type: "IMAGE",
+        //   source: {
+        //     url: abasasImg,
+        //   },
+        // },
+      },
+      {
+        title: "NOV 2017 - DEC 2022",
+        cardTitle: "Research Assistant",
+        cardSubtitle: "Sylhet Engineering College",
+        url: "#",
+        cardDetailedText: [
+          "Designed and developed REST APIs using Laravel and Express, managed deployments with Docker and AWS, and created specifications for web applications. I also developed front-end features using HTML, CSS, Sass, EJS, and React, while mentoring intern engineers.",
+          "Skills : Leadership, Technical Documentation, Devops, Project Management, PHP, Express, React, Docker, AWS, HTML, CSS, Sass, EJS, Laravel, Foundry",
+        ],
+        // media: {
+        //   type: "IMAGE",
+        //   source: {
+        //     url: abasasImg,
+        //   },
+        // },
+      },
+      {
+        title: "NOV 2017 - DEC 2022",
+        cardTitle: "Adjunct Faculty",
+        cardSubtitle: "Faridpur Engineering College",
+        url: "#",
+        cardDetailedText: [
+          "Designed and developed REST APIs using Laravel and Express, managed deployments with Docker and AWS, and created specifications for web applications. I also developed front-end features using HTML, CSS, Sass, EJS, and React, while mentoring intern engineers.",
+          "Skills : Leadership, Technical Documentation, Devops, Project Management, PHP, Express, React, Docker, AWS, HTML, CSS, Sass, EJS, Laravel, Foundry",
+        ],
+        // media: {
+        //   type: "IMAGE",
+        //   source: {
+        //     url: abasasImg,
+        //   },
+        // },
       },
     ],
   },

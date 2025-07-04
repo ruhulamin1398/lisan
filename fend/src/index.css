@@ -124,8 +124,11 @@ body {
 }
 .my-card-subtitle {
   color: #fff !important;
-  font-weight: 500 !important;
-  font-size: 1.2rem !important;
+  /* font-weight: bold !important; */
+  font-size: 0.8rem !important;
+  text-transform: uppercase !important;
+  text-decoration: italic !important;
+  /* margin-top: -25px !important; */
 }
 
 .eth-card {
