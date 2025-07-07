@@ -16,6 +16,7 @@ import Lottaverse from "../../images/project/lottaverse.png";
 import SecureDoc from "../../images/project/securedoc.png";
 import Billy from "../../images/project/billy.png";
 import Drive from "../../images/project/drive.png";
+import Beejoyi from "../../images/project/beejoyi.png";
 
 import abasasImg from "../../images/abasas.png";
 import aakImg from "../../images/aak.png";
@@ -328,7 +329,7 @@ export const configRuhulScholarship = {
         color: "bg-[#8945F8]",
       },
       {
-        title: "Publications",
+        title: "Researcher",
         description:
           "Published 10+ Research Papers. <br/> Supervised 20+ students. <br/> Reviewed 50+ Papers.",
         icon: <GiArchiveResearch fontSize={21} className="text-white" />,
@@ -597,6 +598,16 @@ export const configRuhulScholarship = {
       },
       {
         id: 2,
+        title: "Beejoyi | Showcase Your Talent & Win Big!",
+        description:
+          " A full-featured Web2 application built with Material UI, Next.js, GraphQL, MongoDB, Redux, and more. The platform supports server-side rendering, real-time data updates, and a responsive UI. Features include authentication, user profiles, dashboards, and advanced search.",
+        image: Beejoyi,
+        link: "https://app.beejoyi.io/",
+        tools:
+          "Next.js ,  GraphQL ,  MongoDB,  Redux,  Material UI,  Node.js,  JWT Auth",
+      },
+      {
+        id: 3,
         title: "Billy The Blue Whale NFT Collection.",
         description:
           "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
@@ -606,7 +617,7 @@ export const configRuhulScholarship = {
           "Blockchain, NFT, Solana, Next.js, Magic Eden, Smart Contract, Web3.js, MetaMask",
       },
       {
-        id: 3,
+        id: 4,
         title:
           "SecureDoc: AI-Powered Blockchain-Based Certificate Authentication",
         description:
@@ -617,7 +628,7 @@ export const configRuhulScholarship = {
           "AI, Ethereum, Smart Contract, ReactJs, Ethers, HardHat, Alchemy MetaMssk",
       },
       {
-        id: 4,
+        id: 5,
         title: "Blockchain Drive: Securing Data on the Ethereum & IPFS",
         description:
           "Blockchain Drive is a data security solution on Ethereum and IPFS, enabling file uploads via IPFS (Pinata) with Ethereum-backed storage links. It integrates with MetaMask for seamless access, allowing users to share or revoke file access through secure blockchain-based controls.",
@@ -630,91 +641,50 @@ export const configRuhulScholarship = {
   },
   jobPage: {
     title: "Development in Academia",
-    description: `I’m a Full Stack Blockchain Developer and Researcher with 5+ years
-            of experience in web development and 2+ years of experience in
-            blockchain development. I have developed blockchain projects, smart
-            contract libraries, and published over 10 research papers on various
-            blockchain topics. My expertise includes writing smart contracts for
-            public blockchains like Ethereum and private blockchains like
-            Hyperledger Fabric, as well as developing full stack blockchain
-            applications using Node.js and React.js.  <br />
-            <br />
-            - Smart Contract Development – Secure & gas-optimized Solidity
-            contracts
-            <br />
-            - DApp Development – Seamless Web3 integration with Ethers.js &
-            Hardhat
-            <br />
-            - DeFi & NFTs – Yield farming, staking, tokenomics, and NFT
-            platforms
-            <br />- Security & Auditing – Writing robust, bug-free contracts
-            with best practices`,
+    description: `I am currently serving as a Research Assistant at Shahjalal University of Science & Technology , i also  worked as Lecturer at Sylhet International University, with prior experience as an Adjunct Faculty at Habiganj Agricultural University and Faridpur Engineering College. along with this, i worked at research assistant at  Sylhet Engineering College, contributing to academic and technical projects. My background combines hands-on teaching with practical involvement in academic research and institutional development.
+    `,
 
     jobList: [
       {
-        title: "Jan 2024 - Current",
-        cardTitle: "Lecturer",
-        cardSubtitle: "Sylhet International University",
-        url: "https://www.siu.edu.bd/",
-        cardDetailedText: [
-          "Focus on developing secure, gas-efficient Solidity smart contracts, integrating DApps seamlessly with Ethers.js and Hardhat, and building DeFi and NFT platforms, including yield farming and staking. I also ensure contract security through thorough auditing and adherence to best practices.",
-          "Skills : DeFi, DApp, Smart Contract, Smart Contract Security, Token, Nft, ChainLink, Express.js, Next.js, Foundry",
-        ],
-
-        // media: {
-        //   type: "IMAGE",
-        //   source: {
-        //     url: bcImg,
-        //   },
-        // },
-      },
-      {
-        title: "Oct 2023 - Dec 2023",
+        title: "Oct 2023 - current",
         cardTitle: "Research Assistant",
         cardSubtitle: "Shahjalal University of Science & Technology",
         url: "https://aakscience.com/",
         cardDetailedText: [
-          "Specialize in Smart Contract Development, creating secure and gas-efficient Solidity contracts, and DApp Development, ensuring seamless Web3 integration using Ethers.js and Hardhat for optimal performance and functionality.",
-          "Skills : DApp, Ethereum, Blockchain, Smart Contract, ERC Tokens, Node.js, React.js, TypeScript, Ether.js, Foundry",
+          "Engaged in blockchain research, specializing in interoperability mechanisms. Contributed to research papers, focusing on blockchain, IoT, and ML. Assisted in experiment planning, data analysis, and presented findings in weekly team meetings.",
         ],
-        // media: {
-        //   type: "IMAGE",
-        //   source: {
-        //     url: aakImg,
-        //   },
-        // },
       },
+      {
+        title: "june 2023 - june 2024",
+        cardTitle: "Lecturer",
+        cardSubtitle: "Sylhet International University",
+        url: "https://www.siu.edu.bd/",
+        cardDetailedText: [
+          "Courses Taken",
+          " Machine Learning, Algorithms, Discrete Mathematics, Data Structure, Object Oriented Programming Language.",
+        ],
+      },
+
       {
         title: "NOV 2017 - DEC 2022",
         cardTitle: "Adjunct Faculty",
         cardSubtitle: "Habiganj Agricultural University",
         url: "#",
         cardDetailedText: [
-          "Designed and developed REST APIs using Laravel and Express, managed deployments with Docker and AWS, and created specifications for web applications. I also developed front-end features using HTML, CSS, Sass, EJS, and React, while mentoring intern engineers.",
-          "Skills : Leadership, Technical Documentation, Devops, Project Management, PHP, Express, React, Docker, AWS, HTML, CSS, Sass, EJS, Laravel, Foundry",
+          "Courses Taken:",
+          "CAF-111: Computer Applications in Fisheries",
+          "CAF-112: Computer Applications in Fisheries Lab",
         ],
-        // media: {
-        //   type: "IMAGE",
-        //   source: {
-        //     url: abasasImg,
-        //   },
-        // },
       },
+
       {
         title: "NOV 2017 - DEC 2022",
         cardTitle: "Research Assistant",
         cardSubtitle: "Sylhet Engineering College",
         url: "#",
         cardDetailedText: [
-          "Designed and developed REST APIs using Laravel and Express, managed deployments with Docker and AWS, and created specifications for web applications. I also developed front-end features using HTML, CSS, Sass, EJS, and React, while mentoring intern engineers.",
-          "Skills : Leadership, Technical Documentation, Devops, Project Management, PHP, Express, React, Docker, AWS, HTML, CSS, Sass, EJS, Laravel, Foundry",
+          "Conducted research at the interoperability of blockchain and IoT, aiding in experimental design, data analysis, and paper development, while actively collaborating with a research team and gaining proficiency in Solidity, Ethereum, and Hyperledger Fabric tools.",
         ],
-        // media: {
-        //   type: "IMAGE",
-        //   source: {
-        //     url: abasasImg,
-        //   },
-        // },
       },
       {
         title: "NOV 2017 - DEC 2022",
@@ -722,15 +692,21 @@ export const configRuhulScholarship = {
         cardSubtitle: "Faridpur Engineering College",
         url: "#",
         cardDetailedText: [
+          "Courses Taken:",
+          "CSE-2101: Object Oriented Programming",
+          "CSE-3112: Software Engineering Lab",
+        ],
+      },
+
+      {
+        title: "NOV 2017 - DEC 2022",
+        cardTitle: "Software Engineer",
+        cardSubtitle: "ABASAS TECHNOLOGIES INC.",
+        url: "#",
+        cardDetailedText: [
           "Designed and developed REST APIs using Laravel and Express, managed deployments with Docker and AWS, and created specifications for web applications. I also developed front-end features using HTML, CSS, Sass, EJS, and React, while mentoring intern engineers.",
           "Skills : Leadership, Technical Documentation, Devops, Project Management, PHP, Express, React, Docker, AWS, HTML, CSS, Sass, EJS, Laravel, Foundry",
         ],
-        // media: {
-        //   type: "IMAGE",
-        //   source: {
-        //     url: abasasImg,
-        //   },
-        // },
       },
     ],
   },

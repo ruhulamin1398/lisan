@@ -116,10 +116,11 @@ body {
   --rc-gradient-color: transparent !important;
   background-color: transparent !important;
   color: #fff !important;
+  font-size: 15px !important;
 }
 .my-card-title {
   color: #00ff99 !important;
-  font-weight: 600 !important;
+  /* font-weight: 600 !important; */
   font-size: 1.5rem !important;
 }
 .my-card-subtitle {
