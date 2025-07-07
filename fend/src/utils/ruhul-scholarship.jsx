@@ -649,7 +649,7 @@ export const configRuhulScholarship = {
         title: "Oct 2023 - current",
         cardTitle: "Research Assistant",
         cardSubtitle: "Shahjalal University of Science & Technology",
-        url: "https://aakscience.com/",
+        url: "#",
         cardDetailedText: [
           "Engaged in blockchain research, specializing in interoperability mechanisms. Contributed to research papers, focusing on blockchain, IoT, and ML. Assisted in experiment planning, data analysis, and presented findings in weekly team meetings.",
         ],

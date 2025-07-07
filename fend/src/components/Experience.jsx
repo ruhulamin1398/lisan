@@ -8,9 +8,9 @@ const Experience = () => (
       id="Publications"
       className="flex w-full justify-center items-center gradient-bg-welcome  "
     >
-      <div className="flex  flex-col  items-center justify-between md:p-20 py-12 px-4">
-        <div className="flex flex-col justify-start items-center    py-12 w-3/4">
-          <h1 className=" uppercase font-bold  text-3xl sm:text-5xl py-2 text-primary-color text-align-center">
+      <div className="flex  flex-col  items-center justify-between md:p-20 py-2 md:py-12 px-2  md:px-4">
+        <div className="flex flex-col justify-start items-center   py:2 md:py-12 md:w-3/4">
+          <h1 className=" uppercase font-bold  text-3xl sm:text-5xl py-2 text-primary-color text-center mb-4">
             {config.jobPage.title}
             <br />
           </h1>

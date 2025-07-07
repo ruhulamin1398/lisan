@@ -246,23 +246,23 @@ export const configRuhulDevBlockchain = {
       text: "linkedin.com/in/theruhulamin",
     },
     github: {
-      link: "https://github.com/ruhulamin99",
+      link: "https://github.com/ruhulamin1398",
       title: "GitHub",
       Icon: RiGithubFill,
-      color: "#222",
+      color: "#25D366",
     },
-    facebook: {
-      link: "https://facebook.com/ruhulamin.official",
-      title: "Facebook",
-      Icon: RiFacebookFill,
-      color: "#1877F3",
-    },
-    twitter: {
-      link: "https://twitter.com/ruhulamin99",
-      title: "Twitter",
-      Icon: RiTwitterXFill,
-      color: "#2952E3",
-    },
+    // facebook: {
+    //   link: "https://facebook.com/ruhulamin.official",
+    //   title: "Facebook",
+    //   Icon: RiFacebookFill,
+    //   color: "#1877F3",
+    // },
+    // twitter: {
+    //   link: "https://twitter.com/ruhulamin99",
+    //   title: "Twitter",
+    //   Icon: RiTwitterXFill,
+    //   color: "#2952E3",
+    // },
     email: {
       link: "mailto:ruhulamin010398@gmail.com",
       title: "Email",
@@ -296,25 +296,25 @@ export const configRuhulDevBlockchain = {
   },
   heroContent: {
     name: "RUHUL AMIN",
-    tagLine: "Working as Blockchain Developer AAk Tele-Science Inc.",
+    tagLine: "",
     overViewList: [
       {
-        title: "Blockchain Developer",
+        title: "Dapp Developer",
         description:
-          "5+ years Experience in Web Development. <br/> 2+ year experience in Full-stack Blockchain development",
+          "2+ year experience in Full-stack Blockchain development. ",
         icon: <MdOutlineDeveloperBoard fontSize={21} className="text-white" />,
         color: "bg-[#8945F8]",
       },
       {
-        title: "Researcher",
+        title: "Smart Contract Developer",
         description:
-          "Published 10+ Research Papers. <br/> Supervised 20+ students. <br/> Reviewed 50+ Papers.",
+          "Developed and deployed smart contracts. <br/> Competitive smart contract audit.",
         icon: <GiArchiveResearch fontSize={21} className="text-white" />,
         color: "bg-[#2952E3]",
       },
       {
-        title: "Teacher",
-        description: "1+ year Experience in University teaching.",
+        title: "Web Developer",
+        description: "5+ years Experience in Web Development. ",
         icon: <GiTeacher fontSize={21} className="text-white" />,
         color: "bg-[#F84550]",
       },
@@ -437,7 +437,7 @@ export const configRuhulDevBlockchain = {
       customStyle: "text-[#c8c8c8]",
     },
     {
-      title: "Hard Hat",
+      title: "Hard Hat",
       logo: (
         <svg
           className="mx-auto py-2"

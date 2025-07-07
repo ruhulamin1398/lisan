@@ -88,54 +88,21 @@ const Contact = () => {
       <div className="flex flex-col md:flex-row md:row-reverse items-start justify-between md:p-20 w-full md:w-[80%]">
         <div className="flex flex-1 justify-center items-center flex-col mf:mr-10 my-auto my-24">
           <div>
-            <ContactCard
-              color="bg-[#8945F8]"
-              title="Email"
-              icon={<MdEmail fontSize={30} className="text-[#00FF99]" />}
-              subtitle={config.socialLinks.email.text}
-              className="  "
-              link={config.socialLinks.email.link}
-            />
-            <ContactCard
-              color="bg-[#2952E3]"
-              title="Linkedin"
-              icon={<RiLinkedinFill fontSize={30} className="text-[#00FF99]" />}
-              subtitle={config.socialLinks.linkedin.text}
-              className="  "
-              link={config.socialLinks.linkedin.link}
-            />
-            <ContactCard
-              color="bg-[#F84550]"
-              title="Whatsapp"
-              icon={<RiWhatsappFill fontSize={30} className="text-[#00FF99]" />}
-              subtitle={config.socialLinks.whatsapp.text}
-              className="  "
-              link={config.socialLinks.whatsapp.link}
-            />
-            {config.researchLinks.googleScholar && (
-              <ContactCard
-                color="bg-[#F84550]"
-                title={config.researchLinks.googleScholar.title}
-                icon={
-                  <FaGoogleScholar fontSize={30} className="text-[#00FF99]" />
-                }
-                subtitle={config.researchLinks.googleScholar.text}
-                className="  "
-                link={config.researchLinks.googleScholar.link}
-              />
-            )}{" "}
-            {config.researchLinks.researchGate && (
-              <ContactCard
-                color="bg-[#F84550]"
-                title={config.researchLinks.researchGate.title}
-                icon={
-                  <FaResearchgate fontSize={30} className="text-[#00FF99]" />
-                }
-                subtitle={config.researchLinks.researchGate.text}
-                className="  "
-                link={config.researchLinks.researchGate.link}
-              />
-            )}
+            {Object.values(config.socialLinks).map((social, idx) => {
+              const Icon = social.Icon;
+              return (
+                <ContactCard
+                  color={social.color}
+                  title={social.title}
+                  icon={
+                    <Icon fontSize={21} className="" color={social.color} />
+                  }
+                  subtitle={social.link}
+                  className="  "
+                  link={config.socialLinks.whatsapp.link}
+                />
+              );
+            })}
           </div>
         </div>
 
