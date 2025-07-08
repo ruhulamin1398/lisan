@@ -97,9 +97,9 @@ const Contact = () => {
                   icon={
                     <Icon fontSize={21} className="" color={social.color} />
                   }
-                  subtitle={social.link}
+                  subtitle={social.text}
                   className="  "
-                  link={config.socialLinks.whatsapp.link}
+                  link={social.link}
                 />
               );
             })}

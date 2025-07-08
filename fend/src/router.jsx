@@ -13,75 +13,73 @@ import CreatePost from "./components/admin/CreatePost";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import CreateCategory from "./components/admin/CreateCategory";
 import Experience from "./components/Experience";
+import { config } from "./utils/constants";
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        children: [
-            {
-                path: "",
-                element: <HomePage />
-            },
-            {
-                path: "research",
-                element: <Research />
-            },
-            {
-                path: "projects",
-                element: <Projects />
-            },
-            {
-                path: "services",
-                element: <Services />
-            },
-            {
-                path: "experience",
-                element: <Experience />
-            },
-            {
-                path: "contact",
-                element: <Contact />
-            },
-            // {
-            //     path: "post",
-            //     element: <PostList />
-            // },
-
-            {
-                path: "login",
-                element: <Login />
-            },
-            {
-                path: "*",
-                element: <NotFound />,
-            },
-        ]
-    },
-    {
-        path: "/admin",
-        element: < PrivateRoute> <AdminLayout /> </PrivateRoute>,
-        children: [
-            {
-                path: "",
-                element: <Profile />
-            },
-            {
-                path: "blogs/create",
-                element: <CreatePost />
-            },
-            {
-                path: "posts",
-                element: <PostList />
-            },
-
-            {
-                path: "category/create",
-                element: <CreateCategory />
-            }
-
-        ]
-    },
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "",
+        element: <HomePage />,
+      },
+      config.settings.research && {
+        path: "research",
+        element: <Research />,
+      },
+      {
+        path: "projects",
+        element: <Projects />,
+      },
+      config.settings.services && {
+        path: "services",
+        element: <Services />,
+      },
+      {
+        path: "experience",
+        element: <Experience />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: (
+      <PrivateRoute>
+        <AdminLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "",
+        element: <Profile />,
+      },
+      {
+        path: "blogs/create",
+        element: <CreatePost />,
+      },
+      {
+        path: "posts",
+        element: <PostList />,
+      },
+      {
+        path: "category/create",
+        element: <CreateCategory />,
+      },
+    ],
+  },
 ]);
 
 export default router;

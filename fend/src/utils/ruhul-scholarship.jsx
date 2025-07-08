@@ -46,7 +46,7 @@ import metamaskLogo from "../../images/metamask.png";
 export const configRuhulScholarship = {
   settings: {
     logos: false,
-    Services: false,
+    services: false,
     projects: true,
     research: true,
     reviewing: true,
@@ -599,7 +599,7 @@ export const configRuhulScholarship = {
         description:
           "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
         image: Lottaverse,
-        link: "https://app.lottaverse.io/",
+        link: "https://lottaverse-v2-0.vercel.app/",
         tools:
           "Polygon, Chainlink, Solidity, NextJs, Ethers, Wagmi, Infura, Foundry, MetaMask",
       },
