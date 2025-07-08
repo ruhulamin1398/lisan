@@ -1,9 +1,9 @@
-import Hero from "../Hero";
+import HomeHero from "../HomeHero";
 import Logos from "../Logos";
 
 const HomePage = () => (
   <>
-    <Hero />
+    <HomeHero />
     <Logos />
 
     <div className="mb-[50px]"></div>

@@ -3,6 +3,7 @@ import ProjectSlider from "./ProjectSlider";
 
 import demo from "../../images/demo.png";
 import { config } from "../utils/constants";
+import Hero from "./Hero";
 
 const ProjectModal = ({ project, closeModal }) => {
   return (
@@ -32,17 +33,10 @@ const Projects = () => {
         className="flex w-full justify-center items-center   mt-5"
       >
         <div className="flex  flex-col  items-center justify-between   px-4">
-          <div className="flex flex-col justify-start items-center    pt-2 pb-6 w-full">
-            <h1 className=" uppercase font-bold   text-3xl sm:text-5xl py-2  text-primary-color    ">
-              {config.projectPage.title}
-              <br />
-            </h1>
-
-            <p className="text-left my-2   text-white font-light md:w-9/12 w-11/12 text-base text-center text-justify md:text-center ">
-              {config.projectPage.description}
-            </p>
-          </div>
-
+          <Hero
+            title={config.projectPage.title}
+            description={config.projectPage.description}
+          />
           <div className=" grid grid-cols-1  justify-start items-start gap-4 mb-[100px] w-full   ">
             <ProjectSlider />
           </div>

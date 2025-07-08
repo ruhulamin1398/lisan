@@ -9,6 +9,7 @@ import { FaResearchgate } from "react-icons/fa";
 import { SiGooglescholar } from "react-icons/si";
 
 import { config } from "../utils/constants";
+import Hero from "./Hero";
 
 const Paper = ({ title, description, authors, link, isAward, color }) => (
   <div className="flex flex-row justify-start items-start white-glassmorphism p-3 m-2  hover:shadow-xl w-full">
@@ -49,41 +50,20 @@ const Paper = ({ title, description, authors, link, isAward, color }) => (
   </div>
 );
 
-const Publications = () => (
+const Publications = ({ publications }) => (
   <>
-    <div
-      id="Publications"
-      className="flex w-full justify-center items-center  "
-    >
-      <div className="flex  flex-col  items-center justify-between md:p-20 py-12 px-4">
-        <div className="flex flex-col justify-start items-center    py-12 w-3/4">
-          <h1 className=" uppercase font-bold  text-3xl sm:text-5xl py-2 text-primary-color  ">
-            Publications
-            <br />
-            {/* continue to improve */}
-          </h1>
-          <p className="text-center my-2 text-white font-light md:w-9/12 w-11/12 text-base ">
-            I've published papers on transparent and collaborative hiring
-            systems, a reputation-based interoperable drug supply system, and
-            various topics including crime report management, online classroom,
-            drop-shipping systems.
-          </p>
-        </div>
-
-        <div className=" flex flex-col justify-start items-start w-full">
-          {config.publicationList.map((publication, index) => (
-            <Paper
-              key={index} // Ensure each element has a unique key
-              color="bg-[#8945F8]"
-              title={publication.title}
-              description={publication.description}
-              authors={publication.authors}
-              link={publication.link}
-              isAward={publication.isAward}
-            />
-          ))}
-        </div>
-      </div>
+    <div className=" flex flex-col justify-start items-start  ">
+      {publications.map((publication, index) => (
+        <Paper
+          key={index} // Ensure each element has a unique key
+          color="bg-[#8945F8]"
+          title={publication.title}
+          description={publication.description}
+          authors={publication.authors}
+          link={publication.link}
+          isAward={publication.isAward}
+        />
+      ))}
     </div>
   </>
 );
