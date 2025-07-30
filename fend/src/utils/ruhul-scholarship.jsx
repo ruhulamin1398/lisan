@@ -667,7 +667,7 @@ export const configRuhulScholarship = {
         cardSubtitle: "Sylhet International University",
         url: "https://www.siu.edu.bd/",
         cardDetailedText: [
-          "Courses Taken",
+          "<b>Courses Taken:</b>",
           "Machine Learning.",
           "Machine Learning Lab.",
           "Algorithms.",
@@ -686,7 +686,7 @@ export const configRuhulScholarship = {
         cardSubtitle: "Habiganj Agricultural University",
         url: "#",
         cardDetailedText: [
-          "Courses Taken:",
+          "<b> Courses Taken: </b>",
           "Computer Applications in Fisheries",
           "Computer Applications in Fisheries Lab",
         ],
@@ -707,7 +707,7 @@ export const configRuhulScholarship = {
         cardSubtitle: "Faridpur Engineering College",
         url: "#",
         cardDetailedText: [
-          "Courses Taken:",
+          "<b> Courses Taken: </b>",
           "Object Oriented Programming",
           "Software Engineering Lab",
         ],
