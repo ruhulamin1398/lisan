@@ -47,7 +47,7 @@ export const configRuhulScholarship = {
   settings: {
     logos: false,
     services: false,
-    projects: true,
+    projects: false,
     research: true,
     reviewing: true,
     experience: true,
