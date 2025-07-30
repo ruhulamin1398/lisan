@@ -647,7 +647,7 @@ export const configRuhulScholarship = {
     ],
   },
   jobPage: {
-    title: "Development in Academia",
+    title: "Experience in Academia",
     description: `I am currently serving as a Research Assistant at Shahjalal University of Science & Technology , i also  worked as Lecturer at Sylhet International University, with prior experience as an Adjunct Faculty at Habiganj Agricultural University and Faridpur Engineering College. along with this, i worked at research assistant at  Sylhet Engineering College, contributing to academic and technical projects. My background combines hands-on teaching with practical involvement in academic research and institutional development.
     `,
 
