@@ -668,7 +668,15 @@ export const configRuhulScholarship = {
         url: "https://www.siu.edu.bd/",
         cardDetailedText: [
           "Courses Taken",
-          " Machine Learning, Algorithms, Discrete Mathematics, Data Structure, Object Oriented Programming Language.",
+          "Machine Learning.",
+          "Machine Learning Lab.",
+          "Algorithms.",
+          "Algorithms Lab.",
+          "Discrete Mathematics.",
+          "Data Structure.",
+          "Data Structure Lab.",
+          "Object Oriented Programming Language.",
+          "Object Oriented Programming Language Lab.",
         ],
       },
 
@@ -679,8 +687,8 @@ export const configRuhulScholarship = {
         url: "#",
         cardDetailedText: [
           "Courses Taken:",
-          "CAF-111: Computer Applications in Fisheries",
-          "CAF-112: Computer Applications in Fisheries Lab",
+          "Computer Applications in Fisheries",
+          "Computer Applications in Fisheries Lab",
         ],
       },
 
@@ -700,8 +708,8 @@ export const configRuhulScholarship = {
         url: "#",
         cardDetailedText: [
           "Courses Taken:",
-          "CSE-2101: Object Oriented Programming",
-          "CSE-3112: Software Engineering Lab",
+          "Object Oriented Programming",
+          "Software Engineering Lab",
         ],
       },
 
