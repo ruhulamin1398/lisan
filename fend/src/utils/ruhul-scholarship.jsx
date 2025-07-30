@@ -253,12 +253,7 @@ export const configRuhulScholarship = {
       color: "#2952E3",
       text: "linkedin.com/in/theruhulamin",
     },
-    github: {
-      link: "https://github.com/ruhulamin99",
-      title: "GitHub",
-      Icon: RiGithubFill,
-      color: "#222",
-    },
+   
     googleScholar: {
       link: "https://scholar.google.com/citations?user=pW39RGYAAAAJ&hl",
       title: "Google Scholar",
@@ -273,18 +268,7 @@ export const configRuhulScholarship = {
       Icon: FaResearchgate,
       color: "#EA4335",
     },
-    // facebook: {
-    //   link: "https://facebook.com/ruhulamin.official",
-    //   title: "Facebook",
-    //   Icon: RiFacebookFill,
-    //   color: "#1877F3",
-    // },
-    // twitter: {
-    //   link: "https://twitter.com/ruhulamin99",
-    //   title: "Twitter",
-    //   Icon: RiTwitterXFill,
-    //   color: "#2952E3",
-    // },
+ 
     email: {
       link: "mailto:ruhulamin010398@gmail.com",
       title: "Email",
