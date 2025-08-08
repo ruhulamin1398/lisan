@@ -11,6 +11,9 @@ if (environment === "ruhul-dev") {
   config = configRuhulScholarship;
 } else if (environment === "ruhul-blockchain") {
   config = configRuhulDevBlockchain;
+} else {
+  // Default fallback to ruhul-dev config if environment is not set or doesn't match
+  config = configRuhulDev;
 }
 
 export { config };

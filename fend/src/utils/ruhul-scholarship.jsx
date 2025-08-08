@@ -55,6 +55,13 @@ export const configRuhulScholarship = {
   },
   researchPage: {
     title: "Publications",
+    interest: [
+      "Blockchain Technology",
+      "Artificial Intelligence",
+      "Data Science",
+      "Web Development",
+      "Cloud Computing",
+    ],
     description:
       "I've published papers on transparent and collaborative hiring systems, a reputation-based interoperable drug supply system, and various topics including crime report management, online classroom, drop-shipping systems.",
     reviewing: [

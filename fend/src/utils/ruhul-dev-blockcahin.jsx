@@ -20,6 +20,7 @@ import Drive from "../../images/project/drive.png";
 import abasasImg from "../../images/abasas.png";
 import aakImg from "../../images/aak.png";
 import bcImg from "../../images/bc.png";
+import basementsportsImg from "../../images/basementspor.png";
 
 import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
 import { MdOutlineDeveloperBoard } from "react-icons/md";
@@ -376,7 +377,7 @@ export const configRuhulDevBlockchain = {
         {
           title: "IT Consulting",
           subtitle:
-            "Get expert guidance on IT infrastructure, security, and scalability tailored to enhance your business’s digital transformation.",
+            "Get expert guidance on IT infrastructure, security, and scalability tailored to enhance your business digital transformation.",
           color: "#8945F8",
         },
         {
@@ -654,6 +655,25 @@ export const configRuhulDevBlockchain = {
           type: "IMAGE",
           source: {
             url: bcImg,
+          },
+        },
+      },
+      {
+        title: "Oct 2024 - June 2025",
+        cardTitle: "Blockchain Developer (Remote)",
+        cardSubtitle: "BASEMENT SPORTS",
+        url: "#",
+        cardDetailedText: [
+          "Enhanced Solana token trading volume to $200K through the design and deployment of an automated Volume Bot, improving market liquidity. Led NFT adoption campaigns on the Polygon blockchain, attracting 50K+ new users and driving platform engagement.",
+          "Engineered Stripe and In-App Purchase (IAP) payment integration for mobile platforms, enabling seamless minting of 64K NFTs. Developed, tested, and deployed Solana and Polygon smart contracts for NFT minting, sales, and on-chain utilities.",
+          "Built and maintained a full-stack DApp using Next.js, with secure wallet integration, responsive UI, and optimized blockchain interactions. Collaborated with cross-functional teams to design scalable blockchain architectures and ensure smooth deployment cycles.",
+          "skills: Solana, Polygon, Solidity, Rust (Solana programs), Next.js, Stripe Integration, IAP, Smart Contract Deployment, NFT Development, Web3.js, Ethers.js, Wallet Integration, Blockchain Architecture",
+        ],
+
+        media: {
+          type: "IMAGE",
+          source: {
+            url: basementsportsImg,
           },
         },
       },

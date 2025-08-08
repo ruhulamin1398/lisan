@@ -38,6 +38,7 @@ import {
 import { TbCurrencySolana } from "react-icons/tb";
 import { SiSolidity, SiTailwindcss, SiMysql, SiMongodb } from "react-icons/si";
 
+import basementsportsImg from "../../images/basementspor.png";
 import { SiIpfs } from "react-icons/si";
 
 import fabricLogo from "../../images/hlf2.png";
@@ -476,6 +477,25 @@ export const configRuhulDev = {
           type: "IMAGE",
           source: {
             url: bcImg,
+          },
+        },
+      },
+      {
+        title: "Oct 2024 - June 2025",
+        cardTitle: "Blockchain Developer (Remote)",
+        cardSubtitle: "BASEMENT SPORTS",
+        url: "#",
+        cardDetailedText: [
+          "Enhanced Solana token trading volume to $200K through the design and deployment of an automated Volume Bot, improving market liquidity. Led NFT adoption campaigns on the Polygon blockchain, attracting 50K+ new users and driving platform engagement.",
+          "Engineered Stripe and In-App Purchase (IAP) payment integration for mobile platforms, enabling seamless minting of 64K NFTs. Developed, tested, and deployed Solana and Polygon smart contracts for NFT minting, sales, and on-chain utilities.",
+          "Built and maintained a full-stack DApp using Next.js, with secure wallet integration, responsive UI, and optimized blockchain interactions. Collaborated with cross-functional teams to design scalable blockchain architectures and ensure smooth deployment cycles.",
+          "skills: Solana, Polygon, Solidity, Rust (Solana programs), Next.js, Stripe Integration, IAP, Smart Contract Deployment, NFT Development, Web3.js, Ethers.js, Wallet Integration, Blockchain Architecture",
+        ],
+
+        media: {
+          type: "IMAGE",
+          source: {
+            url: basementsportsImg,
           },
         },
       },
