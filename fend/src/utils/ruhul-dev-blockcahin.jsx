@@ -303,7 +303,8 @@ export const configRuhulDevBlockchain = {
   },
   heroContent: {
     name: "RUHUL AMIN",
-    tagLine: "",
+    tagLine:
+      "CSE Graduated from Shahjalal University of Science and Technology",
     overViewList: [
       {
         title: "Dapp Developer",
