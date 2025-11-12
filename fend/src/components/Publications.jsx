@@ -34,6 +34,10 @@ const Paper = ({ title, description, authors, link, isAward, color }) => (
         dangerouslySetInnerHTML={{ __html: authors }}
       />
       <p className="mt-1 text-white text-sm w-full md:w-11/12">{description}</p>
+      
+      {
+        !link.hideLinsks && (
+     
       <div className="flex flex-auto flex-row-reverse gap-4">
         <a href={link["IEEE"]} target="_blank">
           <FaResearchgate fontSize={21} className="text-white" />
@@ -46,6 +50,7 @@ const Paper = ({ title, description, authors, link, isAward, color }) => (
           <SiGooglescholar fontSize={21} className="text-white" />
         </a>
       </div>
+      )}
     </div>
   </div>
 );

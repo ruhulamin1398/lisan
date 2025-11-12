@@ -79,8 +79,7 @@ const Services = () => {
           </div>
         </div>
       </div> */}
-
-      <Logos />
+{config.settings.logos && <Logos />}
     </>
   );
 };

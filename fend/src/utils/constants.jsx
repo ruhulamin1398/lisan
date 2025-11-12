@@ -1,6 +1,7 @@
 import { configRuhulDev } from "./ruhul-dev";
 import { configRuhulDevBlockchain } from "./ruhul-dev-blockcahin";
 import { configRuhulScholarship } from "./ruhul-scholarship";
+import { configLisan } from "./lisan";
 
 let config;
 const environment = import.meta.env.VITE_ENV;
@@ -10,10 +11,10 @@ if (environment === "ruhul-dev") {
 } else if (environment === "ruhul-scholarship") {
   config = configRuhulScholarship;
 } else if (environment === "ruhul-blockchain") {
-  config = configRuhulDevBlockchain;
-} else {
+  config = configRuhulDevBlockchain;} 
+  else {
   // Default fallback to ruhul-dev config if environment is not set or doesn't match
-  config = configRuhulDev;
+  config = configLisan;
 }
 
 export { config };
