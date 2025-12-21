@@ -4,6 +4,7 @@ import { PulseLoader } from "react-spinners"; // Import the spinner component
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { config } from "./utils/constants";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -26,6 +27,10 @@ const App = () => {
       setLoading(false);
     };
   }, [location]);
+
+  useEffect(() => {
+    document.title = config.title;
+  }, []);
 
   return (
     <div className="min-h-screen   font-glacial">

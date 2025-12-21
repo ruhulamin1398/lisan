@@ -54,7 +54,8 @@ export const configRuhulDev = {
     experience: true,
     researchArea: true,
   },
-
+  title: "Ruhul Amin - Full Stack Developer & Researcher",
+  name: "Ruhul Amin",
   socialLinks: {
     linkedin: {
       link: "https://www.linkedin.com/in/theruhulamin/",

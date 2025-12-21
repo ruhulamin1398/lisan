@@ -44,6 +44,7 @@ import { SiIpfs } from "react-icons/si";
 
 import fabricLogo from "../../images/hlf2.png";
 import metamaskLogo from "../../images/metamask.png";
+import logo from "../../images/logo.png";
 
 export const configLisan = {
   settings: {
@@ -55,6 +56,9 @@ export const configLisan = {
     experience: false,
     researchArea: true,
   },
+  title: "Lisan Rahman - Researcher & MSc in disaster risk reduction in BUET jidpus",
+  name: "Lisan Rahman",
+  logo: logo,
   researchPage: {
     title: "Publications",
     interest: [
@@ -144,8 +148,8 @@ export const configLisan = {
         description:
           "Journal of Building Pathology and Rehabilitation (Springer), (2026). https://doi.org/10.1007/s41024-025-00704-7",
         authors:
-          "Faisal Farooq, Tonmoy Roy , Msheer Hasan Ali, M. A. Rob Ridoy, Abul Kashem, <b>Lesanoor Rahman</b> & Anjon Das ",        
-          link: {
+          "Faisal Farooq, Tonmoy Roy , Msheer Hasan Ali, M. A. Rob Ridoy, Abul Kashem, <b>Lesanoor Rahman</b> & Anjon Das ",
+        link: {
           IEEE: "https://link.springer.com/article/10.1007/s41024-025-00704-7",
           Scholar: "#",
           ResearchGate: "#",
@@ -153,13 +157,13 @@ export const configLisan = {
         },
         isAward: false,
       },
-   
-     
-   
-     
-   
-       
-  
+
+
+
+
+
+
+
     ],
   },
 
@@ -171,7 +175,7 @@ export const configLisan = {
       color: "#2952E3",
       text: "linkedin.com/in/lesanoorrahman",
     },
-   
+
     // googleScholar: {
     //   link: "https://scholar.google.com/citations?user=pW39RGYAAAAJ&hl",
     //   title: "Google Scholar",
@@ -186,7 +190,7 @@ export const configLisan = {
     //   Icon: FaResearchgate,
     //   color: "#EA4335",
     // },
- 
+
     email: {
       link: "mailto:lesanoorrahman@gmail.com",
       title: "Email",
@@ -219,7 +223,7 @@ export const configLisan = {
     },
   },
   heroContent: {
-    img:<img src={lisanImg} alt="logo" className=" cursor-pointer   w-100 " />,
+    img: <img src={lisanImg} alt="logo" className=" cursor-pointer   w-100 " />,
     name: "Lisan Rahman",
     tagLine:
       "MSc in disaster risk reduction in BUET jidpus.",
@@ -230,18 +234,18 @@ export const configLisan = {
         icon: <GiArchiveResearch fontSize={21} className="text-white" />,
         color: "bg-[#F84550]",
       },
-      
+
       {
         title: "Research Interest",
         description:
-        "natural hazards, non destructive test and evaluation, <br/> milti hazard evaluation, earthquake",
+          "natural hazards, non destructive test and evaluation, <br/> milti hazard evaluation, earthquake",
         icon: <MdOutlineDeveloperBoard fontSize={21} className="text-white" />,
         color: "bg-[#8945F8]",
       },
       {
         title: "Teaching",
         description:
-        "3+ years experienced in online teaching",
+          "3+ years experienced in online teaching",
         color: "bg-[#2952E3]",
         icon: <GiTeacher fontSize={21} className="text-white" />,
       },
@@ -570,11 +574,11 @@ export const configLisan = {
         cardSubtitle: "Layman Architecture & Engineering Consultancy, Sylhet",
         url: "#",
         cardDetailedText: [
-         "Managed construction and interior projects with focus on quality assurance and timely completion."
+          "Managed construction and interior projects with focus on quality assurance and timely completion."
         ],
       },
 
- 
+
     ],
   },
 };

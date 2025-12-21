@@ -52,6 +52,8 @@ export const configRuhulDevBlockchain = {
     experience: true,
     researchArea: true,
   },
+  title: "Ruhul Amin - Full Stack Blockchain Developer & Researcher",
+  name: "Ruhul Amin",
   researchPage: {
     title: "Publications",
     description:

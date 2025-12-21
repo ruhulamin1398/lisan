@@ -52,13 +52,18 @@ const Navbar = () => {
     <>
       <nav className="w-full flex md:justify-center justify-between items-center p-4  white-glassmorphism border-radius-none  ">
         <div className="md:flex-[0.5] flex-initial justify-center items-center">
+
           <NavLink to="/">
-            <img
-              src={logo}
-              alt="logo"
-              className=" cursor-pointer"
-              width="250px"
-            />
+            {(config.name === "Lisan Rahman") ?
+              <div className="text-white  font-bold font-md-[100px] text-xl  md:text-3xl">Lisan Rahman</div>
+              :
+              <img
+                src={config.logo ? config.logo : logo}
+                alt="logo"
+                className="cursor-pointer"
+                width="250px"
+              />
+            }
           </NavLink>
         </div>
 
@@ -121,6 +126,25 @@ const Navbar = () => {
       {toggleMenu &&
         (modalRoot
           ? ReactDOM.createPortal(
+            <div className="fixed top-0 right-0 h-screen w-[70vw] z-[9999] gradient-bg-nav">
+              <ul className="p-3 h-screen shadow-2xl md:hidden list-none flex flex-col justify-start items-end rounded-md text-white animate-slide-in white-glassmorphism">
+                <li className="text-xl w-full my-2">
+                  <AiOutlineClose onClick={() => setToggleMenu(false)} />
+                </li>
+                {menuArray.map(([key, value], index) => (
+                  <NavBarItem
+                    key={key + index}
+                    title={key}
+                    menuLink={value}
+                  />
+                ))}
+              </ul>
+            </div>,
+            modalRoot
+          )
+          : (() => {
+            console.warn("modal-root not found, rendering nav inline.");
+            return (
               <div className="fixed top-0 right-0 h-screen w-[70vw] z-[9999] gradient-bg-nav">
                 <ul className="p-3 h-screen shadow-2xl md:hidden list-none flex flex-col justify-start items-end rounded-md text-white animate-slide-in white-glassmorphism">
                   <li className="text-xl w-full my-2">
@@ -134,28 +158,9 @@ const Navbar = () => {
                     />
                   ))}
                 </ul>
-              </div>,
-              modalRoot
-            )
-          : (() => {
-              console.warn("modal-root not found, rendering nav inline.");
-              return (
-                <div className="fixed top-0 right-0 h-screen w-[70vw] z-[9999] gradient-bg-nav">
-                  <ul className="p-3 h-screen shadow-2xl md:hidden list-none flex flex-col justify-start items-end rounded-md text-white animate-slide-in white-glassmorphism">
-                    <li className="text-xl w-full my-2">
-                      <AiOutlineClose onClick={() => setToggleMenu(false)} />
-                    </li>
-                    {menuArray.map(([key, value], index) => (
-                      <NavBarItem
-                        key={key + index}
-                        title={key}
-                        menuLink={value}
-                      />
-                    ))}
-                  </ul>
-                </div>
-              );
-            })())}
+              </div>
+            );
+          })())}
     </>
   );
 };

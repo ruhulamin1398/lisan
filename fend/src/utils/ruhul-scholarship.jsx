@@ -53,6 +53,8 @@ export const configRuhulScholarship = {
     experience: true,
     researchArea: true,
   },
+  title: "Ruhul Amin - Researcher & Scholar",
+  name: "Ruhul Amin",
   researchPage: {
     title: "Publications",
     interest: [
@@ -260,7 +262,7 @@ export const configRuhulScholarship = {
       color: "#2952E3",
       text: "linkedin.com/in/theruhulamin",
     },
-   
+
     googleScholar: {
       link: "https://scholar.google.com/citations?user=pW39RGYAAAAJ&hl",
       title: "Google Scholar",
@@ -275,7 +277,7 @@ export const configRuhulScholarship = {
       Icon: FaResearchgate,
       color: "#EA4335",
     },
- 
+
     email: {
       link: "mailto:ruhulamin010398@gmail.com",
       title: "Email",
