@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { DocumentTextIcon, TagIcon, ChartBarIcon } from '@heroicons/react/24/outline'
+import { DocumentTextIcon, TagIcon, ChartBarIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 import { useState, useEffect } from 'react'
 
 interface Stat {
@@ -16,6 +16,7 @@ export default function Home() {
         { name: 'Total Posts', value: '0', icon: DocumentTextIcon, href: '/posts/list' },
         { name: 'Categories', value: '0', icon: TagIcon, href: '/categories/list' },
         { name: 'Published Posts', value: '0', icon: ChartBarIcon, href: '/posts/list' },
+        { name: 'Contact Messages', value: '0', icon: EnvelopeIcon, href: '/contact-messages/list' },
     ])
     const [loading, setLoading] = useState(true)
     const [recentPosts, setRecentPosts] = useState<any[]>([])
@@ -36,6 +37,10 @@ export default function Home() {
             const categoriesRes = await fetch('/api/categories')
             const categories = categoriesRes.ok ? await categoriesRes.json() : []
 
+            // Fetch contact messages
+            const messagesRes = await fetch('/api/contact-messages')
+            const messages = messagesRes.ok ? await messagesRes.json() : []
+
             // Calculate published posts
             const publishedPosts = posts.filter((post: any) => post.published).length
 
@@ -43,6 +48,7 @@ export default function Home() {
                 { name: 'Total Posts', value: posts.length.toString(), icon: DocumentTextIcon, href: '/posts/list' },
                 { name: 'Categories', value: categories.length.toString(), icon: TagIcon, href: '/categories/list' },
                 { name: 'Published Posts', value: publishedPosts.toString(), icon: ChartBarIcon, href: '/posts/list' },
+                { name: 'Contact Messages', value: messages.length.toString(), icon: EnvelopeIcon, href: '/contact-messages/list' },
             ])
         } catch (error) {
             console.error('Failed to fetch stats:', error)
@@ -71,7 +77,7 @@ export default function Home() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
 
-                <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                     {stats.map((stat) => (
                         <Link
                             key={stat.name}
@@ -129,8 +135,8 @@ export default function Home() {
                                                     </div>
                                                     <div className="flex items-center space-x-2 ml-4">
                                                         <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${post.published
-                                                                ? 'bg-green-100 text-green-800'
-                                                                : 'bg-yellow-100 text-yellow-800'
+                                                            ? 'bg-green-100 text-green-800'
+                                                            : 'bg-yellow-100 text-yellow-800'
                                                             }`}>
                                                             {post.published ? 'Published' : 'Draft'}
                                                         </span>

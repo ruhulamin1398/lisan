@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { HomeIcon, DocumentTextIcon, TagIcon, Bars3Icon, UserIcon, ArrowRightOnRectangleIcon, CogIcon } from '@heroicons/react/24/outline'
+import { HomeIcon, DocumentTextIcon, TagIcon, Bars3Icon, UserIcon, ArrowRightOnRectangleIcon, CogIcon, WrenchScrewdriverIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 
@@ -10,6 +10,8 @@ const navigation = [
     { name: 'Dashboard', href: '/', icon: HomeIcon },
     { name: 'Posts', href: '/posts/list', icon: DocumentTextIcon },
     { name: 'Categories', href: '/categories/list', icon: TagIcon },
+    { name: 'Service Types', href: '/service-types/list', icon: WrenchScrewdriverIcon },
+    { name: 'Contact Messages', href: '/contact-messages/list', icon: EnvelopeIcon },
 ]
 
 export default function Sidebar() {
