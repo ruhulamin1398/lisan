@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Loader } from ".";
 import { MdEmail, MdOutlineDeveloperBoard } from "react-icons/md";
 import { RiLinkedinFill, RiWhatsappFill } from "react-icons/ri";
@@ -78,12 +78,30 @@ const ContactCard = ({ color, title, icon, subtitle, className, link }) => (
 const Contact = () => {
   const { formData, handleChange, handleSubmit, isLoaing } =
     useContext(TransactionContext);
-
-  const options = [
+  const [options, setOptions] = useState([
     { value: "", label: "Select service" },
-    { label: "Blockchain Services", value: "blockchain" },
-    { label: "Web Development Services", value: "web" },
-  ];
+  ]);
+
+  useEffect(() => {
+    async function loadServiceTypes() {
+      try {
+        const res = await fetch("/api/public/service-types");
+        if (!res.ok) return;
+        const serviceTypes = await res.json();
+        setOptions([
+          { value: "", label: "Select service" },
+          ...serviceTypes.map((type) => ({
+            value: type._id,
+            label: type.name,
+          })),
+        ]);
+      } catch (error) {
+        console.error("Failed to fetch service types", error);
+      }
+    }
+
+    loadServiceTypes();
+  }, []);
 
   return (
     <div className="flex w-full justify-center items-center">

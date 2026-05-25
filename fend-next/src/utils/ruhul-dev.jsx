@@ -52,7 +52,7 @@ import metamaskLogo from "../../images/metamask.png";
 export const configRuhulDev = {
   settings: {
     logos: false,
-    services: false,
+    services: true,
     projects: true,
     research: false,
     reviewing: false,
@@ -121,12 +121,19 @@ export const configRuhulDev = {
   },
   heroContent: {
     name: "RUHUL AMIN",
-    tagLine: "Working as Blockchain Developer AAk Tele-Science Inc.",
+    tagLine: "Working as Full-stack and Blockchain Developer.",
     overViewList: [
+      {
+        title: "Full-stack Developer",
+        description:
+          "6+ years Experience in Web Development.  <br/> Expertise in Express.js, Next.js, Cloud Computing.",
+        icon: <MdOutlineDeveloperBoard fontSize={21} className="text-white" />,
+        color: "bg-[#8945F8]",
+      },
       {
         title: "Blockchain Developer",
         description:
-          "5+ years Experience in Web Development. <br/> 2+ year experience in Full-stack Blockchain development",
+          "3+ year experience in Full-stack Blockchain development <br/> Expertise in Smart Contract development and Integration.",
         icon: <MdOutlineDeveloperBoard fontSize={21} className="text-white" />,
         color: "bg-[#8945F8]",
       },
@@ -137,15 +144,33 @@ export const configRuhulDev = {
         icon: <GiArchiveResearch fontSize={21} className="text-white" />,
         color: "bg-[#2952E3]",
       },
-      {
-        title: "Teacher",
-        description: "1+ year Experience in University teaching.",
-        icon: <GiTeacher fontSize={21} className="text-white" />,
-        color: "bg-[#F84550]",
-      },
     ],
   },
   servicesPage: [
+    {
+      title: "Web Development Services",
+      des: "I provide comprehensive web development services, including full-stack development with React and Node.js, custom WordPress sites, and scalable Shopify stores. Additionally, I offer API development and IT consulting to ensure seamless integration, performance optimization, and security across your digital infrastructure, helping you achieve your business goals efficiently.",
+      list: [
+        {
+          title: "IT Consulting",
+          subtitle:
+            "Get expert guidance on IT infrastructure, security, and scalability tailored to enhance your business’s digital transformation.",
+          color: "#8945F8",
+        },
+        {
+          title: "Full Stack Development.",
+          subtitle:
+            "Deliver end-to-end full-stack development services using modern technologies like React, Node.js, and MongoDB for powerful web applications..",
+          color: "#8945F8",
+        },
+        {
+          title: "Web API",
+          subtitle:
+            "Develop robust and scalable APIs for seamless integration, data management, and communication across your applications.",
+          color: "#2952E3",
+        },
+      ],
+    },
     {
       title: "Blockchain Services",
       des: " I offer a comprehensive range of blockchain solutions tailored to meet your business needs. From smart contract development and auditing on Ethereum or Binance Smart Chain, to private blockchain applications using Hyperledger and R3 Corda. I also specialize in DApp development, DeFi platforms, NFT marketplace creation, and blockchain consulting for enterprise-grade implementations.",
@@ -185,42 +210,6 @@ export const configRuhulDev = {
           subtitle:
             "Create DeFi platforms with Uniswap-like AMMs, yield farming, and staking on Ethereum, Binance Smart Chain, or Solana for seamless financial services.",
           color: "#F84550",
-        },
-      ],
-    },
-    {
-      title: "Web Development Services",
-      des: "I provide comprehensive web development services, including full-stack development with React and Node.js, custom WordPress sites, and scalable Shopify stores. Additionally, I offer API development and IT consulting to ensure seamless integration, performance optimization, and security across your digital infrastructure, helping you achieve your business goals efficiently.",
-      list: [
-        {
-          title: "IT Consulting",
-          subtitle:
-            "Get expert guidance on IT infrastructure, security, and scalability tailored to enhance your business’s digital transformation.",
-          color: "#8945F8",
-        },
-        {
-          title: "Full Stack Development.",
-          subtitle:
-            "Deliver end-to-end full-stack development services using modern technologies like React, Node.js, and MongoDB for powerful web applications..",
-          color: "#8945F8",
-        },
-        {
-          title: "Web API",
-          subtitle:
-            "Develop robust and scalable APIs for seamless integration, data management, and communication across your applications.",
-          color: "#2952E3",
-        },
-        {
-          title: "WordPress Website",
-          subtitle:
-            "Create custom WordPress websites tailored to your brand, with optimized performance, SEO, and a user-friendly interface.",
-          color: "#F84550",
-        },
-        {
-          title: "Shopify Store",
-          subtitle:
-            "Launch and scale your Shopify store with custom themes, integrations, and optimizations to enhance the customer shopping experience.",
-          color: "#2952E3",
         },
       ],
     },
@@ -383,15 +372,7 @@ export const configRuhulDev = {
   ],
   projectPage: {
     title: "Feature Projects",
-    description: `Explore a selection of my standout projects as a Full Stack
-              Blockchain Developer and Researcher. With expertise in DApps,
-              DeFi, NFTs, and private blockchain solutions, I have built secure
-              systems, smart contracts, and full-stack applications using
-              technologies like Ethereum, Hyperledger Fabric, Node.js, and
-              Next.js. These projects reflect my commitment to creating
-              innovative, scalable solutions in blockchain and web development.
-              Dive in to discover how I leverage technology to address
-              real-world challenges.`,
+    description: ` Here are some of my featured projects that showcase my expertise in full-stack and blockchain development. Each project highlights my ability to deliver innovative solutions, from decentralized applications to scalable web platforms, demonstrating my commitment to excellence and cutting-edge technology.`,
 
     projects: [
       {
@@ -483,7 +464,7 @@ export const configRuhulDev = {
           "Next.js ,  GraphQL ,  MongoDB,  Redux,  Material UI,  Node.js,  JWT Auth",
       },
       {
-        id: 2,
+        id: 5,
         title: "Lottaverse: A New Era of Blockchain Lottery.",
         description:
           "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
@@ -493,7 +474,7 @@ export const configRuhulDev = {
           "Polygon, Chainlink, Solidity, NextJs, Ethers, Wagmi, Infura, Foundry, MetaMask",
       },
       {
-        id: 3,
+        id: 6,
         title: "Billy The Blue Whale NFT Collection.",
         description:
           "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
@@ -503,7 +484,7 @@ export const configRuhulDev = {
           "Blockchain, NFT, Solana, Next.js, Magic Eden, Smart Contract, Web3.js, MetaMask",
       },
       {
-        id: 4,
+        id: 7,
         title:
           "SecureDoc: AI-Powered Blockchain-Based Certificate Authentication",
         description:
@@ -513,39 +494,38 @@ export const configRuhulDev = {
         tools:
           "AI, Ethereum, Smart Contract, ReactJs, Ethers, HardHat, Alchemy MetaMssk",
       },
-      {
-        id: 5,
-        title: "Blockchain Drive: Securing Data on the Ethereum & IPFS",
-        description:
-          "Blockchain Drive is a data security solution on Ethereum and IPFS, enabling file uploads via IPFS (Pinata) with Ethereum-backed storage links. It integrates with MetaMask for seamless access, allowing users to share or revoke file access through secure blockchain-based controls.",
-        image: Drive,
-        link: "http://blockchain-drive.ruhul.info/",
-        tools:
-          "Ethereum, Smart Contract, ReactJs, Ethers, Tailwind CSS, MetaMask",
-      },
+      // {
+      //   id: 5,
+      //   title: "Blockchain Drive: Securing Data on the Ethereum & IPFS",
+      //   description:
+      //     "Blockchain Drive is a data security solution on Ethereum and IPFS, enabling file uploads via IPFS (Pinata) with Ethereum-backed storage links. It integrates with MetaMask for seamless access, allowing users to share or revoke file access through secure blockchain-based controls.",
+      //   image: Drive,
+      //   link: "http://blockchain-drive.ruhul.info/",
+      //   tools:
+      //     "Ethereum, Smart Contract, ReactJs, Ethers, Tailwind CSS, MetaMask",
+      // },
     ],
   },
   jobPage: {
     title: "Development Experience",
-    description: `I’m a Full Stack Blockchain Developer and Researcher with 5+ years
-            of experience in web development and 2+ years of experience in
-            blockchain development. I have developed blockchain projects, smart
-            contract libraries, and published over 10 research papers on various
-            blockchain topics. My expertise includes writing smart contracts for
-            public blockchains like Ethereum and private blockchains like
-            Hyperledger Fabric, as well as developing full stack blockchain
-            applications using Node.js and React.js.  <br />
+    description: `I’m a Full Stack Developer with 6+ years of web development
+            experience and 3+ years of blockchain engineering. I build end-to-end
+            web applications with modern frontends, APIs, and backend services,
+            while also designing secure smart contracts and Web3 integrations.
+            My work spans public and private blockchains like Ethereum and
+            Hyperledger Fabric, as well as full-stack projects using Node.js and
+            React.js.  <br />
             <br />
-            - Smart Contract Development – Secure & gas-optimized Solidity
-            contracts
+            - Full Stack Web Development – APIs, frontend interfaces, and cloud
+            deployments
             <br />
-            - DApp Development – Seamless Web3 integration with Ethers.js &
-            Hardhat
+            - Blockchain & Smart Contracts – Secure Solidity contracts and DApp
+            architecture
             <br />
-            - DeFi & NFTs – Yield farming, staking, tokenomics, and NFT
-            platforms
-            <br />- Security & Auditing – Writing robust, bug-free contracts
-            with best practices`,
+            - Web3 Integration – Wallet, Ethers.js, and blockchain-based UX
+            workflows
+            <br />- Product Delivery – Scalable solutions that combine web and
+            blockchain technology`,
 
     jobList: [
       {

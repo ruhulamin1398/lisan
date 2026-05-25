@@ -1,5 +1,6 @@
 import dbConnect from '@/lib/mongodb'
 import ContactMessage from '@/models/ContactMessage'
+import ServiceType from '@/models/ServiceType'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET() {
@@ -27,11 +28,20 @@ export async function POST(request: NextRequest) {
             )
         }
 
+        let resolvedServiceType = serviceType
+
+        if (typeof serviceType === 'string' && !/^[0-9a-fA-F]{24}$/.test(serviceType)) {
+            const serviceTypeDoc = await ServiceType.findOne({ name: new RegExp(`^${serviceType}$`, 'i') })
+            if (serviceTypeDoc) {
+                resolvedServiceType = serviceTypeDoc._id
+            }
+        }
+
         const contactMessage = new ContactMessage({
             name,
             email,
             phone,
-            serviceType,
+            serviceType: resolvedServiceType,
             message
         })
 
