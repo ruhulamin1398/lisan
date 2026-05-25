@@ -1,0 +1,25 @@
+import type { Metadata } from "next";
+import Sidebar from "@/components/Sidebar";
+import { AuthProvider } from "@/contexts/AuthContext";
+
+export const metadata: Metadata = {
+  title: "Blog Admin",
+  description: "Admin panel for blog",
+};
+
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="h-screen bg-gray-50">
+      <AuthProvider>
+        <Sidebar />
+        <div className="lg:ml-64">
+          <main className="flex-1">{children}</main>
+        </div>
+      </AuthProvider>
+    </div>
+  );
+}

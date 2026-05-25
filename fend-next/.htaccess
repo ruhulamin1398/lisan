@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+
+# If the requested URL doesn't point to an actual file or directory, send it to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
