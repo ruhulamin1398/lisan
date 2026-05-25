@@ -21,6 +21,7 @@ import abasasImg from "../../images/abasas.png";
 import aakImg from "../../images/aak.png";
 import bcImg from "../../images/bc.png";
 import freelanceImg from "../../images/freelance.png";
+import harborviewImg from "../../images/harborview.png";
 
 import Beejoyi from "../../images/project/beejoyi.png";
 import NexUsd from "../../images/project/nex-usd.png";
@@ -579,7 +580,7 @@ export const configRuhulDev = {
         media: {
           type: "IMAGE",
           source: {
-            url: basementsportsImg,
+            url: harborviewImg,
           },
         },
       },

@@ -22,11 +22,19 @@ export const TransactionsProvider = ({ children }) => {
     setIsLoading(true);
     console.log("Submit data is:", formData);
 
+    const payload = {
+      ...formData,
+      serviceType: formData.serviceType || formData.type || "",
+    };
+
     try {
-      const res = await axios.post(`${API_URL}/contact/new`, formData);
+      const endpoint = API_URL
+        ? `${API_URL}/contact-messages`
+        : "/api/contact-messages";
+      const res = await axios.post(endpoint, payload);
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      if (res.status === 200) {
+      if (res.status === 200 || res.status === 201) {
         // ✅ Ensure the request is successful
         toast.success("Successfully Saved!", {
           position: "top-right",

@@ -139,9 +139,10 @@ const Contact = () => {
             />
             <Select
               options={options}
-              name="dropdown"
+              name="serviceType"
+              value={formData.serviceType || ""}
               handleChange={(selectedOption) =>
-                handleChange(selectedOption, "type")
+                handleChange(selectedOption, "serviceType")
               }
             />
 
