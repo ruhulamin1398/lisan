@@ -20,8 +20,12 @@ import Drive from "../../images/project/drive.png";
 import abasasImg from "../../images/abasas.png";
 import aakImg from "../../images/aak.png";
 import bcImg from "../../images/bc.png";
+import freelanceImg from "../../images/freelance.png";
 
 import Beejoyi from "../../images/project/beejoyi.png";
+import NexUsd from "../../images/project/nex-usd.png";
+import PalmUsd from "../../images/project/palm.png";
+import Muslimbd from "../../images/project/muslimbd.png";
 import abi from "./Transactions.json";
 import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
 import { MdOutlineDeveloperBoard } from "react-icons/md";
@@ -391,11 +395,89 @@ export const configRuhulDev = {
     projects: [
       {
         id: 1,
+        title: "MuslimBD — Shariah-Based Digital Ecosystem for Muslims",
+        description: `MuslimBD provides a trusted, faith-driven platform with a live Muslim API today and more Islamic tools coming soon for prayer times, Quran, mosque discovery, dhikr tracking, and developer-first products that support a Shariah-based lifestyle.
+          <br/>
+          - Quran verse by verse in multiple languages audio <br/>
+          - Prayer times <br/>
+          - API rate limiting <br/> 
+          `,
+        image: Muslimbd,
+        link: "https://www.muslimbd.app/",
+        links: [
+          {
+            title: "API",
+            url: "https://api.muslimbd.app/",
+          },
+
+          {
+            title: "Documentation",
+            url: "https://api-documentation.muslimbd.app/",
+          },
+        ],
+        tools:
+          "Express.js, Next.js , GraphQL, MongoDB, Redis, Azure TTS, Docker, Clud computing",
+      },
+
+      {
+        id: 2,
+        title: "Palm USD - The Digital Dollar Built for the Globe",
+        description: ` The global digital dollar. Fully-reserved stablecoin infrastructure backed 1:1 by AED and SAR reserves held in Shariah-compliant instruments at regulated GCC custodians..
+          <br/>
+          - $2.8B  in circulation <br/>
+          - 1:1 mint & redeem against AED, SAR, USD <br/>
+          - Deployed on 4 Tesntnets <br/> 
+          `,
+        image: PalmUsd,
+        link: "https://www.palmusd.com/",
+        links: [
+          {
+            title: "Swap",
+            url: "https://getuntethered.xyz/",
+          },
+          {
+            title: "Trade",
+            url: "https://www.biconomy.com/exchange/PUSD_USDT",
+          },
+          {
+            title: "Documentation",
+            url: "https://www.palmusd.com/pages/developers.html",
+          },
+        ],
+        tools: "Solidity, Rust, Express.js, Next.js , GraphQL, MongoDB ",
+      },
+      {
+        id: 3,
+        title: "NexUSD - Next-Generation USD Stablecoin",
+        description: ` NEX-USD is a next-generation decentralized USD infrastructure deployed across 10 EVM-compatible test networks. The project focuses on multi-chain scalability, smart contract deployment, and seamless Web3 integration, enabling cross-chain testing, interoperability, and stable digital asset experimentation within a modern blockchain ecosystem.
+          <br/>
+          - Trading Bot <br/>
+          - Deployed on 10 Tesntnets <br/>
+          - Custom Wallet <br/> 
+          - Faucet <br/> 
+          `,
+        image: NexUsd,
+        link: "https://nex-usd.vercel.app",
+        links: [
+          {
+            title: "Wallet",
+            url: "https://wallet-nex-usd.vercel.app",
+          },
+          {
+            title: "Bot",
+            url: "https://self-transaction-nex-usd-bot.vercel.app",
+          },
+        ],
+        tools:
+          "Solidity, Express.js, Next.js ,  GraphQL ,  MongoDB, Redis, Docker, Cloud computing",
+      },
+      {
+        id: 4,
         title: "Beejoyi | Showcase Your Talent & Win Big!",
         description:
           " A full-featured Web2 application built with Material UI, Next.js, GraphQL, MongoDB, Redux, and more. The platform supports server-side rendering, real-time data updates, and a responsive UI. Features include authentication, user profiles, dashboards, and advanced search.",
         image: Beejoyi,
-        link: "https://app.beejoyi.io/",
+        link: "https://beejoyi.com/",
         tools:
           "Next.js ,  GraphQL ,  MongoDB,  Redux,  Material UI,  Node.js,  JWT Auth",
       },
@@ -466,30 +548,52 @@ export const configRuhulDev = {
 
     jobList: [
       {
-        title: "Jan 2024 - Current",
-        cardTitle: "Freelance Blockchain Developer",
+        title: "Jan 2022 - Current",
+        cardTitle: "Freelance Full-Stack & Blockchain Developer",
         // url: "http://www.history.com",
         cardDetailedText: [
+          "Experienced full-stack  developer building scalable Next.js frontends, Express APIs, GraphQL services, database integrations, and cloud-native deployments with optimized performance, security, modern developer workflows across teams and products securely globally.",
+
           "Focus on developing secure, gas-efficient Solidity smart contracts, integrating DApps seamlessly with Ethers.js and Hardhat, and building DeFi and NFT platforms, including yield farming and staking. I also ensure contract security through thorough auditing and adherence to best practices.",
-          "Skills : DeFi, DApp, Smart Contract, Smart Contract Security, Token, Nft, ChainLink, Express.js, Next.js, Foundry",
+
+          "Skills : Express.js, Next.js, GraphQl, DeFi, DApp, Smart Contract, Token, Nft, ChainLink, Foundry, Redis, MongoDB, GraphQL, Docker, Cloud computing",
         ],
 
         media: {
           type: "IMAGE",
           source: {
-            url: bcImg,
+            url: freelanceImg,
           },
         },
       },
       {
-        title: "Oct 2024 - June 2025",
+        title: "Sep 2025 - March 2026",
+        cardTitle: "Senior Blockchain Developer (Remote)",
+        cardSubtitle: "Harborview ",
+        url: "https://harborview.ae/",
+        cardDetailedText: [
+          "Built secure smart contracts for PALM USD across EVM, Tron, and Solana using Solidity and Rust with LayerZero cross-chain integration. Developed the backend in Express.js and frontend in Next.js, added a Python trading bot, authored documentation, created comprehensive Foundry test cases, and delivered production-ready blockchain application workflows with deployment support.",
+          "skills: Solidity, Rust, Express.js, Next.js , GraphQL, LayerZero. ",
+        ],
+
+        media: {
+          type: "IMAGE",
+          source: {
+            url: basementsportsImg,
+          },
+        },
+      },
+
+      {
+        title: "Oct 2024 - Aug 2025",
         cardTitle: "Blockchain Developer (Remote)",
         cardSubtitle: "BASEMENT SPORTS",
         url: "#",
         cardDetailedText: [
-          "Enhanced Solana token trading volume to $200K through the design and deployment of an automated Volume Bot, improving market liquidity. Led NFT adoption campaigns on the Polygon blockchain, attracting 50K+ new users and driving platform engagement.",
-          "Engineered Stripe and In-App Purchase (IAP) payment integration for mobile platforms, enabling seamless minting of 64K NFTs. Developed, tested, and deployed Solana and Polygon smart contracts for NFT minting, sales, and on-chain utilities.",
-          "Built and maintained a full-stack DApp using Next.js, with secure wallet integration, responsive UI, and optimized blockchain interactions. Collaborated with cross-functional teams to design scalable blockchain architectures and ensure smooth deployment cycles.",
+          "Improved liquidity with a Solana bot that boosted trading to $200K and expanded Polygon NFT adoption.",
+          "Built Stripe and IAP integrations for mobile minting of 64K NFTs, plus Solana and Polygon smart contract deployment.",
+          "Delivered a Next.js full-stack DApp with secure wallet integration, responsive UI, and scalable blockchain architecture.",
+
           "skills: Solana, Polygon, Solidity, Rust (Solana programs), Next.js, Stripe Integration, IAP, Smart Contract Deployment, NFT Development, Web3.js, Ethers.js, Wallet Integration, Blockchain Architecture",
         ],
 

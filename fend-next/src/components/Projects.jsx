@@ -1,18 +1,24 @@
 "use client";
 
-import React from "react";
-import ProjectSlider from "./ProjectSlider";
-
-import demo from "../../images/demo.png";
+import React, { useState } from "react";
 import { config } from "../utils/constants";
 import Hero from "./Hero";
 
+const getImageSrc = (image) => {
+  if (!image) return "";
+  if (typeof image === "string") return image;
+  return image?.src || image?.default || "";
+};
+
 const ProjectModal = ({ project, closeModal }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center  ">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ">
       <div className="bg-white p-8 rounded-lg max-w-lg w-full">
         <h2 className="text-2xl font-semibold">{project.title}</h2>
-        <p className="mt-2">{project.description}</p>
+        <p
+          className="mt-2"
+          dangerouslySetInnerHTML={{ __html: project.description }}
+        />
         <a href={project.link} className="text-blue-500 mt-4 inline-block">
           View Project
         </a>
@@ -28,10 +34,18 @@ const ProjectModal = ({ project, closeModal }) => {
 };
 
 const Projects = () => {
+  const [expandedProjectIds, setExpandedProjectIds] = useState({});
   const projectPage = config?.projectPage;
   const projects = Array.isArray(projectPage?.projects)
     ? projectPage.projects
     : [];
+
+  const toggleExpanded = (id) => {
+    setExpandedProjectIds((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   if (!projectPage || projects.length === 0) {
     return (
@@ -50,15 +64,77 @@ const Projects = () => {
     <>
       <div
         id="FeatureProject"
-        className="flex w-full justify-center items-center mt-5"
+        className="flex w-full justify-center items-center mt-10 px-4"
       >
-        <div className="flex flex-col items-center justify-between px-4">
+        <div className="w-full max-w-7xl">
           <Hero
             title={projectPage.title}
             description={projectPage.description}
           />
-          <div className="grid grid-cols-1 justify-start items-start gap-4 mb-[100px] w-full">
-            <ProjectSlider />
+          <div className="space-y-8 py-10">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="grid gap-6 overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 shadow-2xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl lg:grid-cols-[360px_minmax(0,1fr)]"
+              >
+                <div className="relative h-72 overflow-hidden bg-slate-900 lg:h-auto">
+                  <img
+                    src={getImageSrc(project.image)}
+                    alt={project.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                <div className="flex flex-col justify-between p-6">
+                  <div>
+                    <h2 className="mt-1 text-3xl font-semibold text-white">
+                      <span className="text-primary-color">
+                        {" "}
+                        #{project.id}
+                        {". "}
+                      </span>
+                      {project.title}
+                    </h2>
+                    <p
+                      className="mt-4 text-sm leading-7 text-slate-300"
+                      dangerouslySetInnerHTML={{ __html: project.description }}
+                    />
+                  </div>
+
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row text-right">
+                    <a
+                      href={project.link || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-full border border-primary-color   px-5 py-2 text-sm font-semibold text-primary-color transition  hover:text-slate-100"
+                    >
+                      Live Link
+                    </a>
+                    {project.links && project.links.length > 0 && (
+                      <>
+                        {project.links.map((link, index) => (
+                          <a
+                            key={index}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center rounded-full border border-primary-color  px-5 py-2 text-sm font-semibold text-primary-color transition     hover:text-slate-100 "
+                          >
+                            {link.title}
+                          </a>
+                        ))}
+                      </>
+                    )}
+                  </div>
+
+                  {project.tools ? (
+                    <p className="mt-6 text-xs uppercase tracking-[0.18em] text-slate-500">
+                      {project.tools}
+                    </p>
+                  ) : null}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
