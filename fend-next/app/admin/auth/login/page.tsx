@@ -89,7 +89,7 @@ export default function Login() {
         src="https://accounts.google.com/gsi/client"
         strategy="afterInteractive"
       />
-      <div className="  w-full space-y-8">
+      <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Sign in with Google
@@ -106,7 +106,7 @@ export default function Login() {
           </div>
         )}
 
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <div id="google-signin-button" />
           {loading && (
             <div className="mt-4 text-center text-sm text-gray-600">
