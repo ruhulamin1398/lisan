@@ -27,7 +27,7 @@ export default function Login() {
     const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
     if (!clientId) {
       setError(
-        'Google client ID is not configured. Please set NEXT_PUBLIC_GOOGLE_CLIENT_ID in your .env.'
+        "Google client ID is not configured. Please set NEXT_PUBLIC_GOOGLE_CLIENT_ID in your .env.",
       );
       return;
     }
@@ -89,7 +89,7 @@ export default function Login() {
         src="https://accounts.google.com/gsi/client"
         strategy="afterInteractive"
       />
-      <div className="max-w-md w-full space-y-8">
+      <div className="  w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Sign in with Google
