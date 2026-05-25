@@ -1,189 +1,200 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { useRouter, useParams } from 'next/navigation'
-import Link from 'next/link'
-import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+import { useState, useEffect } from "react";
+import { useRouter, useParams } from "next/navigation";
+import Link from "next/link";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 interface ServiceType {
-    _id: string
-    name: string
-    description?: string
-    active: boolean
+  _id: string;
+  name: string;
+  description?: string;
+  active: boolean;
 }
 
 export default function EditServiceType() {
-    const router = useRouter()
-    const params = useParams()
-    const serviceTypeId = params.id as string
+  const router = useRouter();
+  const params = useParams();
+  const serviceTypeId = params.id as string;
 
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [active, setActive] = useState(true)
-    const [loading, setLoading] = useState(false)
-    const [fetchLoading, setFetchLoading] = useState(true)
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [active, setActive] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [fetchLoading, setFetchLoading] = useState(true);
 
-    useEffect(() => {
-        fetchServiceType()
-    }, [serviceTypeId])
+  useEffect(() => {
+    fetchServiceType();
+  }, [serviceTypeId]);
 
-    const fetchServiceType = async () => {
-        try {
-            const res = await fetch(`/api/service-types/${serviceTypeId}`)
-            if (res.ok) {
-                const serviceType: ServiceType = await res.json()
-                setName(serviceType.name)
-                setDescription(serviceType.description || '')
-                setActive(serviceType.active)
-            } else {
-                alert('Service type not found')
-                router.push('/admin/service-types/list')
-            }
-        } catch (error) {
-            console.error('Failed to fetch service type:', error)
-            alert('Failed to load service type')
-        } finally {
-            setFetchLoading(false)
-        }
+  const fetchServiceType = async () => {
+    try {
+      const res = await fetch(`/api/service-types/${serviceTypeId}`);
+      if (res.ok) {
+        const serviceType: ServiceType = await res.json();
+        setName(serviceType.name);
+        setDescription(serviceType.description || "");
+        setActive(serviceType.active);
+      } else {
+        alert("Service type not found");
+        router.push("/admin/service-types/list");
+      }
+    } catch (error) {
+      console.error("Failed to fetch service type:", error);
+      alert("Failed to load service type");
+    } finally {
+      setFetchLoading(false);
     }
+  };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        setLoading(true)
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
 
-        try {
-            const res = await fetch(`/api/service-types/${serviceTypeId}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, description, active }),
-            })
+    try {
+      const res = await fetch(`/api/service-types/${serviceTypeId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, description, active }),
+      });
 
-            if (res.ok) {
-                router.push('/admin/service-types/list')
-            } else {
-                const data = await res.json()
-                alert(data.error || 'Failed to update service type')
-            }
-        } catch (error) {
-            alert('Failed to update service type')
-        } finally {
-            setLoading(false)
-        }
+      if (res.ok) {
+        router.push("/admin/service-types/list");
+      } else {
+        const data = await res.json();
+        alert(data.error || "Failed to update service type");
+      }
+    } catch (error) {
+      alert("Failed to update service type");
+    } finally {
+      setLoading(false);
     }
+  };
 
-    if (fetchLoading) {
-        return (
-            <div className="py-6">
-                <div className="mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
+  if (fetchLoading) {
     return (
-        <div className="py-6">
-            <div className="mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="md:flex md:items-center md:justify-between">
-                    <div className="min-w-0 flex-1">
-                        <div className="flex items-center">
-                            <Link
-                                href="/admin/service-types/list"
-                                className="mr-4 p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
-                            >
-                                <ArrowLeftIcon className="h-5 w-5" />
-                            </Link>
-                            <div>
-                                <h1 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-                                    Edit Service Type
-                                </h1>
-                                <p className="mt-1 text-sm text-gray-500">
-                                    Update service type information
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="mt-8">
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
-                            <div className="md:grid md:grid-cols-3 md:gap-6">
-                                <div className="md:col-span-1">
-                                    <h3 className="text-lg font-medium leading-6 text-gray-900">Service Type Details</h3>
-                                    <p className="mt-1 text-sm text-gray-500">
-                                        Update the service type information.
-                                    </p>
-                                </div>
-                                <div className="mt-5 md:mt-0 md:col-span-2">
-                                    <div className="grid grid-cols-6 gap-6">
-                                        <div className="col-span-6">
-                                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                                                Name *
-                                            </label>
-                                            <input
-                                                type="text"
-                                                id="name"
-                                                value={name}
-                                                onChange={(e) => setName(e.target.value)}
-                                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                                                required
-                                            />
-                                        </div>
-
-                                        <div className="col-span-6">
-                                            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-                                                Description
-                                            </label>
-                                            <textarea
-                                                id="description"
-                                                rows={3}
-                                                value={description}
-                                                onChange={(e) => setDescription(e.target.value)}
-                                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                                                placeholder="Optional description for the service type"
-                                            />
-                                        </div>
-
-                                        <div className="col-span-6">
-                                            <div className="flex items-center">
-                                                <input
-                                                    id="active"
-                                                    type="checkbox"
-                                                    checked={active}
-                                                    onChange={(e) => setActive(e.target.checked)}
-                                                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                                                />
-                                                <label htmlFor="active" className="ml-2 block text-sm text-gray-900">
-                                                    Active (available for selection)
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex justify-end space-x-3">
-                            <Link
-                                href="/admin/service-types/list"
-                                className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                            >
-                                Cancel
-                            </Link>
-                            <button
-                                type="submit"
-                                disabled={loading}
-                                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
-                            >
-                                {loading ? 'Updating...' : 'Update Service Type'}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <div className="py-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          </div>
         </div>
-    )
+      </div>
+    );
+  }
+
+  return (
+    <div className="py-6">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="md:flex md:items-center md:justify-between">
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center">
+              <Link
+                href="/admin/service-types/list"
+                className="mr-4 p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+              >
+                <ArrowLeftIcon className="h-5 w-5" />
+              </Link>
+              <div>
+                <h1 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+                  Edit Service Type
+                </h1>
+                <p className="mt-1 text-sm text-gray-500">
+                  Update service type information
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+              <div className="md:grid md:grid-cols-3 md:gap-6">
+                <div className="md:col-span-1">
+                  <h3 className="text-lg font-medium leading-6 text-gray-900">
+                    Service Type Details
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Update the service type information.
+                  </p>
+                </div>
+                <div className="mt-5 md:mt-0 md:col-span-2">
+                  <div className="grid grid-cols-6 gap-6">
+                    <div className="col-span-6">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-span-6">
+                      <label
+                        htmlFor="description"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Description
+                      </label>
+                      <textarea
+                        id="description"
+                        rows={3}
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2"
+                        placeholder="Optional description for the service type"
+                      />
+                    </div>
+
+                    <div className="col-span-6">
+                      <div className="flex items-center">
+                        <input
+                          id="active"
+                          type="checkbox"
+                          checked={active}
+                          onChange={(e) => setActive(e.target.checked)}
+                          className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                        />
+                        <label
+                          htmlFor="active"
+                          className="ml-2 block text-sm text-gray-900"
+                        >
+                          Active (available for selection)
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-end space-x-3">
+              <Link
+                href="/admin/service-types/list"
+                className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Cancel
+              </Link>
+              <button
+                type="submit"
+                disabled={loading}
+                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+              >
+                {loading ? "Updating..." : "Update Service Type"}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 }

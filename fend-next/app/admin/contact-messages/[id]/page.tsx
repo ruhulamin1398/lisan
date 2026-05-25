@@ -3,17 +3,18 @@ import dbConnect from "@/lib/mongodb";
 import ContactMessage from "@/models/ContactMessage";
 
 interface ContactMessagePageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function ContactMessagePage({
   params,
 }: ContactMessagePageProps) {
+  const { id } = await params;
   await dbConnect();
 
-  const message = (await ContactMessage.findById(params.id).populate(
+  const message = (await ContactMessage.findById(id).populate(
     "serviceType",
   )) as any;
 
