@@ -53,14 +53,20 @@ const Experience = () => {
           <Hero title={jobPage.title} description={jobPage.description} />
 
           <div className="flex flex-col justify-start items-start w-full">
-            <div className="w-full">
+            <div
+              className="w-full"
+              onWheel={(e) => {
+                e.stopPropagation();
+                window.scrollBy({ top: e.deltaY, behavior: "instant" });
+              }}
+            >
               <Chrono
                 items={formattedJobs}
                 mode="VERTICAL_ALTERNATING"
                 cardHeight="200"
                 contentDetailsHeight="100"
-                disableInteraction={true}
-                disableClickOnCircle={true}
+                disableInteraction={false}
+                disableClickOnCircle={false}
                 disableNavOnKey={true}
                 enableBreakPoint={true}
                 enableQuickJump={false}
