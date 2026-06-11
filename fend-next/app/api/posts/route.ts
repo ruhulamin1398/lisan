@@ -1,5 +1,6 @@
 import dbConnect from '@/lib/mongodb'
 import Post from '@/models/Post'
+import Category from '@/models/Category'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET() {

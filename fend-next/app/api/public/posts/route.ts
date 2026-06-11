@@ -1,5 +1,6 @@
 import dbConnect from '@/lib/mongodb'
 import Post from '@/models/Post'
+import Category from '@/models/Category'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
@@ -44,10 +45,10 @@ export async function GET(request: NextRequest) {
             limit: limit ? parseInt(limit) : undefined
         })
 
-    } catch (error: any) {
+    } catch (error) {
         console.error('Failed to fetch posts:', error)
         return NextResponse.json(
-            { error: 'Failed to fetch posts', detail: error?.message || error?.toString() || 'Unknown error' },
+            { error: 'Failed to fetch posts' },
             { status: 500 }
         )
     }
