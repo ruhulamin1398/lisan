@@ -54,6 +54,7 @@ export const configRuhulDev = {
     logos: false,
     services: true,
     projects: true,
+    blog: true,
     research: false,
     reviewing: false,
     experience: true,

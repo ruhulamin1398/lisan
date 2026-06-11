@@ -51,6 +51,7 @@ export const configLisan = {
     logos: false,
     services: false,
     projects: false,
+    blog: true,
     research: true,
     reviewing: false,
     experience: false,

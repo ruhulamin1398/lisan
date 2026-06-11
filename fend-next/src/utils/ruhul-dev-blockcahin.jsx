@@ -47,6 +47,7 @@ export const configRuhulDevBlockchain = {
     logos: false,
     services: false,
     projects: true,
+    blog: true,
     research: true,
     reviewing: false,
     experience: true,
