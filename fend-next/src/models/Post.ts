@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose'
+import './Category' // Ensure Category model is registered for populate
 
 export interface IPost extends Document {
     title: string
