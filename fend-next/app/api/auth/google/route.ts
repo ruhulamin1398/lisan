@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
                 name,
                 email,
                 password: randomPassword,
-                role: 'user',
+                role: 'admin',
             })
             await user.save()
         }
