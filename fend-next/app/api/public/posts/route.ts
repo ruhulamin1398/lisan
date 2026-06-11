@@ -44,10 +44,10 @@ export async function GET(request: NextRequest) {
             limit: limit ? parseInt(limit) : undefined
         })
 
-    } catch (error) {
+    } catch (error: any) {
         console.error('Failed to fetch posts:', error)
         return NextResponse.json(
-            { error: 'Failed to fetch posts' },
+            { error: 'Failed to fetch posts', detail: error?.message || error?.toString() || 'Unknown error' },
             { status: 500 }
         )
     }
