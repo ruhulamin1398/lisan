@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { config } from "../utils/constants";
 import Hero from "./Hero";
 import Link from "next/link";
+import { SkeletonBlogGrid } from "./Skeleton";
 
 const POSTS_PER_PAGE = 6;
 
@@ -41,10 +42,13 @@ const Blog = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-8">
-        <div className="text-center text-white">
-          <div className="w-8 h-8 border-2 border-[#00FF99] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-base">Loading posts...</p>
+      <div className="flex w-full justify-center items-center mt-10 px-4">
+        <div className="w-full max-w-6xl">
+          <Hero
+            title="Blog"
+            description="Thoughts, tutorials, and insights on development, blockchain, and research."
+          />
+          <SkeletonBlogGrid count={POSTS_PER_PAGE} />
         </div>
       </div>
     );

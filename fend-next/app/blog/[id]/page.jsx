@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { SkeletonBlogDetail } from "../../../src/components/Skeleton";
 
 const BlogPost = () => {
   const params = useParams();
@@ -50,11 +51,8 @@ const BlogPost = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-8">
-        <div className="text-center text-white">
-          <div className="w-8 h-8 border-2 border-[#00FF99] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-base">Loading post...</p>
-        </div>
+      <div className="min-h-screen flex justify-center px-4 py-10">
+        <SkeletonBlogDetail />
       </div>
     );
   }
