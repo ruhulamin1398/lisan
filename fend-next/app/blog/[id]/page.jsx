@@ -79,40 +79,39 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen flex justify-center px-4 py-10">
       <div className="w-full max-w-3xl">
-        {/* Back link + Category */}
-        <div className="flex items-center justify-between mb-8">
-          <Link
-            href="/blog"
-            className="inline-flex items-center text-gray-400 hover:text-[#00FF99] transition-colors text-sm"
+        {/* Back link */}
+        <Link
+          href="/blog"
+          className="inline-flex items-center text-gray-400 hover:text-[#00FF99] transition-colors mb-8 text-sm"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            Back to Blog
-          </Link>
-
-          {post.category && (
-            <span className="text-xs font-semibold text-[#00FF99] bg-[#00FF99]/10 px-3 py-1 rounded-full">
-              {post.category.name || post.category.title || "Uncategorized"}
-            </span>
-          )}
-        </div>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          Back to Blog
+        </Link>
 
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
           {post.title}
         </h1>
+
+        {/* Category — after title */}
+        {post.category && (
+          <span className="inline-block text-xs font-semibold text-[#00FF99] bg-[#00FF99]/10 px-3 py-1 rounded-full mb-8">
+            {post.category.name || post.category.title || "Uncategorized"}
+          </span>
+        )}
 
         {/* Featured Image */}
         {post.image && (
