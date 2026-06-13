@@ -11,6 +11,7 @@ const POSTS_PER_PAGE = 6;
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [initialLoad, setInitialLoad] = useState(true);
   const [error, setError] = useState("");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -51,34 +52,15 @@ const Blog = () => {
         setError("Failed to load blog posts. Please try again later.");
       } finally {
         setLoading(false);
+        setInitialLoad(false);
       }
     };
 
     fetchPosts();
   }, [page, selectedCategory]);
 
-  if (loading) {
-    return (
-      <div className="flex w-full justify-center items-center mt-10 px-4">
-        <div className="w-full max-w-6xl">
-          <Hero
-            title="Blog"
-            description="Thoughts, tutorials, and insights on development, blockchain, and research."
-          />
-          {/* Category filter skeleton */}
-          <div className="flex flex-wrap gap-2.5 justify-center mt-8">
-            <div className="h-10 w-16 bg-slate-800/60 rounded-xl animate-pulse" />
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-10 w-28 bg-slate-800/60 rounded-xl animate-pulse" />
-            ))}
-          </div>
-          <SkeletonBlogGrid count={POSTS_PER_PAGE} />
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
+  // Full-page error state (only when there's no posts to show)
+  if (!initialLoad && error) {
     return (
       <div className="min-h-screen flex items-center justify-center p-8">
         <div className="text-center text-white">
@@ -98,7 +80,7 @@ const Blog = () => {
             description="Thoughts, tutorials, and insights on development, blockchain, and research."
           />
 
-          {/* Category Filter Buttons */}
+          {/* Category Filter Buttons — always visible */}
           {categories.length > 0 && (
             <div className="flex flex-wrap gap-2.5 justify-center mt-8">
               {/* All button */}
@@ -135,7 +117,10 @@ const Blog = () => {
             </div>
           )}
 
-          {posts.length === 0 ? (
+          {/* Posts area — skeleton while loading, content when ready */}
+          {loading ? (
+            <SkeletonBlogGrid count={POSTS_PER_PAGE} />
+          ) : posts.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-gray-400 text-lg">No posts published yet.</p>
               <p className="text-gray-500 text-sm mt-2">
