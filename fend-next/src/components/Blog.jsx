@@ -14,14 +14,31 @@ const Blog = () => {
   const [error, setError] = useState("");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  // Fetch categories on mount
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch("/api/public/categories");
+        const data = await res.json();
+        if (Array.isArray(data)) setCategories(data);
+      } catch {
+        // Categories are non-critical
+      }
+    };
+    fetchCategories();
+  }, []);
 
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const res = await fetch(
-          `/api/public/posts?limit=${POSTS_PER_PAGE}&page=${page}`
-        );
+        let url = `/api/public/posts?limit=${POSTS_PER_PAGE}&page=${page}`;
+        if (selectedCategory) url += `&category=${selectedCategory}`;
+
+        const res = await fetch(url);
         const data = await res.json();
 
         if (res.ok && data.posts) {
@@ -38,7 +55,7 @@ const Blog = () => {
     };
 
     fetchPosts();
-  }, [page]);
+  }, [page, selectedCategory]);
 
   if (loading) {
     return (
@@ -48,6 +65,13 @@ const Blog = () => {
             title="Blog"
             description="Thoughts, tutorials, and insights on development, blockchain, and research."
           />
+          {/* Category filter skeleton */}
+          <div className="flex flex-wrap gap-2.5 justify-center mt-8">
+            <div className="h-10 w-16 bg-slate-800/60 rounded-xl animate-pulse" />
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="h-10 w-28 bg-slate-800/60 rounded-xl animate-pulse" />
+            ))}
+          </div>
           <SkeletonBlogGrid count={POSTS_PER_PAGE} />
         </div>
       </div>
@@ -73,6 +97,43 @@ const Blog = () => {
             title="Blog"
             description="Thoughts, tutorials, and insights on development, blockchain, and research."
           />
+
+          {/* Category Filter Buttons */}
+          {categories.length > 0 && (
+            <div className="flex flex-wrap gap-2.5 justify-center mt-8">
+              {/* All button */}
+              <button
+                onClick={() => {
+                  setSelectedCategory("");
+                  setPage(1);
+                }}
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                  selectedCategory === ""
+                    ? "bg-[#00FF99] text-slate-950 font-bold"
+                    : "bg-slate-800 text-gray-400 hover:bg-slate-700 hover:text-white border border-white/10"
+                }`}
+              >
+                All
+              </button>
+
+              {categories.map((cat) => (
+                <button
+                  key={cat._id}
+                  onClick={() => {
+                    setSelectedCategory(cat._id);
+                    setPage(1);
+                  }}
+                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                    selectedCategory === cat._id
+                      ? "bg-[#00FF99] text-slate-950 font-bold"
+                      : "bg-slate-800 text-gray-400 hover:bg-slate-700 hover:text-white border border-white/10"
+                  }`}
+                >
+                  {cat.name}
+                </button>
+              ))}
+            </div>
+          )}
 
           {posts.length === 0 ? (
             <div className="text-center py-20">
