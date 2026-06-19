@@ -12,6 +12,7 @@ const getImageSrc = (image) => {
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(3);
   const projectPage = config?.projectPage;
   const projects = Array.isArray(projectPage?.projects)
     ? projectPage.projects
@@ -30,6 +31,10 @@ const Projects = () => {
     activeCategory === "All"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
+
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredProjects.length;
+  const remainingCount = filteredProjects.length - visibleCount;
 
   if (!projectPage || projects.length === 0) {
     return (
@@ -61,7 +66,7 @@ const Projects = () => {
             {sortedCategories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => { setActiveCategory(cat); setVisibleCount(3); }}
                 className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
                   activeCategory === cat
                     ? "bg-primary-color text-gray-900 shadow-lg shadow-primary-color/40 scale-105"
@@ -74,7 +79,7 @@ const Projects = () => {
           </div>
 
           <div className="space-y-8 py-10">
-            {filteredProjects.map((project) => (
+            {visibleProjects.map((project) => (
               <div
                 key={project.id}
                 className="grid gap-6 overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 shadow-2xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl lg:grid-cols-[360px_minmax(0,1fr)]"
@@ -137,6 +142,19 @@ const Projects = () => {
                 </div>
               </div>
             ))}
+            {hasMore && (
+              <div className="flex justify-center pt-4 pb-2">
+                <button
+                  onClick={() => setVisibleCount((prev) => prev + 2)}
+                  className="group relative inline-flex items-center gap-2 rounded-full border border-primary-color/50 bg-slate-900/80 px-8 py-3 text-sm font-semibold text-primary-color transition-all duration-300 hover:border-primary-color hover:bg-primary-color hover:text-gray-900 hover:shadow-lg hover:shadow-primary-color/30"
+                >
+                  <span>Show More</span>
+                  <span className="flex h-6 min-w-[24px] items-center justify-center rounded-full bg-primary-color/20 px-1.5 text-xs text-primary-color transition-colors group-hover:bg-gray-900/30 group-hover:text-gray-900">
+                    +{remainingCount}
+                  </span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
