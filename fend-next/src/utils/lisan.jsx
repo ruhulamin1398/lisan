@@ -57,17 +57,19 @@ export const configLisan = {
     experience: false,
     researchArea: true,
   },
-  title: "Lisan Rahman - Researcher & MSc in disaster risk reduction in BUET jidpus",
+  title:
+    "Lisan Rahman - Researcher & MSc in disaster risk reduction in BUET jidpus",
   name: "Lisan Rahman",
   logo: logo,
   researchPage: {
     title: "Publications",
     interest: [
-      "natural hazards", "non destructive test and evaluation", "milti hazard evaluation", "earthqual"
-
+      "natural hazards",
+      "non destructive test and evaluation",
+      "milti hazard evaluation",
+      "earthqual",
     ],
-    description:
-      "",
+    description: "",
     reviewing: [
       {
         title:
@@ -143,7 +145,8 @@ export const configLisan = {
           hideLinsks: true,
         },
         isAward: false,
-      }, {
+      },
+      {
         title:
           "Prediction of mechanical strengths of geopolymer concrete using optimized machine learning models with graphical user interface.",
         description:
@@ -158,13 +161,6 @@ export const configLisan = {
         },
         isAward: false,
       },
-
-
-
-
-
-
-
     ],
   },
 
@@ -226,8 +222,7 @@ export const configLisan = {
   heroContent: {
     img: <img src={lisanImg} alt="logo" className=" cursor-pointer   w-100 " />,
     name: "Lisan Rahman",
-    tagLine:
-      "MSc in disaster risk reduction in BUET jidpus.",
+    tagLine: "MSc in disaster risk reduction in BUET jidpus.",
     overViewList: [
       {
         title: "Resercher",
@@ -245,8 +240,7 @@ export const configLisan = {
       },
       {
         title: "Teaching",
-        description:
-          "3+ years experienced in online teaching",
+        description: "3+ years experienced in online teaching",
         color: "bg-[#2952E3]",
         icon: <GiTeacher fontSize={21} className="text-white" />,
       },
@@ -503,6 +497,7 @@ export const configLisan = {
     projects: [
       {
         id: 1,
+        category: "DeFi",
         title: "Lottaverse: A New Era of Blockchain Lottery.",
         description:
           "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
@@ -513,6 +508,7 @@ export const configLisan = {
       },
       {
         id: 2,
+        category: "Web App",
         title: "Beejoyi | Showcase Your Talent & Win Big!",
         description:
           " A full-featured Web2 application built with Material UI, Next.js, GraphQL, MongoDB, Redux, and more. The platform supports server-side rendering, real-time data updates, and a responsive UI. Features include authentication, user profiles, dashboards, and advanced search.",
@@ -523,6 +519,7 @@ export const configLisan = {
       },
       {
         id: 3,
+        category: "NFT",
         title: "Billy The Blue Whale NFT Collection.",
         description:
           "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
@@ -533,6 +530,7 @@ export const configLisan = {
       },
       {
         id: 4,
+        category: "Blockchain",
         title:
           "SecureDoc: AI-Powered Blockchain-Based Certificate Authentication",
         description:
@@ -544,6 +542,7 @@ export const configLisan = {
       },
       {
         id: 5,
+        category: "Blockchain",
         title: "Blockchain Drive: Securing Data on the Ethereum & IPFS",
         description:
           "Blockchain Drive is a data security solution on Ethereum and IPFS, enabling file uploads via IPFS (Pinata) with Ethereum-backed storage links. It integrates with MetaMask for seamless access, allowing users to share or revoke file access through secure blockchain-based controls.",
@@ -563,7 +562,8 @@ export const configLisan = {
       {
         title: "August 2022 - June 2023",
         cardTitle: "Consultant",
-        cardSubtitle: "Infrastructure Planning and Consulting Limited, Agargaon, Dhaka",
+        cardSubtitle:
+          "Infrastructure Planning and Consulting Limited, Agargaon, Dhaka",
         url: "#",
         cardDetailedText: [
           "Provided project consulting, documentation, and coordination support.",
@@ -575,11 +575,9 @@ export const configLisan = {
         cardSubtitle: "Layman Architecture & Engineering Consultancy, Sylhet",
         url: "#",
         cardDetailedText: [
-          "Managed construction and interior projects with focus on quality assurance and timely completion."
+          "Managed construction and interior projects with focus on quality assurance and timely completion.",
         ],
       },
-
-
     ],
   },
 };

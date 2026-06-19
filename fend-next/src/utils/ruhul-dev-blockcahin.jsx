@@ -582,6 +582,7 @@ export const configRuhulDevBlockchain = {
     projects: [
       {
         id: 1,
+        category: "DeFi",
         title: "Lottaverse: A New Era of Blockchain Lottery.",
         description:
           "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
@@ -592,6 +593,7 @@ export const configRuhulDevBlockchain = {
       },
       {
         id: 2,
+        category: "NFT",
         title: "Billy The Blue Whale NFT Collection.",
         description:
           "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
@@ -602,6 +604,7 @@ export const configRuhulDevBlockchain = {
       },
       {
         id: 3,
+        category: "Blockchain",
         title:
           "SecureDoc: AI-Powered Blockchain-Based Certificate Authentication",
         description:
@@ -613,6 +616,7 @@ export const configRuhulDevBlockchain = {
       },
       {
         id: 4,
+        category: "Blockchain",
         title: "Blockchain Drive: Securing Data on the Ethereum & IPFS",
         description:
           "Blockchain Drive is a data security solution on Ethereum and IPFS, enabling file uploads via IPFS (Pinata) with Ethereum-backed storage links. It integrates with MetaMask for seamless access, allowing users to share or revoke file access through secure blockchain-based controls.",

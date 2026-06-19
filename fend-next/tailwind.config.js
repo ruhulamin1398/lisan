@@ -7,6 +7,10 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        "primary-color": "#00ff99",
+        "primary-dark": "#00cc7a",
+      },
       keyframes: {
         shimmer: {
           "100%": { transform: "translateX(100%)" },

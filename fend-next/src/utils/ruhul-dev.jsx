@@ -378,6 +378,7 @@ export const configRuhulDev = {
     projects: [
       {
         id: 1,
+        category: "Web App",
         title: "MuslimBD — Shariah-Based Digital Ecosystem for Muslims",
         description: `MuslimBD provides a trusted, faith-driven platform with a live Muslim API today and more Islamic tools coming soon for prayer times, Quran, mosque discovery, dhikr tracking, and developer-first products that support a Shariah-based lifestyle.
           <br/>
@@ -404,6 +405,7 @@ export const configRuhulDev = {
 
       {
         id: 2,
+        category: "DeFi",
         title: "Palm USD - The Digital Dollar Built for the Globe",
         description: ` The global digital dollar. Fully-reserved stablecoin infrastructure backed 1:1 by AED and SAR reserves held in Shariah-compliant instruments at regulated GCC custodians..
           <br/>
@@ -431,6 +433,7 @@ export const configRuhulDev = {
       },
       {
         id: 3,
+        category: "DeFi",
         title: "NexUSD - Next-Generation USD Stablecoin",
         description: ` NEX-USD is a next-generation decentralized USD infrastructure deployed across 10 EVM-compatible test networks. The project focuses on multi-chain scalability, smart contract deployment, and seamless Web3 integration, enabling cross-chain testing, interoperability, and stable digital asset experimentation within a modern blockchain ecosystem.
           <br/>
@@ -456,6 +459,7 @@ export const configRuhulDev = {
       },
       {
         id: 4,
+        category: "Web App",
         title: "Beejoyi | Showcase Your Talent & Win Big!",
         description:
           " A full-featured Web2 application built with Material UI, Next.js, GraphQL, MongoDB, Redux, and more. The platform supports server-side rendering, real-time data updates, and a responsive UI. Features include authentication, user profiles, dashboards, and advanced search.",
@@ -466,6 +470,7 @@ export const configRuhulDev = {
       },
       {
         id: 5,
+        category: "DeFi",
         title: "Lottaverse: A New Era of Blockchain Lottery.",
         description:
           "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
@@ -476,6 +481,7 @@ export const configRuhulDev = {
       },
       {
         id: 6,
+        category: "NFT",
         title: "Billy The Blue Whale NFT Collection.",
         description:
           "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
@@ -486,6 +492,7 @@ export const configRuhulDev = {
       },
       {
         id: 7,
+        category: "Blockchain",
         title:
           "SecureDoc: AI-Powered Blockchain-Based Certificate Authentication",
         description:
