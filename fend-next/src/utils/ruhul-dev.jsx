@@ -502,6 +502,17 @@ export const configRuhulDev = {
         tools:
           "AI, Ethereum, Smart Contract, ReactJs, Ethers, HardHat, Alchemy MetaMssk",
       },
+      {
+        id: 8,
+        category: "Blockchain",
+        title: "Aurex — Enterprise-Grade Web3 Staking Platform",
+        description:
+          "Aurex is an enterprise-grade Web3 staking platform enabling businesses and individuals to stake digital assets and earn passive yield through secure, audited on-chain mechanisms. It combines institutional-level controls with a clean staking interface, positioning itself as a full-stack solution for the decentralized economy.",
+        image: "https://www.blockwhizz.com/assets/aurex-A34WIKgU.webp",
+        link: "https://www.blockwhizz.com/",
+        tools:
+          "Figma, React, Tailwind CSS, Web3, Staking, Smart Contracts",
+      },
       // {
       //   id: 5,
       //   title: "Blockchain Drive: Securing Data on the Ethereum & IPFS",
