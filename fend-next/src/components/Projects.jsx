@@ -22,6 +22,10 @@ const Projects = () => {
     ...new Set(projects.map((p) => p.category).filter(Boolean)),
   ];
 
+  // Custom order: All, Blockchain, Web Apps, Software
+  const categoryOrder = ["All", "Blockchain", "Web Apps", "Software"];
+  const sortedCategories = categoryOrder.filter(c => categories.includes(c));
+
   const filteredProjects =
     activeCategory === "All"
       ? projects
@@ -54,7 +58,7 @@ const Projects = () => {
 
           {/* Category Filter Tabs */}
           <div className="flex flex-wrap justify-center gap-2 mt-10 mb-2">
-            {categories.map((cat) => (
+            {sortedCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
