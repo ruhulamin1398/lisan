@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import DropzoneUpload from "@/components/admin/DropzoneUpload";
 
 interface Category {
   _id: string;
@@ -18,7 +19,6 @@ export default function AddPost() {
   const [category, setCategory] = useState("");
   const [published, setPublished] = useState(false);
   const [image, setImage] = useState("");
-  const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -32,32 +32,6 @@ export default function AddPost() {
       setCategories(data);
     } catch (error) {
       console.error("Failed to fetch categories:", error);
-    }
-  };
-
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    setUploading(true);
-    const formData = new FormData();
-    formData.append("file", file);
-
-    try {
-      const res = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setImage(data.url);
-      } else {
-        alert("Failed to upload image");
-      }
-    } catch (error) {
-      alert("Failed to upload image");
-    } finally {
-      setUploading(false);
     }
   };
 
@@ -181,27 +155,10 @@ export default function AddPost() {
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Featured Image
                       </label>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageUpload}
-                        className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                        disabled={uploading}
+                      <DropzoneUpload
+                        onUploadComplete={setImage}
+                        currentImage={image}
                       />
-                      {uploading && (
-                        <p className="mt-2 text-sm text-gray-500">
-                          Uploading...
-                        </p>
-                      )}
-                      {image && (
-                        <div className="mt-2">
-                          <img
-                            src={image}
-                            alt="Preview"
-                            className="w-32 h-32 object-cover rounded-md"
-                          />
-                        </div>
-                      )}
                     </div>
 
                     <div className="col-span-6">
