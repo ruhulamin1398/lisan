@@ -10,6 +10,7 @@ interface Category {
   name: string;
   description: string;
   image?: string;
+  displayOrder?: number;
 }
 
 export default function EditCategory() {
@@ -20,6 +21,7 @@ export default function EditCategory() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
+  const [displayOrder, setDisplayOrder] = useState(0);
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fetchLoading, setFetchLoading] = useState(true);
@@ -36,6 +38,7 @@ export default function EditCategory() {
         setName(category.name);
         setDescription(category.description);
         setImage(category.image || "");
+        setDisplayOrder(category.displayOrder || 0);
       } else {
         alert("Category not found");
         router.push("/admin/categories/list");
@@ -82,7 +85,7 @@ export default function EditCategory() {
       const res = await fetch(`/api/categories/${categoryId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, description, image }),
+        body: JSON.stringify({ name, description, image, displayOrder }),
       });
 
       if (res.ok) {
@@ -179,6 +182,19 @@ export default function EditCategory() {
                         onChange={(e) => setDescription(e.target.value)}
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm px-3 py-2"
                         placeholder="Optional description for the category"
+                      />
+                    </div>
+
+                    <div className="col-span-6 sm:col-span-3">
+                      <label htmlFor="displayOrder" className="block text-sm font-medium text-gray-700">
+                        Display Order
+                      </label>
+                      <input
+                        type="number"
+                        id="displayOrder"
+                        value={displayOrder}
+                        onChange={(e) => setDisplayOrder(parseInt(e.target.value) || 0)}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm px-3 py-2"
                       />
                     </div>
 

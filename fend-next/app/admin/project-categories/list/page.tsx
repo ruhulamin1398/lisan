@@ -6,19 +6,20 @@ import {
   PencilIcon,
   TrashIcon,
   PlusIcon,
-  TagIcon,
+  Squares2X2Icon,
 } from "@heroicons/react/24/outline";
 
-interface Category {
+interface ProjectCategory {
   _id: string;
   name: string;
   description: string;
   image?: string;
   displayOrder: number;
+  site: string;
 }
 
-export default function CategoriesList() {
-  const [categories, setCategories] = useState<Category[]>([]);
+export default function ProjectCategoriesList() {
+  const [categories, setCategories] = useState<ProjectCategory[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -27,16 +28,16 @@ export default function CategoriesList() {
 
   const fetchCategories = async () => {
     try {
-      const res = await fetch("/api/categories");
+      const res = await fetch("/api/project-categories");
       if (res.ok) {
         const data = await res.json();
         setCategories(Array.isArray(data) ? data : []);
       } else {
-        console.error("Failed to fetch categories:", res.status);
+        console.error("Failed to fetch project categories:", res.status);
         setCategories([]);
       }
     } catch (error) {
-      console.error("Failed to fetch categories:", error);
+      console.error("Failed to fetch project categories:", error);
       setCategories([]);
     } finally {
       setLoading(false);
@@ -44,14 +45,14 @@ export default function CategoriesList() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this category?")) return;
+    if (!confirm("Are you sure you want to delete this project category?")) return;
 
     try {
-      await fetch(`/api/categories/${id}`, { method: "DELETE" });
+      await fetch(`/api/project-categories/${id}`, { method: "DELETE" });
       fetchCategories();
     } catch (error) {
-      console.error("Failed to delete category:", error);
-      alert("Failed to delete category");
+      console.error("Failed to delete project category:", error);
+      alert("Failed to delete project category");
     }
   };
 
@@ -73,15 +74,15 @@ export default function CategoriesList() {
         <div className="md:flex md:items-center md:justify-between">
           <div className="min-w-0 flex-1">
             <h1 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-              Categories
+              Project Categories
             </h1>
             <p className="mt-1 text-sm text-gray-500">
-              Manage your blog categories
+              Manage project categories with order position
             </p>
           </div>
           <div className="mt-4 flex md:mt-0 md:ml-4">
             <Link
-              href="/admin/categories/add"
+              href="/admin/project-categories/add"
               className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
             >
               <PlusIcon className="-ml-1 mr-2 h-5 w-5" />
@@ -96,16 +97,16 @@ export default function CategoriesList() {
               {categories.length === 0 ? (
                 <li className="px-6 py-8 text-center">
                   <div className="text-gray-500">
-                    <TagIcon className="mx-auto h-12 w-12 text-gray-400" />
+                    <Squares2X2Icon className="mx-auto h-12 w-12 text-gray-400" />
                     <h3 className="mt-2 text-sm font-medium text-gray-900">
-                      No categories
+                      No project categories
                     </h3>
                     <p className="mt-1 text-sm text-gray-500">
-                      Get started by creating a new category.
+                      Get started by creating a project category.
                     </p>
                     <div className="mt-6">
                       <Link
-                        href="/admin/categories/add"
+                        href="/admin/project-categories/add"
                         className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
                       >
                         <PlusIcon className="-ml-1 mr-2 h-5 w-5" />
@@ -129,21 +130,24 @@ export default function CategoriesList() {
                           )}
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
-                              <span className="inline-flex items-center justify-center w-6 h-6 text-xs font-bold rounded-full bg-green-100 text-green-800">
+                              <span className="inline-flex items-center justify-center w-7 h-7 text-xs font-bold rounded-full bg-green-100 text-green-800">
                                 {category.displayOrder}
                               </span>
                               <p className="text-sm font-medium text-gray-900">
                                 {category.name}
                               </p>
+                              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                                {category.site}
+                              </span>
                             </div>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm text-gray-500 mt-1">
                               {category.description || "No description"}
                             </p>
                           </div>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Link
-                            href={`/admin/categories/edit/${category._id}`}
+                            href={`/admin/project-categories/edit/${category._id}`}
                             className="inline-flex items-center px-3 py-1 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                           >
                             <PencilIcon className="-ml-0.5 mr-1 h-4 w-4" />

@@ -20,8 +20,8 @@ export async function PUT(request: NextRequest, context: any) {
     const params = await context.params
     await dbConnect()
     try {
-        const { name, description, image } = await request.json()
-        const category = await Category.findByIdAndUpdate(params.id, { name, description, image }, { new: true })
+        const { name, description, image, displayOrder } = await request.json()
+        const category = await Category.findByIdAndUpdate(params.id, { name, description, image, displayOrder }, { new: true })
         return NextResponse.json(category)
     } catch (error) {
         return NextResponse.json({ error: 'Failed to update category' }, { status: 500 })

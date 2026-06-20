@@ -1,6 +1,6 @@
 import dbConnect from '@/lib/mongodb'
 import Project from '@/models/Project'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 const SEED_PROJECTS = [
   {
@@ -12,6 +12,7 @@ const SEED_PROJECTS = [
 - Prayer times <br/>
 - API rate limiting <br/> 
 `,
+    image: "/images/project/muslimbd.png",
     link: "https://www.muslimbd.app/",
     links: [
       { title: "API", url: "https://api.muslimbd.app/" },
@@ -30,6 +31,7 @@ const SEED_PROJECTS = [
 - 1:1 mint & redeem against AED, SAR, USD <br/>
 - Deployed on 4 Testnets <br/> 
 `,
+    image: "/images/project/palm.png",
     link: "https://www.palmusd.com/",
     links: [
       { title: "Swap", url: "https://getuntethered.xyz/" },
@@ -50,6 +52,7 @@ const SEED_PROJECTS = [
 - Custom Wallet <br/> 
 - Faucet <br/> 
 `,
+    image: "/images/project/nex-usd.png",
     link: "https://nex-usd.vercel.app",
     links: [
       { title: "Wallet", url: "https://wallet-nex-usd.vercel.app" },
@@ -63,6 +66,7 @@ const SEED_PROJECTS = [
     title: "Beejoyi | Showcase Your Talent & Win Big!",
     category: "Web Apps",
     description: "A full-featured Web2 application built with Material UI, Next.js, GraphQL, MongoDB, Redux, and more. The platform supports server-side rendering, real-time data updates, and a responsive UI. Features include authentication, user profiles, dashboards, and advanced search.",
+    image: "/images/project/beejoyi.png",
     link: "https://beejoyi.com/",
     tools: "Next.js , GraphQL , MongoDB, Redux, Material UI, Node.js, JWT Auth",
     site: "ruhul-dev",
@@ -72,6 +76,7 @@ const SEED_PROJECTS = [
     title: "Lottaverse: A New Era of Blockchain Lottery.",
     category: "Blockchain",
     description: "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
+    image: "/images/project/lottaverse.png",
     link: "https://lottaverse-v2-0.vercel.app/",
     tools: "Polygon, Chainlink, Solidity, NextJs, Ethers, Wagmi, Infura, Foundry, MetaMask",
     site: "ruhul-dev",
@@ -81,6 +86,7 @@ const SEED_PROJECTS = [
     title: "Billy The Blue Whale NFT Collection.",
     category: "Blockchain",
     description: "Developed Lottavarse, a blockchain-based lottery application on Polygon, leveraging Chainlink VRF for fair winner selection. Features include diverse lottery types, multi-winner formats, premium user commissions, uni-level referrals, bonuses for top leaders and buyers, and reward-based purchases with commission withdrawal options.",
+    image: "/images/project/billy.png",
     link: "https://www.bluewhalenft.com",
     tools: "Blockchain, NFT, Solana, Next.js, Magic Eden, Smart Contract, Web3.js, MetaMask",
     site: "ruhul-dev",
@@ -90,6 +96,7 @@ const SEED_PROJECTS = [
     title: "SecureDoc: AI-Powered Blockchain-Based Certificate Authentication",
     category: "Blockchain",
     description: "SecureDoc is a government-funded, AI-powered blockchain solution on Ethereum for secure academic certificate authentication. The platform includes an admin application to manage university subscriptions and tokens, supporting institutional control. Universities use a dedicated dApp to handle student data, including options to disqualify or reissue certificates, while students benefit from a privacy-focused dApp for secure, accessible document management. A verifier application provides an efficient, trustworthy way for authorized parties to validate and view certificates. Designed for scalability and privacy, SecureDoc ensures academic credentials are authentic and accessible while offering robust privacy and secure verification, revolutionizing document authentication standards.",
+    image: "/images/project/securedoc.png",
     link: "",
     tools: "AI, Ethereum, Smart Contract, ReactJs, Ethers, HardHat, Alchemy, MetaMask",
     site: "ruhul-dev",
@@ -99,6 +106,7 @@ const SEED_PROJECTS = [
     title: "Blockchain Drive: Securing Data on the Ethereum & IPFS",
     category: "Blockchain",
     description: "Blockchain Drive is a data security solution on Ethereum and IPFS, enabling file uploads via IPFS (Pinata) with Ethereum-backed storage links. It integrates with MetaMask for seamless access, allowing users to share or revoke file access through secure blockchain-based controls.",
+    image: "/images/project/drive.png",
     link: "http://blockchain-drive.ruhul.info/",
     tools: "Ethereum, Smart Contract, ReactJs, Ethers, Tailwind CSS, MetaMask",
     site: "ruhul-dev",
@@ -116,16 +124,23 @@ const SEED_PROJECTS = [
   },
 ]
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   await dbConnect()
   try {
+    const { searchParams } = new URL(request.url)
+    const force = searchParams.get('force') === 'true'
+
     // Check if already seeded
     const count = await Project.countDocuments({ site: 'ruhul-dev' })
-    if (count > 0) {
+    if (count > 0 && !force) {
       return NextResponse.json({
-        message: `Database already has ${count} projects for site 'ruhul-dev'. No action taken.`,
+        message: `Database already has ${count} projects for site 'ruhul-dev'. Use ?force=true to re-seed.`,
         count,
       })
+    }
+
+    if (force && count > 0) {
+      await Project.deleteMany({ site: 'ruhul-dev' })
     }
 
     const inserted = await Project.insertMany(SEED_PROJECTS)

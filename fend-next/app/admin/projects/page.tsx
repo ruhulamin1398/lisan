@@ -20,10 +20,9 @@ interface Project {
   displayOrder: number;
 }
 
-const CATEGORIES = ["All", "Blockchain", "Web Apps", "Software"];
-
 export default function AdminProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [editing, setEditing] = useState<Project | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -42,7 +41,21 @@ export default function AdminProjects() {
 
   useEffect(() => {
     fetchProjects();
+    fetchCategories();
   }, []);
+
+  const fetchCategories = async () => {
+    try {
+      const res = await fetch("/api/project-categories");
+      if (res.ok) {
+        const data = await res.json();
+        const names = Array.isArray(data) ? data.map((c: any) => c.name) : [];
+        setCategories(names.sort());
+      }
+    } catch (err) {
+      console.error("Failed to fetch categories:", err);
+    }
+  };
 
   const fetchProjects = async () => {
     const res = await fetch("/api/projects");
@@ -194,7 +207,7 @@ export default function AdminProjects() {
                       onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
                     >
-                      {CATEGORIES.filter((c) => c !== "All").map((cat) => (
+                      {categories.filter((c) => c !== "All").map((cat) => (
                         <option key={cat} value={cat}>{cat}</option>
                       ))}
                     </select>

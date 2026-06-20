@@ -6,6 +6,8 @@ import {
   TagIcon,
   ChartBarIcon,
   EnvelopeIcon,
+  Squares2X2Icon,
+  CodeBracketSquareIcon,
 } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 
@@ -42,6 +44,18 @@ export default function Home() {
       icon: EnvelopeIcon,
       href: "/admin/contact-messages/list",
     },
+    {
+      name: "Project Categories",
+      value: "0",
+      icon: Squares2X2Icon,
+      href: "/admin/project-categories/list",
+    },
+    {
+      name: "Projects",
+      value: "0",
+      icon: CodeBracketSquareIcon,
+      href: "/admin/projects",
+    },
   ]);
   const [loading, setLoading] = useState(true);
   const [recentPosts, setRecentPosts] = useState<any[]>([]);
@@ -65,6 +79,14 @@ export default function Home() {
       // Fetch contact messages
       const messagesRes = await fetch("/api/contact-messages");
       const messages = messagesRes.ok ? await messagesRes.json() : [];
+
+      // Fetch project categories
+      const projectCatRes = await fetch("/api/project-categories");
+      const projectCategories = projectCatRes.ok ? await projectCatRes.json() : [];
+
+      // Fetch projects
+      const projRes = await fetch("/api/projects");
+      const projects = projRes.ok ? await projRes.json() : [];
 
       // Calculate published posts
       const publishedPosts = posts.filter((post: any) => post.published).length;
@@ -93,6 +115,18 @@ export default function Home() {
           value: messages.length.toString(),
           icon: EnvelopeIcon,
           href: "/contact-messages/list",
+        },
+        {
+          name: "Project Categories",
+          value: (Array.isArray(projectCategories) ? projectCategories.length : 0).toString(),
+          icon: Squares2X2Icon,
+          href: "/project-categories/list",
+        },
+        {
+          name: "Projects",
+          value: (Array.isArray(projects) ? projects.length : 0).toString(),
+          icon: CodeBracketSquareIcon,
+          href: "/projects",
         },
       ]);
     } catch (error) {

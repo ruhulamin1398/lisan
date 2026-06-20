@@ -6,7 +6,7 @@ export async function GET() {
     await dbConnect()
 
     try {
-        const categories = await Category.find({}).sort({ name: 1 })
+        const categories = await Category.find({}).sort({ displayOrder: 1 })
 
         return NextResponse.json(categories)
 

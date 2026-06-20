@@ -13,6 +13,8 @@ import {
   WrenchScrewdriverIcon,
   EnvelopeIcon,
   CircleStackIcon,
+  CodeBracketSquareIcon,
+  Squares2X2Icon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -21,6 +23,8 @@ const navigation = [
   { name: "Dashboard", href: "/admin", icon: HomeIcon },
   { name: "Posts", href: "/admin/posts/list", icon: DocumentTextIcon },
   { name: "Categories", href: "/admin/categories/list", icon: TagIcon },
+  { name: "Projects", href: "/admin/projects", icon: CodeBracketSquareIcon },
+  { name: "Project Categories", href: "/admin/project-categories/list", icon: Squares2X2Icon },
   {
     name: "Service Types",
     href: "/admin/service-types/list",

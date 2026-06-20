@@ -14,6 +14,7 @@ const Projects = () => {
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All");
   const [visibleCount, setVisibleCount] = useState(3);
+  const [categoryOrder, setCategoryOrder] = useState(["All"]);
 
   useEffect(() => {
     const site = process.env.NEXT_PUBLIC_ENV || "ruhul-dev";
@@ -26,6 +27,20 @@ const Projects = () => {
       .catch((err) => {
         console.error("Failed to fetch projects:", err);
         setLoading(false);
+      });
+
+    // Fetch project categories for proper ordering
+    fetch(`/api/public/project-categories?site=${site}`)
+      .then((res) => res.json())
+      .then((cats) => {
+        if (Array.isArray(cats) && cats.length > 0) {
+          const names = cats.map((c) => c.name);
+          setCategoryOrder(["All", ...names]);
+        }
+      })
+      .catch(() => {
+        // Fallback to default order
+        setCategoryOrder(["All", "Blockchain", "Web Apps", "Software"]);
       });
   }, []);
 
@@ -102,8 +117,7 @@ const Projects = () => {
     ...new Set(projects.map((p) => p.category).filter(Boolean)),
   ];
 
-  // Custom order: All, Blockchain, Web Apps, Software
-  const categoryOrder = ["All", "Blockchain", "Web Apps", "Software"];
+  // Categories sorted by API order (fetched from ProjectCategories model)
   const sortedCategories = categoryOrder.filter(c => categories.includes(c));
 
   const filteredProjects =
