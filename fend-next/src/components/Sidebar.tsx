@@ -12,6 +12,7 @@ import {
   CogIcon,
   WrenchScrewdriverIcon,
   EnvelopeIcon,
+  CircleStackIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -29,6 +30,11 @@ const navigation = [
     name: "Contact Messages",
     href: "/admin/contact-messages/list",
     icon: EnvelopeIcon,
+  },
+  {
+    name: "Logos",
+    href: "/admin/logos",
+    icon: CircleStackIcon,
   },
 ];
 
