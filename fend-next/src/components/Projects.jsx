@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import { config } from "../utils/constants";
+import React, { useState, useEffect } from "react";
 import Hero from "./Hero";
 
 const getImageSrc = (image) => {
@@ -11,9 +10,36 @@ const getImageSrc = (image) => {
 };
 
 const Projects = () => {
+  const [projectData, setProjectData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All");
   const [visibleCount, setVisibleCount] = useState(3);
-  const projectPage = config?.projectPage;
+
+  useEffect(() => {
+    const site = process.env.NEXT_PUBLIC_ENV || "ruhul-dev";
+    fetch(`/api/public/projects?site=${site}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProjectData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch projects:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-8">
+        <div className="text-center text-white">
+          <p className="text-base">Loading projects...</p>
+        </div>
+      </div>
+    );
+  }
+
+  const projectPage = projectData;
   const projects = Array.isArray(projectPage?.projects)
     ? projectPage.projects
     : [];

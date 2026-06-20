@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdDashboard } from 'react-icons/md';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { DEEP_DARK_COLOR, LIGHT_DARK_COLOR } from '../../utils/constants';
-import { BsPostageFill, BsPostcard } from 'react-icons/bs';
+import { BsPostageFill, BsPostcard, BsCodeSquare } from 'react-icons/bs';
 
 const AdminSidebar = () => {
     const [activeLink, setActiveLink] = useState({});
@@ -58,6 +58,12 @@ const AdminSidebar = () => {
                     </MenuItem>
                     <MenuItem active={activeLink['/admin/blogs/create']} component={<a href="/admin/blogs/create" />}>
                         Add New
+                    </MenuItem>
+                </SubMenu>
+
+                <SubMenu icon={<BsCodeSquare />} label="Projects">
+                    <MenuItem component={<a href="/admin/projects" />} active={activeLink['/admin/projects']}>
+                        All Projects
                     </MenuItem>
                 </SubMenu>
             </Menu>
