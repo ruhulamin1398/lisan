@@ -172,7 +172,7 @@ const Projects = () => {
           </div>
 
           <div className="space-y-8 py-10">
-            {visibleProjects.map((project) => (
+            {visibleProjects.map((project, index) => (
               <div
                 key={project.id}
                 className="grid gap-6 overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 shadow-2xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl lg:grid-cols-[360px_minmax(0,1fr)]"
@@ -190,7 +190,7 @@ const Projects = () => {
                     <h2 className="mt-1 text-3xl font-semibold text-white">
                       <span className="text-primary-color">
                         {" "}
-                        #{project.id}
+                        #{index + 1}
                         {". "}
                       </span>
                       {project.title}
