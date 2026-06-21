@@ -10,6 +10,7 @@ import {
   CodeBracketSquareIcon,
 } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
+import { StatsSkeleton } from "@/components/AdminSkeleton";
 
 interface Stat {
   name: string;
@@ -151,7 +152,9 @@ export default function Home() {
       setRecentPostsLoading(false);
     }
   };
-  return (
+  return loading ? (
+    <StatsSkeleton />
+  ) : (
     <div className="py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
@@ -177,7 +180,7 @@ export default function Home() {
                         {stat.name}
                       </dt>
                       <dd className="text-lg font-medium text-gray-900">
-                        {loading ? "..." : stat.value}
+                        {stat.value}
                       </dd>
                     </dl>
                   </div>
@@ -195,8 +198,21 @@ export default function Home() {
               </h3>
               <div className="mt-5">
                 {recentPostsLoading ? (
-                  <div className="text-center py-4">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+                  <div className="animate-pulse space-y-4">
+                    {Array.from({ length: 3 }).map((_, i) => (
+                      <div key={i} className="border-b border-gray-200 pb-4 last:border-b-0 last:pb-0">
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1 space-y-2">
+                            <div className="h-4 bg-gray-200 rounded w-3/4" />
+                            <div className="h-3 bg-gray-200 rounded w-1/3" />
+                            <div className="h-3 bg-gray-200 rounded w-full" />
+                          </div>
+                          <div className="ml-4">
+                            <div className="h-6 w-20 bg-gray-200 rounded-full" />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 ) : recentPosts.length > 0 ? (
                   <div className="space-y-4">

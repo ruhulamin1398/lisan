@@ -8,6 +8,7 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/24/outline";
+import { PageSkeleton } from "@/components/AdminSkeleton";
 
 interface ProjectCategory {
   _id: string;
@@ -57,15 +58,7 @@ export default function ProjectCategoriesList() {
   };
 
   if (loading) {
-    return (
-      <div className="py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
-          </div>
-        </div>
-      </div>
-    );
+    return <PageSkeleton />;
   }
 
   return (

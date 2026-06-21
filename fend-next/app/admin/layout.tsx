@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Sidebar from "@/components/Sidebar";
 import AdminContentWrapper from "@/components/AdminContentWrapper";
+import ScrollToTop from "@/components/ScrollToTop";
 import { AuthProvider } from "@/contexts/AuthContext";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function AdminLayout({
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <AuthProvider>
+        <ScrollToTop />
         <Sidebar />
         <AdminContentWrapper>{children}</AdminContentWrapper>
       </AuthProvider>

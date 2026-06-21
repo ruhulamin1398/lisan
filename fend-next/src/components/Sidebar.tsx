@@ -15,6 +15,7 @@ import {
   CircleStackIcon,
   CodeBracketSquareIcon,
   Squares2X2Icon,
+  ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -28,6 +29,7 @@ interface NavItem {
 interface NavGroup {
   name: string;
   items: NavItem[];
+  collapsible?: boolean;
 }
 
 const navigationGroups: NavGroup[] = [
@@ -37,6 +39,7 @@ const navigationGroups: NavGroup[] = [
   },
   {
     name: "Blog",
+    collapsible: true,
     items: [
       { name: "Posts", href: "/admin/posts/list", icon: DocumentTextIcon },
       { name: "Categories", href: "/admin/categories/list", icon: TagIcon },
@@ -44,6 +47,7 @@ const navigationGroups: NavGroup[] = [
   },
   {
     name: "Project",
+    collapsible: true,
     items: [
       { name: "Projects", href: "/admin/projects", icon: CodeBracketSquareIcon },
       {
@@ -112,6 +116,48 @@ function NavLink({
   );
 }
 
+function CollapsibleGroup({
+  group,
+  pathname,
+  onClick,
+  defaultOpen = true,
+}: {
+  group: NavGroup;
+  pathname: string;
+  onClick?: () => void;
+  defaultOpen?: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
+
+  return (
+    <div className="mb-4">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-gray-300 transition-colors rounded-md"
+      >
+        <span>{group.name}</span>
+        <ChevronDownIcon
+          className={`h-4 w-4 transition-transform ${
+            open ? "rotate-0" : "-rotate-90"
+          }`}
+        />
+      </button>
+      {open && (
+        <div className="mt-1 space-y-0.5">
+          {group.items.map((item) => (
+            <NavLink
+              key={item.name}
+              item={item}
+              pathname={pathname}
+              onClick={onClick}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function NavSection({
   groups,
   pathname,
@@ -123,21 +169,30 @@ function NavSection({
 }) {
   return (
     <>
-      {groups.map((group) => (
-        <div key={group.name} className="mb-4">
-          <p className="px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
-            {group.name}
-          </p>
-          {group.items.map((item) => (
-            <NavLink
-              key={item.name}
-              item={item}
-              pathname={pathname}
-              onClick={onClick}
-            />
-          ))}
-        </div>
-      ))}
+      {groups.map((group) =>
+        group.collapsible ? (
+          <CollapsibleGroup
+            key={group.name}
+            group={group}
+            pathname={pathname}
+            onClick={onClick}
+          />
+        ) : (
+          <div key={group.name} className="mb-4">
+            <p className="px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
+              {group.name}
+            </p>
+            {group.items.map((item) => (
+              <NavLink
+                key={item.name}
+                item={item}
+                pathname={pathname}
+                onClick={onClick}
+              />
+            ))}
+          </div>
+        )
+      )}
     </>
   );
 }
