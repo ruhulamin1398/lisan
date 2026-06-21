@@ -3,8 +3,8 @@ import Sidebar from "@/components/Sidebar";
 import { AuthProvider } from "@/contexts/AuthContext";
 
 export const metadata: Metadata = {
-  title: "Blog Admin",
-  description: "Admin panel for blog",
+  title: "Admin | Ruhul Amin",
+  description: "Admin panel for Ruhul Amin portfolio — manage projects, categories, logos, and blog posts.",
 };
 
 export default function AdminLayout({
