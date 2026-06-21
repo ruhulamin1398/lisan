@@ -89,6 +89,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     router.push("/admin/auth/login");
   };
 
+  // Protect admin pages: don't render children when not authenticated
+  // (the useEffect above handles the redirect, but we prevent flash of admin content)
+  if (!isLoading) {
+    const publicPaths = ["/admin/auth/login", "/admin/auth/register"];
+    const isPublicPath = publicPaths.includes(pathname);
+
+    if (!user && !isPublicPath) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        </div>
+      );
+    }
+  }
+
   // Show loading spinner while determining auth state
   if (isLoading) {
     return (
