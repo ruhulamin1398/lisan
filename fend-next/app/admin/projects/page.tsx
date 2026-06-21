@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 interface ProjectLink {
   title: string;
@@ -389,6 +390,17 @@ export default function AdminProjects() {
                         </div>
                       </div>
                       <div className="flex gap-2 ml-4 flex-shrink-0">
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-gray-700 bg-gray-100 hover:bg-gray-200"
+                            title="Open project link"
+                          >
+                            <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                          </a>
+                        )}
                         <button
                           onClick={() => handleEdit(project)}
                           className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-blue-700 bg-blue-100 hover:bg-blue-200"
