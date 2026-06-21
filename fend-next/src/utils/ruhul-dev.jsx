@@ -29,7 +29,7 @@ import PalmUsd from "../../images/project/palm.png";
 import Muslimbd from "../../images/project/muslimbd.png";
 import abi from "./Transactions.json";
 import { GiArchiveResearch, GiTeacher } from "react-icons/gi";
-import { MdOutlineDeveloperBoard } from "react-icons/md";
+import { MdOutlineDeveloperBoard, MdWorkspacePremium } from "react-icons/md";
 import {
   FaEthereum,
   FaNodeJs,
@@ -139,11 +139,11 @@ export const configRuhulDev = {
         color: "bg-[#8945F8]",
       },
       {
-        title: "Researcher",
+        title: "Achievement",
         description:
-          "Published 10+ Research Papers. <br/> Supervised 20+ students. <br/> Reviewed 50+ Papers.",
-        icon: <GiArchiveResearch fontSize={21} className="text-white" />,
-        color: "bg-[#2952E3]",
+          "⚡ Built entire smart contracts & bots for PALM USD — a $2.8B investment protocol. <br/> 🖼️ Deployed 64K NFTs on Polygon Chain — attracted 60K+ users.",
+        icon: <MdWorkspacePremium fontSize={21} className="text-white" />,
+        color: "bg-[#F59E0B]",
       },
     ],
   },
