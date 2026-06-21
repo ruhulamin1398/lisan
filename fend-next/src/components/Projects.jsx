@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Hero from "./Hero";
+import { SkeletonProjectPage } from "./Skeleton";
 
 const getImageSrc = (image) => {
   if (!image) return "";
@@ -45,64 +46,12 @@ const Projects = () => {
   }, []);
 
   if (loading) {
-    const skeletonCards = [1, 2, 3];
     return (
       <div
         id="FeatureProject"
         className="flex w-full justify-center items-center mt-10 px-4"
       >
-        <div className="w-full max-w-7xl">
-          {/* Skeleton Hero */}
-          <div className="animate-pulse">
-            <div className="h-8 w-48 bg-slate-700/50 rounded-full mb-3" />
-            <div className="h-4 w-96 max-w-full bg-slate-700/50 rounded-full" />
-          </div>
-
-          {/* Skeleton Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mt-10 mb-2 animate-pulse">
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className="h-9 w-24 rounded-full bg-slate-700/50"
-              />
-            ))}
-          </div>
-
-          {/* Skeleton Project Cards */}
-          <div className="space-y-8 py-10">
-            {skeletonCards.map((i) => (
-              <div
-                key={i}
-                className="animate-pulse grid gap-6 overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 shadow-2xl lg:grid-cols-[360px_minmax(0,1fr)]"
-              >
-                {/* Image placeholder */}
-                <div className="relative h-72 overflow-hidden bg-slate-800/80 lg:h-auto" />
-
-                {/* Content placeholder */}
-                <div className="flex flex-col justify-between p-6 space-y-4">
-                  <div className="space-y-3">
-                    <div className="h-7 w-3/4 bg-slate-700/50 rounded-full" />
-                    <div className="space-y-2 mt-4">
-                      <div className="h-3 w-full bg-slate-700/50 rounded-full" />
-                      <div className="h-3 w-11/12 bg-slate-700/50 rounded-full" />
-                      <div className="h-3 w-4/5 bg-slate-700/50 rounded-full" />
-                      <div className="h-3 w-3/5 bg-slate-700/50 rounded-full" />
-                    </div>
-                  </div>
-
-                  {/* Button skeleton */}
-                  <div className="flex gap-3">
-                    <div className="h-10 w-28 rounded-full bg-slate-700/50" />
-                    <div className="h-10 w-28 rounded-full bg-slate-700/50" />
-                  </div>
-
-                  {/* Tools skeleton */}
-                  <div className="h-3 w-48 bg-slate-700/50 rounded-full" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <SkeletonProjectPage />
       </div>
     );
   }

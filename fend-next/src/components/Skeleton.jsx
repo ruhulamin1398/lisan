@@ -100,6 +100,56 @@ export const SkeletonBlogDetail = () => (
   </div>
 );
 
+// Project card skeleton — matches the actual project card layout (horizontal)
+export const SkeletonProjectCard = () => (
+  <div className="grid gap-6 overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 shadow-2xl lg:grid-cols-[360px_minmax(0,1fr)]">
+    {/* Image placeholder */}
+    <Shimmer className="h-72 rounded-none lg:h-auto" />
+    {/* Content placeholder */}
+    <div className="flex flex-col justify-between p-6 space-y-4">
+      <div className="space-y-3">
+        <Shimmer className="h-7 w-3/4" />
+        <div className="space-y-2 mt-4">
+          <Shimmer className="h-3 w-full" />
+          <Shimmer className="h-3 w-11/12" />
+          <Shimmer className="h-3 w-4/5" />
+          <Shimmer className="h-3 w-3/5" />
+        </div>
+      </div>
+      {/* Buttons */}
+      <div className="flex gap-3">
+        <Shimmer className="h-10 w-28 rounded-full" />
+        <Shimmer className="h-10 w-28 rounded-full" />
+      </div>
+      {/* Tools */}
+      <Shimmer className="h-3 w-48" />
+    </div>
+  </div>
+);
+
+// Project page skeleton — matches the actual project page layout
+export const SkeletonProjectPage = () => (
+  <div className="w-full max-w-7xl mx-auto mt-10">
+    {/* Hero skeleton */}
+    <Shimmer className="h-8 w-48 rounded-full mb-3" />
+    <Shimmer className="h-4 w-96 max-w-full" />
+
+    {/* Filter tabs skeleton */}
+    <div className="flex flex-wrap justify-center gap-2 mt-10 mb-2">
+      {[1, 2, 3, 4].map((i) => (
+        <Shimmer key={i} className="h-9 w-24 rounded-full" />
+      ))}
+    </div>
+
+    {/* Cards skeleton */}
+    <div className="space-y-8 py-10">
+      {[1, 2, 3].map((i) => (
+        <SkeletonProjectCard key={i} />
+      ))}
+    </div>
+  </div>
+);
+
 // Generic page skeleton (for other pages)
 export const SkeletonPage = () => (
   <div className="w-full max-w-6xl mx-auto px-4 py-10">
