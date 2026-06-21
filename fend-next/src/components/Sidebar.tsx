@@ -19,28 +19,115 @@ import {
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 
-const navigation = [
-  { name: "Dashboard", href: "/admin", icon: HomeIcon },
-  { name: "Posts", href: "/admin/posts/list", icon: DocumentTextIcon },
-  { name: "Categories", href: "/admin/categories/list", icon: TagIcon },
-  { name: "Projects", href: "/admin/projects", icon: CodeBracketSquareIcon },
-  { name: "Project Categories", href: "/admin/project-categories/list", icon: Squares2X2Icon },
+interface NavItem {
+  name: string;
+  href: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+
+interface NavGroup {
+  name: string;
+  items: NavItem[];
+}
+
+const navigationGroups: NavGroup[] = [
   {
-    name: "Service Types",
-    href: "/admin/service-types/list",
-    icon: WrenchScrewdriverIcon,
+    name: "Main",
+    items: [{ name: "Dashboard", href: "/admin", icon: HomeIcon }],
   },
   {
-    name: "Contact Messages",
-    href: "/admin/contact-messages/list",
-    icon: EnvelopeIcon,
+    name: "Content",
+    items: [
+      { name: "Posts", href: "/admin/posts/list", icon: DocumentTextIcon },
+      { name: "Categories", href: "/admin/categories/list", icon: TagIcon },
+      { name: "Projects", href: "/admin/projects", icon: CodeBracketSquareIcon },
+      {
+        name: "Project Categories",
+        href: "/admin/project-categories/list",
+        icon: Squares2X2Icon,
+      },
+      {
+        name: "Service Types",
+        href: "/admin/service-types/list",
+        icon: WrenchScrewdriverIcon,
+      },
+      { name: "Logos", href: "/admin/logos", icon: CircleStackIcon },
+    ],
   },
   {
-    name: "Logos",
-    href: "/admin/logos",
-    icon: CircleStackIcon,
+    name: "Inbox",
+    items: [
+      {
+        name: "Contact Messages",
+        href: "/admin/contact-messages/list",
+        icon: EnvelopeIcon,
+      },
+    ],
   },
 ];
+
+function NavLink({
+  item,
+  pathname,
+  onClick,
+}: {
+  item: NavItem;
+  pathname: string;
+  onClick?: () => void;
+}) {
+  const isActive = pathname === item.href;
+  return (
+    <Link
+      href={item.href}
+      onClick={onClick}
+      className={`${
+        isActive
+          ? "bg-gray-900 text-white"
+          : "text-gray-300 hover:bg-gray-700 hover:text-white"
+      } group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors`}
+    >
+      <item.icon
+        className={`${
+          isActive
+            ? "text-gray-300"
+            : "text-gray-400 group-hover:text-gray-300"
+        } mr-3 flex-shrink-0 h-6 w-6`}
+        aria-hidden="true"
+      />
+      {item.name}
+    </Link>
+  );
+}
+
+function NavSection({
+  groups,
+  pathname,
+  onClick,
+}: {
+  groups: NavGroup[];
+  pathname: string;
+  onClick?: () => void;
+}) {
+  return (
+    <>
+      {groups.map((group) => (
+        <div key={group.name} className="mb-4">
+          <p className="px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
+            {group.name}
+          </p>
+          {group.items.map((item) => (
+            <NavLink
+              key={item.name}
+              item={item}
+              pathname={pathname}
+              onClick={onClick}
+            />
+          ))}
+        </div>
+      ))}
+    </>
+  );
+}
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -52,7 +139,7 @@ export default function Sidebar() {
     return null;
   }
 
-  const userNavigation = [
+  const userNavigation: NavItem[] = [
     {
       name: "Change Password",
       href: "/admin/auth/change-password",
@@ -93,61 +180,27 @@ export default function Sidebar() {
                   </div>
                 </div>
 
-                <nav className="mt-8 flex-1 px-2 space-y-1">
-                  {navigation.map((item) => {
-                    const isActive = pathname === item.href;
-                    return (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setSidebarOpen(false)}
-                        className={`${
-                          isActive
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                        } group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors`}
-                      >
-                        <item.icon
-                          className={`${
-                            isActive
-                              ? "text-gray-300"
-                              : "text-gray-400 group-hover:text-gray-300"
-                          } mr-3 flex-shrink-0 h-6 w-6`}
-                          aria-hidden="true"
-                        />
-                        {item.name}
-                      </Link>
-                    );
-                  })}
+                <nav className="mt-6 flex-1 px-2">
+                  <NavSection
+                    groups={navigationGroups}
+                    pathname={pathname}
+                    onClick={() => setSidebarOpen(false)}
+                  />
                 </nav>
 
                 {/* User navigation */}
-                <div className="mt-8 px-2 space-y-1">
-                  {userNavigation.map((item) => {
-                    const isActive = pathname === item.href;
-                    return (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setSidebarOpen(false)}
-                        className={`${
-                          isActive
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                        } group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors`}
-                      >
-                        <item.icon
-                          className={`${
-                            isActive
-                              ? "text-gray-300"
-                              : "text-gray-400 group-hover:text-gray-300"
-                          } mr-3 flex-shrink-0 h-6 w-6`}
-                          aria-hidden="true"
-                        />
-                        {item.name}
-                      </Link>
-                    );
-                  })}
+                <div className="px-2 mb-4">
+                  <p className="px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
+                    Account
+                  </p>
+                  {userNavigation.map((item) => (
+                    <NavLink
+                      key={item.name}
+                      item={item}
+                      pathname={pathname}
+                      onClick={() => setSidebarOpen(false)}
+                    />
+                  ))}
 
                   <button
                     onClick={() => {
@@ -189,59 +242,18 @@ export default function Sidebar() {
               </div>
             </div>
 
-            <nav className="mt-8 flex-1 px-2 space-y-1">
-              {navigation.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`${
-                      isActive
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                    } group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors`}
-                  >
-                    <item.icon
-                      className={`${
-                        isActive
-                          ? "text-gray-300"
-                          : "text-gray-400 group-hover:text-gray-300"
-                      } mr-3 flex-shrink-0 h-6 w-6`}
-                      aria-hidden="true"
-                    />
-                    {item.name}
-                  </Link>
-                );
-              })}
+            <nav className="mt-6 flex-1 px-2">
+              <NavSection groups={navigationGroups} pathname={pathname} />
             </nav>
 
             {/* User navigation */}
-            <div className="mt-8 px-2 space-y-1">
-              {userNavigation.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`${
-                      isActive
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                    } group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors`}
-                  >
-                    <item.icon
-                      className={`${
-                        isActive
-                          ? "text-gray-300"
-                          : "text-gray-400 group-hover:text-gray-300"
-                      } mr-3 flex-shrink-0 h-6 w-6`}
-                      aria-hidden="true"
-                    />
-                    {item.name}
-                  </Link>
-                );
-              })}
+            <div className="px-2">
+              <p className="px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
+                Account
+              </p>
+              {userNavigation.map((item) => (
+                <NavLink key={item.name} item={item} pathname={pathname} />
+              ))}
 
               <button
                 onClick={logout}
