@@ -36,23 +36,36 @@ const navigationGroups: NavGroup[] = [
     items: [{ name: "Dashboard", href: "/admin", icon: HomeIcon }],
   },
   {
-    name: "Content",
+    name: "Blog",
     items: [
       { name: "Posts", href: "/admin/posts/list", icon: DocumentTextIcon },
       { name: "Categories", href: "/admin/categories/list", icon: TagIcon },
+    ],
+  },
+  {
+    name: "Project",
+    items: [
       { name: "Projects", href: "/admin/projects", icon: CodeBracketSquareIcon },
       {
-        name: "Project Categories",
+        name: "Categories",
         href: "/admin/project-categories/list",
         icon: Squares2X2Icon,
       },
+    ],
+  },
+  {
+    name: "Services",
+    items: [
       {
         name: "Service Types",
         href: "/admin/service-types/list",
         icon: WrenchScrewdriverIcon,
       },
-      { name: "Logos", href: "/admin/logos", icon: CircleStackIcon },
     ],
+  },
+  {
+    name: "Brand",
+    items: [{ name: "Logos", href: "/admin/logos", icon: CircleStackIcon }],
   },
   {
     name: "Inbox",
