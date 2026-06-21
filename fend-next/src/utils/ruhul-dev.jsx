@@ -139,9 +139,9 @@ export const configRuhulDev = {
         color: "bg-[#8945F8]",
       },
       {
-        title: "Achievement",
+        title: "Marquee Achievement",
         description:
-          "⚡ Built entire smart contracts & bots for PALM USD — a $2.8B investment protocol. <br/> 🖼️ Deployed 64K NFTs on Polygon Chain — attracted 60K+ users.",
+          "Built entire smart contracts & bots for PALM USD — a $2.8B investment protocol. <br/> Deployed across 5 mainnet networks.",
         icon: <MdWorkspacePremium fontSize={21} className="text-white" />,
         color: "bg-[#F59E0B]",
       },
