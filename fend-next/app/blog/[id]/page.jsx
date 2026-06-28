@@ -115,8 +115,10 @@ const BlogPost = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex justify-center px-4 py-10">
-        <SkeletonBlogDetail />
+      <div className="min-h-screen">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 py-10">
+          <SkeletonBlogDetail />
+        </div>
       </div>
     );
   }

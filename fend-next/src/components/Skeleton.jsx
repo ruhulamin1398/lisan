@@ -52,18 +52,20 @@ export const SkeletonSidebar = () => (
 
 // Single blog post detail skeleton (Ramp-style with TOC)
 export const SkeletonBlogDetail = () => (
-  <div className="px-6 md:px-10 lg:px-16 xl:px-24 py-10">
+  <>
     {/* Back link */}
     <Shimmer className="h-4 w-28 mb-10" />
-    <div className="flex gap-12">
+    <div className="flex gap-12 relative">
       {/* TOC skeleton (hidden on mobile) */}
       <div className="hidden lg:block w-56 shrink-0">
-        <Shimmer className="h-3 w-20 mb-4" />
-        <div className="space-y-2">
-          <Shimmer className="h-3 w-40" />
-          <Shimmer className="h-3 w-36" />
-          <Shimmer className="h-3 w-44" />
-          <Shimmer className="h-3 w-32" />
+        <div className="sticky top-24">
+          <Shimmer className="h-3 w-20 mb-4" />
+          <div className="space-y-2">
+            <Shimmer className="h-3 w-40" />
+            <Shimmer className="h-3 w-36" />
+            <Shimmer className="h-3 w-44" />
+            <Shimmer className="h-3 w-32" />
+          </div>
         </div>
       </div>
       {/* Content skeleton — fills remaining space */}
@@ -74,7 +76,7 @@ export const SkeletonBlogDetail = () => (
         <Shimmer className="h-10 w-full mb-2" />
         <Shimmer className="h-10 w-4/5 mb-8" />
         {/* Featured image */}
-        <Shimmer className="h-64 w-full rounded-2xl mb-10" />
+        <Shimmer className="h-64 w-full rounded-2xl border border-white/10 mb-10" />
         {/* Content paragraphs */}
         <div className="space-y-3">
           <Shimmer className="h-4 w-full" />
@@ -113,7 +115,7 @@ export const SkeletonBlogDetail = () => (
         ))}
       </div>
     </div>
-  </div>
+  </>
 );
 
 // Project card skeleton — matches the actual project card layout (horizontal)
