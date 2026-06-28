@@ -71,10 +71,10 @@ const Blog = () => {
 
   return (
     <>
-      <div className="flex w-full justify-center items-start mt-16 px-4 md:px-8">
-        <div className="w-full max-w-6xl">
+      <div className="flex w-full justify-center items-start mt-16">
+        <div className="w-full px-6 md:px-10 lg:px-16 xl:px-24">
           {/* Notion-style Header */}
-          <div className="mb-12">
+          <div className="mb-10">
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
               Blog
             </h1>
@@ -84,9 +84,9 @@ const Blog = () => {
             </p>
           </div>
 
-          <div className="flex gap-10">
+          <div className="flex gap-12">
             {/* Left Sidebar — Category Navigation (Notion-style vertical list) */}
-            <aside className="hidden md:block w-44 shrink-0">
+            <aside className="hidden md:block w-40 shrink-0">
               <nav className="sticky top-24 space-y-1">
                 <button
                   onClick={() => {

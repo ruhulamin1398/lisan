@@ -8,11 +8,12 @@ import { ToastContainer } from "react-toastify";
 export default function ClientRoot({ children }) {
   const pathname = usePathname();
   const isAdminRoute = pathname?.startsWith("/admin");
+  const isBlogRoute = pathname?.startsWith("/blog");
 
   return (
     <TransactionsProvider>
       {!isAdminRoute && <Navbar />}
-      <main className={isAdminRoute ? "pb-0" : "pb-[100px]"}>{children}</main>
+      <main className={isAdminRoute || isBlogRoute ? "pb-0" : "pb-[100px]"}>{children}</main>
       {!isAdminRoute && <Footer />}
       <ToastContainer />
       <div id="modal-root"></div>

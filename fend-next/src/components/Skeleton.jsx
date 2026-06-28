@@ -40,7 +40,7 @@ export const SkeletonBlogGrid = ({ count = 6 }) => (
 
 // Single blog post detail skeleton (Ramp-style with TOC)
 export const SkeletonBlogDetail = () => (
-  <div className="max-w-6xl mx-auto px-4 py-10">
+  <div className="px-6 md:px-10 lg:px-16 xl:px-24 py-10">
     {/* Back link */}
     <Shimmer className="h-4 w-28 mb-10" />
     <div className="flex gap-12">
