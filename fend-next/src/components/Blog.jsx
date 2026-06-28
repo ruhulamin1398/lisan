@@ -78,7 +78,7 @@ const Blog = () => {
         <div className="w-full px-6 md:px-10 lg:px-16 xl:px-24">
           <div className="flex gap-12">
             {/* Left Sidebar — Category Navigation (Notion-style vertical list) */}
-            <aside className="hidden md:block w-40 shrink-0">
+            <aside className="hidden md:block w-40 shrink-0 border-r border-white/10 pr-6">
               <h1 className="text-3xl font-bold text-white tracking-tight mb-3">
                 Blog
               </h1>

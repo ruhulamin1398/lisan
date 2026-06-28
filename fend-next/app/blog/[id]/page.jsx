@@ -170,7 +170,7 @@ const BlogPost = () => {
           <div className="flex gap-12 relative">
             {/* Left — Sticky TOC (Ramp-style) — Desktop only */}
             {headings.length > 1 && (
-              <aside className="hidden lg:block w-56 shrink-0">
+              <aside className="hidden lg:block w-56 shrink-0 border-r border-white/10 pr-6">
                 <div className="sticky top-24">
                   <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
                     On this page

@@ -57,7 +57,7 @@ export const SkeletonBlogDetail = () => (
     <Shimmer className="h-4 w-28 mb-10" />
     <div className="flex gap-12 relative">
       {/* TOC skeleton (hidden on mobile) */}
-      <div className="hidden lg:block w-56 shrink-0">
+      <div className="hidden lg:block w-56 shrink-0 border-r border-white/10 pr-6">
         <div className="sticky top-24">
           <Shimmer className="h-3 w-20 mb-4" />
           <div className="space-y-2">
