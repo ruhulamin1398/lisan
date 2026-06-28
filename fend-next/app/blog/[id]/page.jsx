@@ -145,26 +145,20 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen">
       <div className="px-6 md:px-10 lg:px-16 xl:px-24 py-10">
-          {/* Back link */}
-          <Link
-            href="/blog"
-            className="inline-flex items-center text-sm text-gray-500 hover:text-[#00FF99] transition-colors mb-10"
-          >
-            <svg
-              className="w-4 h-4 mr-1.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            Back to Blog
-          </Link>
+          {/* Breadcrumb — Ramp-style */}
+          <nav className="mb-8">
+            <ol className="flex items-center gap-2 text-sm text-gray-500">
+              <li>
+                <Link href="/blog" className="hover:text-[#00FF99] transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li className="text-gray-600 select-none">→</li>
+              <li className="text-gray-400">
+                {post.category?.name || post.category?.title || "Article"}
+              </li>
+            </ol>
+          </nav>
 
           {/* Two-column layout: TOC + Content */}
           <div className="flex gap-12 relative">

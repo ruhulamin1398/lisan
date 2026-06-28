@@ -53,8 +53,12 @@ export const SkeletonSidebar = () => (
 // Single blog post detail skeleton (Ramp-style with TOC)
 export const SkeletonBlogDetail = () => (
   <>
-    {/* Back link */}
-    <Shimmer className="h-4 w-28 mb-10" />
+    {/* Breadcrumb skeleton */}
+    <div className="flex items-center gap-2 mb-8">
+      <Shimmer className="h-3 w-10" />
+      <span className="text-gray-600 select-none text-sm">→</span>
+      <Shimmer className="h-3 w-24" />
+    </div>
     <div className="flex gap-12 relative">
       {/* TOC skeleton (hidden on mobile) */}
       <div className="hidden lg:block w-56 shrink-0 border-r border-white/10 pr-6">
