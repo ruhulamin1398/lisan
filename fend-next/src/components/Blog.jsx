@@ -76,16 +76,12 @@ const Blog = () => {
     <>
       <div className="flex w-full justify-center items-start mt-16">
         <div className="w-full px-6 md:px-10 lg:px-16 xl:px-24">
-          {/* Notion-style Header */}
-          <div className="mb-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-              Blog
-            </h1>
-          </div>
-
           <div className="flex gap-12">
             {/* Left Sidebar — Category Navigation (Notion-style vertical list) */}
             <aside className="hidden md:block w-40 shrink-0">
+              <h1 className="text-3xl font-bold text-white tracking-tight mb-3">
+                Blog
+              </h1>
               <p className="text-sm text-gray-400 mb-6 leading-relaxed">
                 Thoughts, tutorials, and insights on development, blockchain, and
                 research.
