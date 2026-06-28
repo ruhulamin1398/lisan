@@ -147,13 +147,13 @@ const BlogPost = () => {
       <div className="px-6 md:px-10 lg:px-16 xl:px-24 py-10">
           {/* Breadcrumb — Ramp-style */}
           <nav className="mb-8">
-            <ol className="flex items-center gap-2 text-sm text-gray-500">
+            <ol className="flex items-center gap-1 text-sm text-gray-500">
               <li>
                 <Link href="/blog" className="hover:text-[#00FF99] transition-colors">
                   Blog
                 </Link>
+                <span className="mx-2 text-gray-600">→</span>
               </li>
-              <li className="text-gray-600 select-none">→</li>
               <li className="text-gray-400">
                 {post.category?.name || post.category?.title || "Article"}
               </li>

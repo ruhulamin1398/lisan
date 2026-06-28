@@ -54,9 +54,9 @@ export const SkeletonSidebar = () => (
 export const SkeletonBlogDetail = () => (
   <>
     {/* Breadcrumb skeleton */}
-    <div className="flex items-center gap-2 mb-8">
+    <div className="flex items-center gap-1 mb-8">
       <Shimmer className="h-3 w-10" />
-      <span className="text-gray-600 select-none text-sm">→</span>
+      <span className="mx-2 text-gray-600 text-sm">→</span>
       <Shimmer className="h-3 w-24" />
     </div>
     <div className="flex gap-12 relative">
