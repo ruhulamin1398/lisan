@@ -38,6 +38,18 @@ export const SkeletonBlogGrid = ({ count = 6 }) => (
   </div>
 );
 
+// Sidebar skeleton — shimmer placeholders for left sidebar category links
+export const SkeletonSidebar = () => (
+  <nav className="sticky top-24 space-y-1">
+    <div className="space-y-1.5">
+      <Shimmer className="h-3 w-12" />
+      <Shimmer className="h-3 w-24" />
+      <Shimmer className="h-3 w-20" />
+      <Shimmer className="h-3 w-28" />
+    </div>
+  </nav>
+);
+
 // Single blog post detail skeleton (Ramp-style with TOC)
 export const SkeletonBlogDetail = () => (
   <div className="px-6 md:px-10 lg:px-16 xl:px-24 py-10">
@@ -54,8 +66,8 @@ export const SkeletonBlogDetail = () => (
           <Shimmer className="h-3 w-32" />
         </div>
       </div>
-      {/* Content skeleton */}
-      <div className="flex-1 min-w-0 max-w-3xl">
+      {/* Content skeleton — fills remaining space */}
+      <div className="flex-1 min-w-0">
         {/* Category */}
         <Shimmer className="h-3 w-24 mb-3" />
         {/* Title */}

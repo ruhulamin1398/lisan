@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { SkeletonBlogGrid } from "./Skeleton";
+import { SkeletonBlogGrid, SkeletonSidebar } from "./Skeleton";
 
 const POSTS_PER_PAGE = 8;
 
@@ -15,6 +15,7 @@ const Blog = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [categoriesLoading, setCategoriesLoading] = useState(true);
 
   // Fetch categories on mount
   useEffect(() => {
@@ -25,6 +26,8 @@ const Blog = () => {
         if (Array.isArray(data)) setCategories(data);
       } catch {
         // Categories are non-critical
+      } finally {
+        setCategoriesLoading(false);
       }
     };
     fetchCategories();
@@ -78,45 +81,51 @@ const Blog = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
               Blog
             </h1>
-            <p className="mt-3 text-base text-gray-400">
-              Thoughts, tutorials, and insights on development, blockchain, and
-              research.
-            </p>
           </div>
 
           <div className="flex gap-12">
             {/* Left Sidebar — Category Navigation (Notion-style vertical list) */}
             <aside className="hidden md:block w-40 shrink-0">
+              <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+                Thoughts, tutorials, and insights on development, blockchain, and
+                research.
+              </p>
               <nav className="sticky top-24 space-y-1">
-                <button
-                  onClick={() => {
-                    setSelectedCategory("");
-                    setPage(1);
-                  }}
-                  className={`block w-full text-left text-sm py-1.5 transition-colors duration-150 ${
-                    selectedCategory === ""
-                      ? "text-white font-semibold"
-                      : "text-gray-500 hover:text-gray-300"
-                  }`}
-                >
-                  All
-                </button>
-                {categories.map((cat) => (
-                  <button
-                    key={cat._id}
-                    onClick={() => {
-                      setSelectedCategory(cat._id);
-                      setPage(1);
-                    }}
-                    className={`block w-full text-left text-sm py-1.5 transition-colors duration-150 ${
-                      selectedCategory === cat._id
-                        ? "text-white font-semibold"
-                        : "text-gray-500 hover:text-gray-300"
-                    }`}
-                  >
-                    {cat.name}
-                  </button>
-                ))}
+                {categoriesLoading ? (
+                  <SkeletonSidebar />
+                ) : (
+                  <>
+                    <button
+                      onClick={() => {
+                        setSelectedCategory("");
+                        setPage(1);
+                      }}
+                      className={`block w-full text-left text-sm py-1.5 transition-colors duration-150 ${
+                        selectedCategory === ""
+                          ? "text-white font-semibold"
+                          : "text-gray-500 hover:text-gray-300"
+                      }`}
+                    >
+                      All
+                    </button>
+                    {categories.map((cat) => (
+                      <button
+                        key={cat._id}
+                        onClick={() => {
+                          setSelectedCategory(cat._id);
+                          setPage(1);
+                        }}
+                        className={`block w-full text-left text-sm py-1.5 transition-colors duration-150 ${
+                          selectedCategory === cat._id
+                            ? "text-white font-semibold"
+                            : "text-gray-500 hover:text-gray-300"
+                        }`}
+                      >
+                        {cat.name}
+                      </button>
+                    ))}
+                  </>
+                )}
               </nav>
             </aside>
 
