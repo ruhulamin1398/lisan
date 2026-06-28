@@ -16,6 +16,7 @@ import {
   CodeBracketSquareIcon,
   Squares2X2Icon,
   ChevronDownIcon,
+  PhotoIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -70,6 +71,13 @@ const navigationGroups: NavGroup[] = [
   {
     name: "Brand",
     items: [{ name: "Logos", href: "/admin/logos", icon: CircleStackIcon }],
+  },
+  {
+    name: "Media",
+    collapsible: true,
+    items: [
+      { name: "File Manager", href: "/admin/files", icon: PhotoIcon },
+    ],
   },
   {
     name: "Inbox",

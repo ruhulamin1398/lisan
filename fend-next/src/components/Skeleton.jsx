@@ -11,88 +11,86 @@ const Shimmer = ({ className = "" }) => (
   </div>
 );
 
-// Blog post card skeleton — matches the actual card layout
-export const SkeletonCard = () => (
-  <div className="group h-full overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80 flex flex-col">
-    {/* Image area */}
-    <Shimmer className="h-48 shrink-0 rounded-none" />
-    {/* Content */}
-    <div className="flex flex-col gap-3 p-5 flex-1">
-      {/* Category badge */}
-      <Shimmer className="h-5 w-20 rounded-full" />
-      {/* Title lines */}
-      <Shimmer className="h-5 w-full" />
-      <Shimmer className="h-5 w-3/4" />
-      {/* Body text lines */}
-      <div className="mt-1 space-y-2">
-        <Shimmer className="h-3 w-full" />
-        <Shimmer className="h-3 w-5/6" />
-        <Shimmer className="h-3 w-4/6" />
-      </div>
-      {/* Read more */}
-      <div className="mt-auto pt-2">
-        <Shimmer className="h-4 w-24" />
-      </div>
-    </div>
-  </div>
-);
-
-// Blog list skeleton (grid of cards)
+// Notion-style blog list skeleton (text-driven, no images)
 export const SkeletonBlogGrid = ({ count = 6 }) => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-10">
+  <div className="divide-y divide-white/5">
     {Array.from({ length: count }, (_, i) => (
-      <SkeletonCard key={i} />
+      <div key={i} className="py-8 first:pt-6">
+        {/* Category label */}
+        <Shimmer className="h-3 w-20 mb-2" />
+        {/* Title */}
+        <Shimmer className="h-6 w-3/4 mb-2" />
+        {/* Body lines */}
+        <div className="space-y-2 max-w-3xl">
+          <Shimmer className="h-3.5 w-full" />
+          <Shimmer className="h-3.5 w-11/12" />
+        </div>
+        {/* Read more */}
+        <Shimmer className="h-3.5 w-24 mt-3" />
+      </div>
     ))}
   </div>
 );
 
-// Single blog post detail skeleton
+// Single blog post detail skeleton (Ramp-style with TOC)
 export const SkeletonBlogDetail = () => (
-  <div className="w-full max-w-3xl mx-auto">
+  <div className="max-w-6xl mx-auto px-4 py-10">
     {/* Back link */}
-    <Shimmer className="h-4 w-28 mb-8" />
-    {/* Category badge */}
-    <Shimmer className="h-5 w-24 rounded-full mb-4" />
-    {/* Title */}
-    <Shimmer className="h-8 w-full mb-2" />
-    <Shimmer className="h-8 w-5/6 mb-8" />
-    {/* Featured image */}
-    <Shimmer className="h-64 w-full rounded-2xl mb-8" />
-    {/* Content paragraphs */}
-    <div className="space-y-3">
-      <Shimmer className="h-4 w-full" />
-      <Shimmer className="h-4 w-full" />
-      <Shimmer className="h-4 w-11/12" />
-      <Shimmer className="h-4 w-full" />
-      <Shimmer className="h-4 w-5/6" />
-      <div className="pt-2">
-        <Shimmer className="h-4 w-full" />
-        <Shimmer className="h-4 w-full" />
-        <Shimmer className="h-4 w-3/4" />
+    <Shimmer className="h-4 w-28 mb-10" />
+    <div className="flex gap-12">
+      {/* TOC skeleton (hidden on mobile) */}
+      <div className="hidden lg:block w-56 shrink-0">
+        <Shimmer className="h-3 w-20 mb-4" />
+        <div className="space-y-2">
+          <Shimmer className="h-3 w-40" />
+          <Shimmer className="h-3 w-36" />
+          <Shimmer className="h-3 w-44" />
+          <Shimmer className="h-3 w-32" />
+        </div>
       </div>
-      <div className="pt-2">
-        <Shimmer className="h-4 w-full" />
-        <Shimmer className="h-4 w-10/12" />
-        <Shimmer className="h-4 w-full" />
+      {/* Content skeleton */}
+      <div className="flex-1 min-w-0 max-w-3xl">
+        {/* Category */}
+        <Shimmer className="h-3 w-24 mb-3" />
+        {/* Title */}
+        <Shimmer className="h-10 w-full mb-2" />
+        <Shimmer className="h-10 w-4/5 mb-8" />
+        {/* Featured image */}
+        <Shimmer className="h-64 w-full rounded-2xl mb-10" />
+        {/* Content paragraphs */}
+        <div className="space-y-3">
+          <Shimmer className="h-4 w-full" />
+          <Shimmer className="h-4 w-full" />
+          <Shimmer className="h-4 w-11/12" />
+          <Shimmer className="h-4 w-full" />
+          <Shimmer className="h-4 w-5/6" />
+          <div className="pt-4">
+            <Shimmer className="h-4 w-full" />
+            <Shimmer className="h-4 w-full" />
+            <Shimmer className="h-4 w-3/4" />
+          </div>
+          <div className="pt-4">
+            <Shimmer className="h-4 w-full" />
+            <Shimmer className="h-4 w-10/12" />
+            <Shimmer className="h-4 w-full" />
+          </div>
+        </div>
       </div>
     </div>
-    {/* Similar posts heading */}
-    <div className="mt-16 pt-12 border-t border-white/10">
-      <Shimmer className="h-6 w-40 mb-8" />
+    {/* Similar posts */}
+    <div className="mt-16 pt-12 border-t border-white/5">
+      <Shimmer className="h-5 w-32 mb-8" />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {[1, 2].map((i) => (
           <div
             key={i}
-            className="rounded-2xl border border-white/10 bg-slate-950/60 overflow-hidden"
+            className="rounded-xl border border-white/5 p-5 space-y-2"
           >
-            <Shimmer className="h-36 rounded-none" />
-            <div className="p-4 space-y-2">
-              <Shimmer className="h-3 w-16 rounded-full" />
-              <Shimmer className="h-4 w-full" />
-              <Shimmer className="h-4 w-3/4" />
-              <Shimmer className="h-3 w-full" />
-              <Shimmer className="h-3 w-2/3" />
-            </div>
+            <Shimmer className="h-2.5 w-16" />
+            <Shimmer className="h-4 w-full" />
+            <Shimmer className="h-4 w-3/4" />
+            <Shimmer className="h-3 w-full" />
+            <Shimmer className="h-3 w-2/3" />
           </div>
         ))}
       </div>

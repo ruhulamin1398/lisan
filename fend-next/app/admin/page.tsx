@@ -8,6 +8,7 @@ import {
   EnvelopeIcon,
   Squares2X2Icon,
   CodeBracketSquareIcon,
+  PhotoIcon,
 } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 import { StatsSkeleton } from "@/components/AdminSkeleton";
@@ -57,6 +58,12 @@ export default function Home() {
       icon: CodeBracketSquareIcon,
       href: "/admin/projects",
     },
+    {
+      name: "Uploads",
+      value: "0",
+      icon: PhotoIcon,
+      href: "/admin/files",
+    },
   ]);
   const [loading, setLoading] = useState(true);
   const [recentPosts, setRecentPosts] = useState<any[]>([]);
@@ -88,6 +95,10 @@ export default function Home() {
       // Fetch projects
       const projRes = await fetch("/api/projects");
       const projects = projRes.ok ? await projRes.json() : [];
+
+      // Fetch files/uploads
+      const filesRes = await fetch("/api/files");
+      const files = filesRes.ok ? await filesRes.json() : [];
 
       // Calculate published posts
       const publishedPosts = posts.filter((post: any) => post.published).length;
@@ -128,6 +139,12 @@ export default function Home() {
           value: (Array.isArray(projects) ? projects.length : 0).toString(),
           icon: CodeBracketSquareIcon,
           href: "/projects",
+        },
+        {
+          name: "Uploads",
+          value: (Array.isArray(files) ? files.length : 0).toString(),
+          icon: PhotoIcon,
+          href: "/files",
         },
       ]);
     } catch (error) {

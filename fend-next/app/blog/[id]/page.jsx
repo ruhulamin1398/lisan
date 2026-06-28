@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { SkeletonBlogDetail } from "../../../src/components/Skeleton";
@@ -11,6 +11,9 @@ const BlogPost = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [similarPosts, setSimilarPosts] = useState([]);
+  const [headings, setHeadings] = useState([]);
+  const [activeHeading, setActiveHeading] = useState("");
+  const contentRef = useRef(null);
 
   useEffect(() => {
     if (!params?.id) return;
@@ -23,6 +26,21 @@ const BlogPost = () => {
         if (res.ok) {
           setPost(data);
 
+          // Extract headings from HTML content for TOC
+          if (data.content) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data.content, "text/html");
+            const headingElements = doc.querySelectorAll("h1, h2, h3");
+            const extractedHeadings = Array.from(headingElements).map(
+              (h, index) => ({
+                id: `heading-${index}`,
+                text: h.textContent,
+                level: parseInt(h.tagName[1]),
+              })
+            );
+            setHeadings(extractedHeadings);
+          }
+
           // Fetch similar posts from the same category
           if (data.category?._id) {
             const simRes = await fetch(
@@ -30,7 +48,6 @@ const BlogPost = () => {
             );
             const simData = await simRes.json();
             if (simRes.ok && simData.posts) {
-              // Exclude current post
               setSimilarPosts(
                 simData.posts.filter((p) => p._id !== params.id)
               );
@@ -48,6 +65,46 @@ const BlogPost = () => {
 
     fetchPost();
   }, [params?.id]);
+
+  // Add IDs to headings in the rendered content for TOC linking
+  useEffect(() => {
+    if (contentRef.current && headings.length > 0) {
+      const headingElements = contentRef.current.querySelectorAll("h1, h2, h3");
+      headingElements.forEach((el, index) => {
+        if (index < headings.length) {
+          el.id = headings[index].id;
+        }
+      });
+    }
+  }, [post, headings]);
+
+  // Intersection Observer for active heading tracking
+  useEffect(() => {
+    if (!contentRef.current || headings.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveHeading(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-80px 0px -60% 0px", threshold: 0.1 }
+    );
+
+    const headingElements = contentRef.current.querySelectorAll("h1, h2, h3");
+    headingElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [headings]);
+
+  // Inject IDs into content HTML
+  const injectHeadingIds = (html) => {
+    if (!headings.length) return html;
+    // We set IDs via the ref after render, but also inject them server-side
+    return html;
+  };
 
   if (loading) {
     return (
@@ -77,16 +134,15 @@ const BlogPost = () => {
   if (!post) return null;
 
   return (
-    <div className="min-h-screen flex justify-center px-4 py-10">
-      <div className="w-full max-w-3xl">
+    <div className="min-h-screen">
+      <div className="max-w-6xl mx-auto px-4 py-10">
         {/* Back link */}
         <Link
           href="/blog"
-          className="inline-flex items-center text-gray-400 hover:text-[#00FF99] transition-colors mb-8 text-sm"
+          className="inline-flex items-center text-sm text-gray-500 hover:text-[#00FF99] transition-colors mb-10"
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 mr-2"
+            className="w-4 h-4 mr-1.5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -101,105 +157,128 @@ const BlogPost = () => {
           Back to Blog
         </Link>
 
-        {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
-          {post.title}
-        </h1>
+        {/* Two-column layout: TOC + Content */}
+        <div className="flex gap-12 relative">
+          {/* Left — Sticky TOC (Ramp-style) — Desktop only */}
+          {headings.length > 1 && (
+            <aside className="hidden lg:block w-56 shrink-0">
+              <div className="sticky top-24">
+                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+                  On this page
+                </h4>
+                <nav className="space-y-1.5">
+                  {headings.map((h) => (
+                    <a
+                      key={h.id}
+                      href={`#${h.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document
+                          .getElementById(h.id)
+                          ?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className={`block text-sm transition-colors duration-200 ${
+                        h.level === 3 ? "pl-4" : h.level === 2 ? "pl-2" : ""
+                      } ${
+                        activeHeading === h.id
+                          ? "text-[#00FF99]"
+                          : "text-gray-500 hover:text-gray-300"
+                      }`}
+                    >
+                      {h.text}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </aside>
+          )}
 
-        {/* Category — after title */}
-        {post.category && (
-          <span className="inline-block text-xs font-semibold text-[#00FF99] bg-[#00FF99]/10 px-3 py-1 rounded-full mb-8">
-            {post.category.name || post.category.title || "Uncategorized"}
-          </span>
-        )}
+          {/* Right — Main Content */}
+          <div className="flex-1 min-w-0 max-w-3xl">
+            {/* Category */}
+            {post.category && (
+              <span className="inline-block text-xs font-medium text-[#00FF99] mb-3">
+                {post.category.name || post.category.title || "Uncategorized"}
+              </span>
+            )}
 
-        {/* Featured Image */}
-        {post.image && (
-          <div className="mb-8 rounded-2xl overflow-hidden border border-white/10">
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-auto object-cover"
+            {/* Title */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8">
+              {post.title}
+            </h1>
+
+            {/* Featured Image */}
+            {post.image && (
+              <div className="mb-10 rounded-2xl overflow-hidden border border-white/10">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            )}
+
+            {/* Content */}
+            <div
+              ref={contentRef}
+              className="
+                prose prose-invert max-w-none text-gray-300
+                prose-headings:text-white prose-headings:font-bold prose-headings:scroll-mt-24
+                prose-a:text-[#00FF99] prose-a:no-underline hover:prose-a:underline
+                prose-strong:text-white
+                prose-code:text-[#00FF99] prose-code:bg-slate-800/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:text-sm
+                prose-pre:bg-slate-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
+                prose-blockquote:border-l-[#00FF99] prose-blockquote:text-gray-400 prose-blockquote:font-normal
+                prose-img:rounded-xl prose-img:border prose-img:border-white/10
+                [&_h1]:text-2xl [&_h1]:md:text-3xl [&_h1]:mt-12 [&_h1]:mb-4
+                [&_h2]:text-xl [&_h2]:md:text-2xl [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:pb-2 [&_h2]:border-b [&_h2]:border-white/5
+                [&_h3]:text-lg [&_h3]:md:text-xl [&_h3]:mt-8 [&_h3]:mb-2
+                [&_p]:mb-5 [&_p]:leading-relaxed
+                [&_ul]:mb-5 [&_ul]:list-disc [&_ul]:pl-6
+                [&_ol]:mb-5 [&_ol]:list-decimal [&_ol]:pl-6
+                [&_li]:mb-1.5
+                [&_img]:my-8 [&_img]:mx-auto
+                [&_hr]:border-white/10 [&_hr]:my-10
+              "
+              dangerouslySetInnerHTML={{
+                __html: injectHeadingIds(post.content),
+              }}
             />
+
+            {/* Bottom section divider */}
+            <div className="mt-16 pt-1" />
           </div>
-        )}
+        </div>
 
-        {/* Content */}
-        <div
-          className="prose prose-invert prose-lg max-w-none text-gray-300
-            prose-headings:text-white prose-headings:font-bold
-            prose-a:text-[#00FF99] prose-a:no-underline hover:prose-a:underline
-            prose-strong:text-white
-            prose-code:text-[#00FF99] prose-code:bg-slate-800 prose-code:px-1 prose-code:rounded
-            prose-pre:bg-slate-900 prose-pre:border prose-pre:border-white/10
-            prose-blockquote:border-[#00FF99] prose-blockquote:text-gray-400
-            prose-img:rounded-xl prose-img:border prose-img:border-white/10
-            [&_h1]:text-2xl [&_h1]:md:text-3xl [&_h1]:mt-10 [&_h1]:mb-4
-            [&_h2]:text-xl [&_h2]:md:text-2xl [&_h2]:mt-8 [&_h2]:mb-3
-            [&_h3]:text-lg [&_h3]:md:text-xl [&_h3]:mt-6 [&_h3]:mb-2
-            [&_p]:mb-4 [&_p]:leading-relaxed
-            [&_ul]:mb-4 [&_ul]:list-disc [&_ul]:pl-6
-            [&_ol]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6
-            [&_li]:mb-1
-            [&_img]:my-6 [&_img]:mx-auto
-            [&_hr]:border-white/10 [&_hr]:my-8"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-
-        {/* Similar Posts */}
+        {/* Similar Posts — Full width at bottom */}
         {similarPosts.length > 0 && (
-          <div className="mt-16 pt-12 border-t border-white/10">
-            <h2 className="text-2xl font-bold text-white mb-8">
+          <div className="mt-16 pt-12 border-t border-white/5">
+            <h2 className="text-xl font-bold text-white mb-8">
               Similar Posts
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {similarPosts.slice(0, 4).map((sp) => (
                 <Link key={sp._id} href={`/blog/${sp._id}`}>
-                  <div className="group rounded-2xl border border-white/10 bg-slate-950/60 overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-pointer h-full flex flex-col">
-                    <div className="relative h-36 overflow-hidden bg-slate-900 shrink-0">
-                      {sp.image ? (
-                        <img
-                          src={sp.image}
-                          alt={sp.title}
-                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center text-gray-600">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-10 w-10"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={1}
-                              d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-                            />
-                          </svg>
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-4 flex flex-col flex-1">
-                      {sp.category && (
-                        <span className="text-[10px] font-semibold text-[#00FF99] bg-[#00FF99]/10 px-2 py-0.5 rounded-full w-fit mb-2">
-                          {sp.category.name ||
-                            sp.category.title ||
-                            "Uncategorized"}
-                        </span>
-                      )}
-                      <h3 className="text-sm font-bold text-white group-hover:text-[#00FF99] transition-colors duration-200 leading-snug line-clamp-2">
-                        {sp.title}
-                      </h3>
-                      <p className="mt-1 text-xs text-gray-500 line-clamp-2 flex-1">
-                        {sp.content
-                          ? sp.content
-                              .replace(/<[^>]*>/g, "")
-                              .substring(0, 100) + "..."
-                          : ""}
-                      </p>
+                  <div className="group rounded-xl border border-white/5 bg-white/[0.02] p-5 transition-all duration-200 hover:bg-white/[0.04] hover:border-white/10 cursor-pointer h-full flex flex-col">
+                    {sp.category && (
+                      <span className="text-[11px] font-medium text-[#00FF99] mb-2">
+                        {sp.category.name ||
+                          sp.category.title ||
+                          "Uncategorized"}
+                      </span>
+                    )}
+                    <h3 className="text-base font-bold text-white group-hover:text-[#00FF99] transition-colors duration-200 leading-snug line-clamp-2">
+                      {sp.title}
+                    </h3>
+                    <p className="mt-2 text-xs text-gray-500 line-clamp-2 flex-1">
+                      {sp.content
+                        ? sp.content
+                            .replace(/<[^>]*>/g, "")
+                            .substring(0, 120) + "..."
+                        : ""}
+                    </p>
+                    <div className="mt-3 text-xs text-gray-500 group-hover:text-[#00FF99] transition-colors">
+                      Read more →
                     </div>
                   </div>
                 </Link>
