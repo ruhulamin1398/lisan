@@ -11,22 +11,28 @@ const Shimmer = ({ className = "" }) => (
   </div>
 );
 
-// Notion-style blog list skeleton (text-driven, no images)
+// Notion-style blog list skeleton (2-column grid with images)
 export const SkeletonBlogGrid = ({ count = 6 }) => (
-  <div className="divide-y divide-white/5">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     {Array.from({ length: count }, (_, i) => (
-      <div key={i} className="py-8 first:pt-6">
-        {/* Category label */}
-        <Shimmer className="h-3 w-20 mb-2" />
-        {/* Title */}
-        <Shimmer className="h-6 w-3/4 mb-2" />
-        {/* Body lines */}
-        <div className="space-y-2 max-w-3xl">
-          <Shimmer className="h-3.5 w-full" />
-          <Shimmer className="h-3.5 w-11/12" />
+      <div key={i} className="border border-white/10 rounded-lg overflow-hidden">
+        {/* Image area */}
+        <div className="aspect-[16/9] bg-slate-800/50">
+          <Shimmer className="h-full w-full rounded-none" />
         </div>
-        {/* Read more */}
-        <Shimmer className="h-3.5 w-24 mt-3" />
+        {/* Content */}
+        <div className="p-5 space-y-2">
+          {/* Category */}
+          <Shimmer className="h-3 w-16" />
+          {/* Title */}
+          <Shimmer className="h-5 w-full" />
+          <Shimmer className="h-5 w-3/4" />
+          {/* Body */}
+          <Shimmer className="h-3.5 w-full" />
+          <Shimmer className="h-3.5 w-5/6" />
+          {/* Read more */}
+          <Shimmer className="h-3.5 w-20 mt-3" />
+        </div>
       </div>
     ))}
   </div>

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { SkeletonBlogGrid } from "./Skeleton";
 
-const POSTS_PER_PAGE = 9;
+const POSTS_PER_PAGE = 8;
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -71,166 +71,224 @@ const Blog = () => {
 
   return (
     <>
-      <div className="flex w-full justify-center items-start mt-10 px-4">
-        <div className="w-full max-w-5xl">
-          {/* Header */}
-          <div className="pb-8 border-b border-white/5">
+      <div className="flex w-full justify-center items-start mt-16 px-4 md:px-8">
+        <div className="w-full max-w-6xl">
+          {/* Notion-style Header */}
+          <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
               Blog
             </h1>
-            <p className="mt-3 text-lg text-gray-400 max-w-2xl">
+            <p className="mt-3 text-base text-gray-400">
               Thoughts, tutorials, and insights on development, blockchain, and
               research.
             </p>
           </div>
 
-          {/* Category Navigation — simple text links à la Notion */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 py-6 border-b border-white/5">
-            <button
-              onClick={() => {
-                setSelectedCategory("");
-                setPage(1);
-              }}
-              className={`text-sm font-medium transition-colors duration-200 ${
-                selectedCategory === ""
-                  ? "text-white"
-                  : "text-gray-500 hover:text-gray-300"
-              }`}
-            >
-              All
-            </button>
-            {categories.map((cat) => (
+          <div className="flex gap-10">
+            {/* Left Sidebar — Category Navigation (Notion-style vertical list) */}
+            <aside className="hidden md:block w-44 shrink-0">
+              <nav className="sticky top-24 space-y-1">
+                <button
+                  onClick={() => {
+                    setSelectedCategory("");
+                    setPage(1);
+                  }}
+                  className={`block w-full text-left text-sm py-1.5 transition-colors duration-150 ${
+                    selectedCategory === ""
+                      ? "text-white font-semibold"
+                      : "text-gray-500 hover:text-gray-300"
+                  }`}
+                >
+                  All
+                </button>
+                {categories.map((cat) => (
+                  <button
+                    key={cat._id}
+                    onClick={() => {
+                      setSelectedCategory(cat._id);
+                      setPage(1);
+                    }}
+                    className={`block w-full text-left text-sm py-1.5 transition-colors duration-150 ${
+                      selectedCategory === cat._id
+                        ? "text-white font-semibold"
+                        : "text-gray-500 hover:text-gray-300"
+                    }`}
+                  >
+                    {cat.name}
+                  </button>
+                ))}
+              </nav>
+            </aside>
+
+            {/* Mobile category selector */}
+            <div className="md:hidden flex flex-wrap gap-2 mb-6 w-full">
               <button
-                key={cat._id}
                 onClick={() => {
-                  setSelectedCategory(cat._id);
+                  setSelectedCategory("");
                   setPage(1);
                 }}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  selectedCategory === cat._id
-                    ? "text-white"
+                className={`text-xs font-medium px-3 py-1.5 rounded-md transition-colors ${
+                  selectedCategory === ""
+                    ? "bg-white/10 text-white"
                     : "text-gray-500 hover:text-gray-300"
                 }`}
               >
-                {cat.name}
+                All
               </button>
-            ))}
-          </div>
-
-          {/* Posts */}
-          {loading ? (
-            <SkeletonBlogGrid count={POSTS_PER_PAGE} />
-          ) : posts.length === 0 ? (
-            <div className="text-center py-24">
-              <p className="text-gray-400 text-lg">No posts published yet.</p>
-              <p className="text-gray-500 text-sm mt-2">
-                Check back soon for new articles!
-              </p>
+              {categories.map((cat) => (
+                <button
+                  key={cat._id}
+                  onClick={() => {
+                    setSelectedCategory(cat._id);
+                    setPage(1);
+                  }}
+                  className={`text-xs font-medium px-3 py-1.5 rounded-md transition-colors ${
+                    selectedCategory === cat._id
+                      ? "bg-white/10 text-white"
+                      : "text-gray-500 hover:text-gray-300"
+                  }`}
+                >
+                  {cat.name}
+                </button>
+              ))}
             </div>
-          ) : (
-            <>
-              {/* Notion-style Blog List — text-driven, minimal */}
-              <div className="divide-y divide-white/5">
-                {posts.map((post) => (
-                  <Link
-                    key={post._id}
-                    href={`/blog/${post._id}`}
-                    className="group block py-8 first:pt-6 last:pb-0"
-                  >
-                    <article>
-                      {/* Category label */}
-                      {post.category && (
-                        <span className="inline-block text-xs font-medium text-[#00FF99] mb-2">
-                          {post.category.name ||
-                            post.category.title ||
-                            "Uncategorized"}
-                        </span>
-                      )}
 
-                      {/* Title */}
-                      <h2 className="text-xl md:text-2xl font-bold text-white group-hover:text-[#00FF99] transition-colors duration-200 leading-snug">
-                        {post.title}
-                      </h2>
+            {/* Right — Main Content Grid */}
+            <div className="flex-1 min-w-0">
+              {loading ? (
+                <SkeletonBlogGrid count={POSTS_PER_PAGE} />
+              ) : posts.length === 0 ? (
+                <div className="text-center py-24">
+                  <p className="text-gray-400 text-lg">
+                    No posts published yet.
+                  </p>
+                  <p className="text-gray-500 text-sm mt-2">
+                    Check back soon for new articles!
+                  </p>
+                </div>
+              ) : (
+                <>
+                  {/* 2-column Grid — Notion-style cards */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {posts.map((post) => (
+                      <Link
+                        key={post._id}
+                        href={`/blog/${post._id}`}
+                        className="group block"
+                      >
+                        <article className="border border-white/10 rounded-lg overflow-hidden bg-transparent transition-colors duration-200 hover:border-white/20 h-full flex flex-col">
+                          {/* Thumbnail Image */}
+                          <div className="relative aspect-[16/9] overflow-hidden bg-slate-800/50">
+                            {post.image ? (
+                              <img
+                                src={post.image}
+                                alt={post.title}
+                                className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                              />
+                            ) : (
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <svg
+                                  className="w-10 h-10 text-gray-600"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={1}
+                                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                                  />
+                                </svg>
+                              </div>
+                            )}
+                          </div>
 
-                      {/* Excerpt */}
-                      <p className="mt-2 text-sm text-gray-400 leading-relaxed line-clamp-2 max-w-3xl">
-                        {post.content
-                          ? post.content
-                              .replace(/<[^>]*>/g, "")
-                              .substring(0, 200) + "..."
-                          : ""}
-                      </p>
+                          {/* Card Content */}
+                          <div className="p-5 flex flex-col flex-1">
+                            {/* Category Tag */}
+                            {post.category && (
+                              <span className="text-xs font-medium text-[#00FF99] mb-2">
+                                {post.category.name ||
+                                  post.category.title ||
+                                  "Uncategorized"}
+                              </span>
+                            )}
 
-                      {/* Read more */}
-                      <div className="mt-3 flex items-center gap-1.5 text-sm text-gray-500 group-hover:text-[#00FF99] transition-colors duration-200">
-                        <span>Read post</span>
-                        <svg
-                          className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </div>
-                    </article>
-                  </Link>
-                ))}
-              </div>
+                            {/* Title */}
+                            <h2 className="text-lg font-bold text-white group-hover:text-[#00FF99] transition-colors duration-200 leading-snug">
+                              {post.title}
+                            </h2>
 
-              {/* Notion-style Pagination */}
-              {totalPages > 1 && (
-                <div className="flex items-center justify-center gap-1.5 py-12 border-t border-white/5 mt-4">
-                  <button
-                    onClick={() => setPage((p) => Math.max(1, p - 1))}
-                    disabled={page === 1}
-                    className={`px-3 py-1.5 text-sm rounded-lg transition-colors ${
-                      page === 1
-                        ? "text-gray-600 cursor-not-allowed"
-                        : "text-gray-400 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    ← Prev
-                  </button>
+                            {/* Description */}
+                            <p className="mt-2 text-sm text-gray-400 leading-relaxed line-clamp-2 flex-1">
+                              {post.content
+                                ? post.content
+                                    .replace(/<[^>]*>/g, "")
+                                    .substring(0, 160) + "..."
+                                : ""}
+                            </p>
 
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                    (p) => (
+                            {/* Read More */}
+                            <div className="mt-4 text-sm text-gray-500 group-hover:text-[#00FF99] transition-colors duration-200">
+                              Read post →
+                            </div>
+                          </div>
+                        </article>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Notion-style Pagination */}
+                  {totalPages > 1 && (
+                    <div className="flex items-center justify-center gap-1 py-12 mt-6 border-t border-white/5">
                       <button
-                        key={p}
-                        onClick={() => setPage(p)}
-                        className={`w-8 h-8 text-sm rounded-lg transition-colors ${
-                          p === page
-                            ? "text-white bg-white/10 font-medium"
-                            : "text-gray-500 hover:text-white hover:bg-white/5"
+                        onClick={() => setPage((p) => Math.max(1, p - 1))}
+                        disabled={page === 1}
+                        className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
+                          page === 1
+                            ? "text-gray-600 cursor-not-allowed"
+                            : "text-gray-400 hover:text-white hover:bg-white/5"
                         }`}
                       >
-                        {p}
+                        ← Prev
                       </button>
-                    )
-                  )}
 
-                  <button
-                    onClick={() =>
-                      setPage((p) => Math.min(totalPages, p + 1))
-                    }
-                    disabled={page === totalPages}
-                    className={`px-3 py-1.5 text-sm rounded-lg transition-colors ${
-                      page === totalPages
-                        ? "text-gray-600 cursor-not-allowed"
-                        : "text-gray-400 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    Next →
-                  </button>
-                </div>
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                        (p) => (
+                          <button
+                            key={p}
+                            onClick={() => setPage(p)}
+                            className={`w-8 h-8 text-sm rounded-md transition-colors ${
+                              p === page
+                                ? "text-white bg-white/10 font-medium"
+                                : "text-gray-500 hover:text-white hover:bg-white/5"
+                            }`}
+                          >
+                            {p}
+                          </button>
+                        )
+                      )}
+
+                      <button
+                        onClick={() =>
+                          setPage((p) => Math.min(totalPages, p + 1))
+                        }
+                        disabled={page === totalPages}
+                        className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
+                          page === totalPages
+                            ? "text-gray-600 cursor-not-allowed"
+                            : "text-gray-400 hover:text-white hover:bg-white/5"
+                        }`}
+                      >
+                        Next →
+                      </button>
+                    </div>
+                  )}
+                </>
               )}
-            </>
-          )}
+            </div>
+          </div>
         </div>
       </div>
     </>
