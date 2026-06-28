@@ -99,11 +99,18 @@ const BlogPost = () => {
     return () => observer.disconnect();
   }, [headings]);
 
-  // Inject IDs into content HTML
+  // Inject IDs into content HTML before rendering
   const injectHeadingIds = (html) => {
-    if (!headings.length) return html;
-    // We set IDs via the ref after render, but also inject them server-side
-    return html;
+    if (!html || !headings.length) return html;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const headingElements = doc.querySelectorAll("h1, h2, h3");
+    headingElements.forEach((el, index) => {
+      if (index < headings.length) {
+        el.setAttribute("id", headings[index].id);
+      }
+    });
+    return doc.body.innerHTML;
   };
 
   if (loading) {
