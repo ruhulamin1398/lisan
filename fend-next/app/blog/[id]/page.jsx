@@ -136,67 +136,67 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen">
       <div className="px-6 md:px-10 lg:px-16 xl:px-24 py-10">
-        {/* Back link */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center text-sm text-gray-500 hover:text-[#00FF99] transition-colors mb-10"
-        >
-          <svg
-            className="w-4 h-4 mr-1.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+          {/* Back link */}
+          <Link
+            href="/blog"
+            className="inline-flex items-center text-sm text-gray-500 hover:text-[#00FF99] transition-colors mb-10"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back to Blog
-        </Link>
+            <svg
+              className="w-4 h-4 mr-1.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            Back to Blog
+          </Link>
 
-        {/* Two-column layout: TOC + Content */}
-        <div className="flex gap-12 relative">
-          {/* Left — Sticky TOC (Ramp-style) — Desktop only */}
-          {headings.length > 1 && (
-            <aside className="hidden lg:block w-56 shrink-0">
-              <div className="sticky top-24">
-                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
-                  On this page
-                </h4>
-                <nav className="space-y-1.5">
-                  {headings.map((h) => (
-                    <a
-                      key={h.id}
-                      href={`#${h.id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        document
-                          .getElementById(h.id)
-                          ?.scrollIntoView({ behavior: "smooth" });
-                      }}
-                      className={`block text-sm transition-colors duration-200 ${
-                        h.level === 3 ? "pl-4" : h.level === 2 ? "pl-2" : ""
-                      } ${
-                        activeHeading === h.id
-                          ? "text-[#00FF99]"
-                          : "text-gray-500 hover:text-gray-300"
-                      }`}
-                    >
-                      {h.text}
-                    </a>
-                  ))}
-                </nav>
-              </div>
-            </aside>
-          )}
+          {/* Two-column layout: TOC + Content */}
+          <div className="flex gap-12 relative">
+            {/* Left — Sticky TOC (Ramp-style) — Desktop only */}
+            {headings.length > 1 && (
+              <aside className="hidden lg:block w-56 shrink-0">
+                <div className="sticky top-24">
+                  <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+                    On this page
+                  </h4>
+                  <nav className="space-y-1.5">
+                    {headings.map((h) => (
+                      <a
+                        key={h.id}
+                        href={`#${h.id}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          document
+                            .getElementById(h.id)
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                        className={`block text-sm transition-colors duration-200 ${
+                          h.level === 3 ? "pl-4" : h.level === 2 ? "pl-2" : ""
+                        } ${
+                          activeHeading === h.id
+                            ? "text-[#00FF99]"
+                            : "text-gray-500 hover:text-gray-300"
+                        }`}
+                      >
+                        {h.text}
+                      </a>
+                    ))}
+                  </nav>
+                </div>
+              </aside>
+            )}
 
-          {/* Right — Main Content */}
-          <div className="flex-1 min-w-0 max-w-3xl">
-            {/* Category */}
-            {post.category && (
+            {/* Right — Main Content */}
+            <div className="flex-1 min-w-0">
+              {/* Category */}
+              {post.category && (
               <span className="inline-block text-xs font-medium text-[#00FF99] mb-3">
                 {post.category.name || post.category.title || "Uncategorized"}
               </span>
@@ -286,7 +286,7 @@ const BlogPost = () => {
             </div>
           </div>
         )}
-      </div>
+    </div>
     </div>
   );
 };
