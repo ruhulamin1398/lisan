@@ -230,7 +230,7 @@ const BlogPost = () => {
                 prose-a:text-[#00FF99] prose-a:no-underline hover:prose-a:underline
                 prose-strong:text-white
                 prose-code:text-[#00FF99] prose-code:bg-slate-800/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:text-sm
-                prose-pre:bg-slate-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
+                prose-pre:bg-slate-900 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl prose-pre:overflow-x-auto
                 prose-blockquote:border-l-[#00FF99] prose-blockquote:text-gray-400 prose-blockquote:font-normal
                 prose-img:rounded-xl prose-img:border prose-img:border-white/10
                 [&_h1]:text-2xl [&_h1]:md:text-3xl [&_h1]:mt-12 [&_h1]:mb-4
@@ -262,25 +262,25 @@ const BlogPost = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {similarPosts.slice(0, 4).map((sp) => (
                 <Link key={sp._id} href={`/blog/${sp._id}`}>
-                  <div className="group rounded-xl border border-white/5 bg-white/[0.02] p-5 transition-all duration-200 hover:bg-white/[0.04] hover:border-white/10 cursor-pointer h-full flex flex-col">
+                  <div className="group rounded-xl border border-white/5 bg-white/[0.02] p-4 sm:p-5 transition-all duration-200 hover:bg-white/[0.04] hover:border-white/10 cursor-pointer h-full flex flex-col">
                     {sp.category && (
-                      <span className="text-[11px] font-medium text-[#00FF99] mb-2">
+                      <span className="text-[11px] sm:text-xs font-medium text-[#00FF99] mb-2">
                         {sp.category.name ||
                           sp.category.title ||
                           "Uncategorized"}
                       </span>
                     )}
-                    <h3 className="text-base font-bold text-white group-hover:text-[#00FF99] transition-colors duration-200 leading-snug line-clamp-2">
+                    <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-[#00FF99] transition-colors duration-200 leading-snug line-clamp-2">
                       {sp.title}
                     </h3>
-                    <p className="mt-2 text-xs text-gray-500 line-clamp-2 flex-1">
+                    <p className="mt-2 text-xs sm:text-sm text-gray-500 line-clamp-2 flex-1">
                       {sp.content
                         ? sp.content
                             .replace(/<[^>]*>/g, "")
                             .substring(0, 120) + "..."
                         : ""}
                     </p>
-                    <div className="mt-3 text-xs text-gray-500 group-hover:text-[#00FF99] transition-colors">
+                    <div className="mt-3 text-xs sm:text-sm text-gray-500 group-hover:text-[#00FF99] transition-colors">
                       Read more →
                     </div>
                   </div>

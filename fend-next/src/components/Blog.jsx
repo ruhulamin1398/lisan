@@ -74,7 +74,7 @@ const Blog = () => {
 
   return (
     <>
-      <div className="flex w-full justify-center items-start mt-16">
+      <div className="flex w-full justify-center items-start mt-8 md:mt-16">
         <div className="w-full px-6 md:px-10 lg:px-16 xl:px-24">
           <div className="flex gap-12">
             {/* Left Sidebar — Category Navigation (Notion-style vertical list) */}
