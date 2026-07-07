@@ -238,6 +238,11 @@ const Blog = () => {
                             <div className="mt-4 text-sm text-gray-500 group-hover:text-[#00FF99] transition-colors duration-200">
                               Read post →
                             </div>
+                            {post.imagePrompt && (
+                              <div className="mt-1 text-[10px] text-gray-600 italic line-clamp-1">
+                                🎨 {post.imagePrompt}
+                              </div>
+                            )}
                           </div>
                         </article>
                       </Link>

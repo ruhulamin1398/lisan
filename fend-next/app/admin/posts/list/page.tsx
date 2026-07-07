@@ -17,6 +17,7 @@ interface Post {
     category: Category
     published: boolean
     image?: string
+    imagePrompt?: string
     createdAt?: string
 }
 
@@ -131,6 +132,11 @@ export default function PostsList() {
                                                                 __html: post.content.substring(0, 150) + '...'
                                                             }}
                                                         />
+                                                        {post.imagePrompt && (
+                                                            <p className="text-xs text-gray-400 mt-1 italic truncate">
+                                                                Prompt: {post.imagePrompt.substring(0, 80)}...
+                                                            </p>
+                                                        )}
                                                     </div>
                                                 </div>
                                                 <div className="flex items-center space-x-2">

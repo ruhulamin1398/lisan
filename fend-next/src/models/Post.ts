@@ -7,6 +7,7 @@ export interface IPost extends Document {
     category: mongoose.Types.ObjectId
     published: boolean
     image?: string
+    imagePrompt?: string
 }
 
 const PostSchema: Schema = new Schema({
@@ -14,7 +15,8 @@ const PostSchema: Schema = new Schema({
     content: { type: String, required: true },
     category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
     published: { type: Boolean, default: false },
-    image: { type: String }
+    image: { type: String },
+    imagePrompt: { type: String }
 })
 
 const PostModel = mongoose.models.Post || mongoose.model<IPost>('Post', PostSchema)

@@ -16,8 +16,8 @@ export async function GET() {
 export async function POST(request: NextRequest) {
     await dbConnect()
     try {
-        const { title, content, category, published, image } = await request.json()
-        const post = new Post({ title, content, category, published, image })
+        const { title, content, category, published, image, imagePrompt } = await request.json()
+        const post = new Post({ title, content, category, published, image, imagePrompt })
         await post.save()
         const populatedPost = await Post.findById(post._id).populate('category')
         return NextResponse.json(populatedPost, { status: 201 })

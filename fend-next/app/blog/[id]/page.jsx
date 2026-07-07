@@ -221,6 +221,13 @@ const BlogPost = () => {
               </div>
             )}
 
+            {/* Image Prompt */}
+            {post.imagePrompt && (
+              <div className="mb-6 text-sm text-gray-500 italic border-l-2 border-white/10 pl-4">
+                🎨 Image prompt: {post.imagePrompt}
+              </div>
+            )}
+
             {/* Content */}
             <div
               ref={contentRef}

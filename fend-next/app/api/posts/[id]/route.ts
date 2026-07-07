@@ -21,8 +21,8 @@ export async function PUT(request: NextRequest, context: any) {
     const params = await context.params
     await dbConnect()
     try {
-        const { title, content, category, published, image } = await request.json()
-        const post = await Post.findByIdAndUpdate(params.id, { title, content, category, published, image }, { new: true }).populate('category')
+        const { title, content, category, published, image, imagePrompt } = await request.json()
+        const post = await Post.findByIdAndUpdate(params.id, { title, content, category, published, image, imagePrompt }, { new: true }).populate('category')
         return NextResponse.json(post)
     } catch (error) {
         return NextResponse.json({ error: 'Failed to update post' }, { status: 500 })

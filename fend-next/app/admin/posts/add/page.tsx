@@ -19,6 +19,7 @@ export default function AddPost() {
   const [category, setCategory] = useState("");
   const [published, setPublished] = useState(false);
   const [image, setImage] = useState("");
+  const [imagePrompt, setImagePrompt] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -43,7 +44,7 @@ export default function AddPost() {
       const res = await fetch("/api/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, content, category, published, image }),
+        body: JSON.stringify({ title, content, category, published, image, imagePrompt }),
       });
 
       if (res.ok) {
@@ -159,6 +160,26 @@ export default function AddPost() {
                         onUploadComplete={setImage}
                         currentImage={image}
                       />
+                    </div>
+
+                    <div className="col-span-6">
+                      <label
+                        htmlFor="imagePrompt"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Image Prompt
+                      </label>
+                      <textarea
+                        id="imagePrompt"
+                        value={imagePrompt}
+                        onChange={(e) => setImagePrompt(e.target.value)}
+                        rows={3}
+                        placeholder="Optional: Describe the AI-generated image for this post"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 text-black bg-white"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">
+                        Used for generating the featured image via AI. Leave empty to use the uploaded image.
+                      </p>
                     </div>
 
                     <div className="col-span-6">
