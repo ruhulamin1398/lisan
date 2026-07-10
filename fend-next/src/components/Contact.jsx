@@ -104,7 +104,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="flex w-full justify-center items-center">
+    <div className="flex w-full justify-center items-center" id="contact">
       <div className="flex flex-col md:flex-row md:row-reverse items-start justify-between md:p-20 w-full md:w-[80%]">
         <div className="flex flex-1 justify-center items-center flex-col mf:mr-10 my-auto my-24">
           <div>

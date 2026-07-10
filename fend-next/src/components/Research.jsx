@@ -21,7 +21,7 @@ const Research = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div id="research">
       <div
         id="Publications"
         className="flex w-full justify-center items-center"

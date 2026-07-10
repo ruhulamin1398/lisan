@@ -51,9 +51,9 @@ const Navbar = () => {
     ...(config.settings.services && { Services: "/services" }),
     ...(config.settings.projects && { Projects: "/projects" }),
     ...(config.settings.blog && { Blog: "/blog" }),
-    ...(config.settings.research && { Research: "/research" }),
-    ...(config.settings.experience && { Experience: "/experience" }),
-    Contact: "/contact",
+    ...(config.settings.research && { Research: "/#research" }),
+    ...(config.settings.experience && { Experience: "/#experience" }),
+    Contact: "/#contact",
   };
   const menuArray = Object.entries(menuItems);
   const modalRoot =
@@ -87,7 +87,7 @@ const Navbar = () => {
           ))}
           <li>
             <Link
-              href="/contact"
+              href="/#contact"
               className="text-black w-full mt-2 border-[1px] p-2 px-4 hover:border-[#3d4f7c] border-white bg-[#00FF99] hover:bg-white rounded-xl cursor-pointer flex justify-center"
             >
               Hire Me

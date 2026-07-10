@@ -46,7 +46,7 @@ const Experience = () => {
   return (
     <>
       <div
-        id="Publications"
+        id="experience"
         className="flex w-full justify-center items-center gradient-bg-welcome"
       >
         <div className="flex flex-col items-center justify-between md:p-20 py-2 md:py-12 px-2 md:px-4">
