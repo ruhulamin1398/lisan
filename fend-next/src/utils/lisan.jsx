@@ -220,7 +220,7 @@ export const configLisan = {
     },
   },
   heroContent: {
-    img: <img src={lisanImg} alt="logo" className=" cursor-pointer   w-100 " />,
+    img: <img src={lisanImg.src} alt="logo" className=" cursor-pointer   w-100 " />,
     name: "Lisan Rahman",
     tagLine: "MSc in disaster risk reduction in BUET jidpus.",
     overViewList: [
