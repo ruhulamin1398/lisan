@@ -338,7 +338,7 @@ export const configLisan = {
       title: "Hyperledger Fabric",
       logo: (
         <img
-          src={fabricLogo}
+          src={fabricLogo.src}
           className="text-[#c8c8c8] h-[60px] mx-auto py-2"
           alt="Hyperledger Fabric"
         />
@@ -400,7 +400,7 @@ export const configLisan = {
       title: "Meta Mask",
       logo: (
         <img
-          src={metamaskLogo}
+          src={metamaskLogo.src}
           className="text-[#c8c8c8] h-[60px] mx-auto py-2"
           alt="MetaMask"
         />
